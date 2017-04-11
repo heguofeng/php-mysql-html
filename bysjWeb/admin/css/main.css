@@ -1,0 +1,33 @@
+@charset "utf-8";
+body{
+	background-color:#F5F5F5 ;
+}
+.bor{border: 1px solid #ddd;}
+
+/*登录页面*/
+.login_bj{ background:url(../../images/bj_zhuce.jpg) no-repeat top center;}
+.login_body{ float:left; width:100%; height:auto;}
+.login_body .logo{ width:350px; height:100px; margin:90px 0 0 175px;}
+.login_body .dl .bj_left #createResult{margin:10px 0;font-size: 15px; color: red;display: block;text-align: center;width: 220px; }
+.login_body  .dl .bj_left div{ float:left; width:80%; line-height:43px;}
+.login_body  .dl .bj_left div input{ float:left; margin-top:15px;}
+.login_body  .dl .bj_left div span{ padding-left:5px;}
+.login_body  .dl .bj_left div .lan{ color:#19aaf8; padding-left:0px;}
+
+
+.login_body .login_kuang{ position:absolute; top:50%; left:50%; width:360px; height:350px; margin-left:-180px; margin-top:-175px;} /*登录框居中*/
+.login_body .login_kuang .dl{ width:360px;min-height: 300px;}
+.login_body .login_kuang .dl .bj_left{ float:left; width:360px; padding-left:65px; background:#FFF;}/*左边账号登录框*/
+.login_body .login_kuang .dl .bj_left h3{ font:16px/60px "微软雅黑", "黑体"; color:#37b5f9; width:270px; text-align:center;}/*字体大小/行高*/
+.login_body .login_kuang .dl .bj_left .kuang_txt{ width:220px; height:32px; border:1px solid #dddddd; background:#faffbd; line-height:32px; padding-left:4px; color:#b1a9a9;margin-left: 10px;margin-bottom: 10px; }/*输入框*/
+.login_body .login_kuang .dl .bj_left a{ color:#37bdl5f9; float:right; margin-right:15px;}/*忘记密码？*/
+/*按钮设置:边框圆角,鼠标移入形状颜色改变*/
+.login_body .login_kuang .dl .bj_left .btn_denglu{ width:227px; height:33px; background:#37b5f9; font-size:14px; line-height:33px; text-align:center; border:0px; color:#fff; border-radius:3px; cursor:pointer;margin-left:20px;}
+.login_body .login_kuang .dl .bj_left .btn_denglu:hover{ background:#0065d0;}
+
+/*错误提示*/
+label.error {margin-bottom: 10px;margin-left: 5px;color: red;font-size: 14px; font-weight: bold; clear: both;  display: inline-block; border: 1px solid red;background-color: #DDDDDD;background:url(../images/no.png) no-repeat 1px 1px; padding-left: 16px;}
+input.error {border: 1px solid red;}
+
+.banquan{position: fixed; width: 500px;height: 40px;color: #F06F11;top: 90%;left: 50%;margin-left: -250px;}
+.banquan p{text-align: center;font-size: 16px;font-family:"微软雅黑", "黑体"; font-weight: bold; line-height: 16px;margin-top: 11px;}
