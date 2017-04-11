@@ -40,7 +40,7 @@ if(!$rows){
 <h3 class="biaoti">我的请假条</h3>	
 <div class="details">  
         <!--表格-->
-        <table class="table" cellspacing="0" cellpadding="0">
+        <table class="table table-hover" cellspacing="0" cellpadding="0">
             <thead>
                 <tr>
                     <th width="5%">编号</th>

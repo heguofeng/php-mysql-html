@@ -237,7 +237,7 @@ label.error {
 }
 .basicinfo_table .txtinput{
 	line-height: 18px;
-	width: 150px;
+/*	width: 150px;*/
 	border: 1px solid #dadada;
 	padding: 2px;
 }

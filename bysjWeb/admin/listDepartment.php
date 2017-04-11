@@ -42,7 +42,7 @@ if(!$rows){
                             
                     </div>
                     <!--表格-->
-                    <table class="table" cellspacing="0" cellpadding="0">
+                    <table class="table table-hover" cellspacing="0" cellpadding="0">
                         <thead>
                             <tr>
                                 <th width="15%">编号</th>

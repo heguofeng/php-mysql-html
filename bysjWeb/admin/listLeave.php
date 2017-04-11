@@ -48,12 +48,14 @@ if(!$rows){
         <div class="fr">
         	<div class="text">
                     <span>姓名搜索</span>
-                    <input type="text" value="" class="search"  id="search" onkeypress="search(event)" >
+                    <div class="bui_select">
+                    	<input type="text" value="" class="form-control"  id="search" onkeypress="search(event)" >
+                    </div>
                </div>
         </div>
     </div>   
         <!--表格-->
-        <table class="table" cellspacing="0" cellpadding="0">
+        <table class="table table-striped" cellspacing="0" cellpadding="0">
             <thead>
                 <tr>
                     <th width="5%">编号</th>
