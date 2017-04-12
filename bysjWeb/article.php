@@ -75,12 +75,12 @@ myFocus.set({
 		<div class="nav_mid">
 				<ul>
 					<li><a href="index.php">首页</a></li>
-					<li><a href="content.php">关于养老院</a></li>
-					<li><a href="javascript:;">服务特色</a></li>
-					<li><a href="javascript:;">保健常识</a></li>
-					<li><a href="javascript:;">环境设施</a></li>
-					<li><a class="charges" href="javascript:;">收费标准</a></li>
-					<li><a href="javascript:;">人才招聘</a></li>
+					<li><a href="nav_about.php?id=3">关于养老院</a></li>
+					<li><a href="nav_about.php?id=4">服务特色</a></li>
+					<li><a href="nav_about.php?id=2">保健常识</a></li>
+					<li><a href="nav_about.php?id=4">环境设施</a></li>
+					<li><a href="nav_about.php?id=10">收费标准</a></li>
+					<li><a href="nav_about.php?id=4">人才招聘</a></li>
 					<li><a href="personal_info.php">个人中心</a></li>
 				</ul>
 		</div>
@@ -127,13 +127,13 @@ myFocus.set({
 		<div class="content_l">
 			<div class="content_l_list">
 				<ul>
-					<li><a href="javascript:;">养老院介绍<span>About Us</span></a></li>
-					<li><a href="javascript:;">服务特色<span>Services</span></a></li>
-					<li><a href="javascript:;">保健常识<span>Knowledge</span></a></li>
-					<li><a href="javascript:;">专业护理<span>Professional Care</span></a></li>
-					<li><a href="javascript:;">环境设施<span>Environment</span></a></li>
-					<li><a class="charges" href="javascript:;">收费标准<span>Charges</span></a></li>
-					<li><a href="javascript:;">联系我们<span>Contact Us</span></a></li>
+					<li><a id="about" href="javascript:;">养老院介绍<span>About Us</span></a></li>
+					<li><a id="services" href="javascript:;">服务特色<span>Services</span></a></li>
+					<li><a id="knowledge" href="javascript:;">保健常识<span>Knowledge</span></a></li>
+					<li><a id="professional" href="javascript:;">专业护理<span>Professional Care</span></a></li>
+					<li><a id="environment" href="javascript:;">环境设施<span>Environment</span></a></li>
+					<li><a id="charges" href="javascript:;">收费标准<span>Charges</span></a></li>
+					<li><a id="contact" href="javascript:;">联系我们<span>Contact Us</span></a></li>
 				</ul>
 			</div>
 		</div>
@@ -156,17 +156,7 @@ myFocus.set({
 		</div>
 	</div>
 	<script type="text/javascript">
-		$(function(){
-//			$(".content_r").load("c_charges.php");
-			//封装一个按钮时间			
-			function btnClick(btn,newhtml){
-				$(btn).on("click",function(){
-					$(".content_r").load(newhtml);
-				})
-			}
-			//按钮事件
-			btnClick(".charges","c_charges.php");
-		});
+
 	
 	</script>
 </body>
