@@ -48,7 +48,7 @@ $rows = fetchAll($sql);
         </div>
     </div>   
         <!--表格-->
-        <table class="table" cellspacing="0" cellpadding="0">
+        <table class="table table-striped" cellspacing="0" cellpadding="0">
             <thead>
                 <tr>
                     <th width="5%">编号</th>

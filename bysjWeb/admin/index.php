@@ -205,6 +205,21 @@ $row=fetchOne($sql);
 							</li>
 						</ul>
 					</li>
+					<li class="menu_item">
+						<h3><span>+</span>床位管理</h3>
+						<ul class="menu_item_child none">
+							<li>
+								<a href="addBed.php" target="mainFrame">
+									添加床位
+								</a>
+							</li>
+							<li>
+								<a href="listBed.php" target="mainFrame">
+									床位具体情况
+								</a>
+							</li>
+						</ul>
+					</li>
 				</ul>
 			</div>
 			<!--cont结束-->

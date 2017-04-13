@@ -156,11 +156,12 @@ input.error {border: 1px solid red;}
 	padding: 0 12px;
 }
 .top_content .top_content_r li .top_zc{border-left: 1px solid #495664;}
-.top_content .top_content_r li a:hover,.top_content .top_content_r li a:active
+.top_content_r li a:hover,.top_content_r li a:active,.top_content_l a:hover,.top_content_l a:active
 {
 	color: #fff;
 	text-decoration: none;
 }
+
 /*wrap大的包裹层*/
 .wrap{
 	width: 1000px;

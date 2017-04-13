@@ -51,6 +51,8 @@ elseif($act=="editEmpTx"){
 	$mes=editArticle($id);
 }elseif($act=="delArticle"){
 	$mes=delArticle($id);
+}elseif($act=="addBed"){
+	$mes=addBed();
 }
 
 
@@ -76,6 +78,7 @@ elseif($act=="editEmpTx"){
 <?php 
 	if($mes){
 		echo "<div class='redd'>".$mes."</div>";
+//		echo "<script>window.location='addBed.php';</script>";
 	}
 ?>
 </body>

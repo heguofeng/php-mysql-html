@@ -27,7 +27,9 @@ $hyzks=getAllhyzk();
 <body>
 	<div class="top">
 		<div class="top_content">
-			<a href="admin/index.php" class="backstage">进入后台管理系统</a>
+			<div class="top_content_l">
+				<a href="admin/index.php" class="backstage">进入后台管理系统</a>
+			</div>
 			<?php if($_SESSION['userId']):?>
 			<ul class="top_content_user">
 				<li>
@@ -64,12 +66,12 @@ $hyzks=getAllhyzk();
 		<div class="nav_mid">
 				<ul>
 					<li><a href="index.php">首页</a></li>
-					<li><a href="nav_about.php">关于养老院</a></li>
-					<li><a href="#">服务特色</a></li>
-					<li><a href="#">保健常识</a></li>
-					<li><a href="#">环境设施</a></li>
-					<li><a class="charges" href="javascript:;">收费标准</a></li>
-					<li><a href="#">人才招聘</a></li>
+					<li><a href="nav_about.php?id=3">关于养老院</a></li>
+					<li><a href="nav_about.php?id=4">服务特色</a></li>
+					<li><a href="nav_about.php?id=2">保健常识</a></li>
+					<li><a href="nav_about.php?id=4">环境设施</a></li>
+					<li><a href="nav_about.php?id=10">收费标准</a></li>
+					<li><a href="nav_about.php?id=4">人才招聘</a></li>
 					<li><a href="personal_info.php">个人中心</a></li>
 				</ul>
 		</div>

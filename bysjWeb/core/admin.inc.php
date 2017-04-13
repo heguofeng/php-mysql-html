@@ -264,4 +264,14 @@ function checkCost(){
 	}
 	echo $res;
 }
-	
+
+/*添加床位*/
+function addBed(){
+	$arr=$_POST;
+	if(insert("bed", $arr)){
+		$mes = "添加成功!<br/><a href='addBed.php'>继续添加</a>|<a href='listEmployee.php'>查看列表</a>";
+	}else{
+		$mes = "添加失败!<br/><a href='addBed.php'>继续添加</a>|<a href='listEmployee.php'>查看列表</a>";
+	}
+	return $mes;
+}	

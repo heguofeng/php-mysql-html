@@ -38,7 +38,9 @@ myFocus.set({
 <body>
 	<div class="top">
 		<div class="top_content">
-			<a href="admin/index.php" class="backstage">进入后台管理系统</a>
+			<div class="top_content_l">
+				<a href="admin/index.php" class="backstage">进入后台管理系统</a>
+			</div>
 			<?php if($_SESSION['userId']):?>
 			<ul class="top_content_user">
 				<li>

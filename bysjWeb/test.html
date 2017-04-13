@@ -49,3 +49,37 @@
 	</body>
 
 </html>
+
+ <table id="example" class="display" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th width="5%">编号</th>
+                    <th width="10%">床号</th>
+                    <th width="15%">房间号</th>
+                    <th width="10%">楼层</th>
+                    <th width="10%">楼栋</th>
+                    <th width="10%">床位费</th>
+                    <th width="10%">老人</th>
+                    <th width="10%">是否使用中</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php $i=1; foreach($rows as $row):?>
+                <tr>
+                    <td><label class="label_id"><?php echo $i;?></label></td>
+                    <td><?php echo $row['bed_id']; ?></td>
+                    <td><?php echo $row['room_id']; ?></td>
+                    <td><?php echo $row['floor_id']."元"; ?></td>
+                    <td><?php echo $row['building_id']."元"; ?></td>
+               		<td><?php echo $row['charge']."元"; ?></td>
+               		<td><?php echo $row['user_id']."元"; ?></td>
+               		<td><?php echo $row['is_usered']; ?></td>
+                    <td align="center">
+                    	<input type="button" value="修改" class="btn btn-success" onclick="editCost(<?php echo $row['id']; ?>)">
+                    	<input type="button" value="删除" class="btn btn-danger"  onclick="delCost(<?php echo $row['id']; ?>)">
+                    </td>
+                </tr>
+                <?php $i++; endforeach; ?>
+            </tbody>
+        </table>
