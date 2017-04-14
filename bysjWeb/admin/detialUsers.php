@@ -2,12 +2,13 @@
 require_once '../include.php';
 $id=$_REQUEST['id'];
 if($id){
-	$sql="SELECT u.*, hl.hljb, hy.hyzk, xl.xlzk FROM users u LEFT JOIN dic_hljb hl ON hl.id = u.u_hljb LEFT JOIN dic_hyzk hy ON hy.id = u.u_hyzk LEFT JOIN dic_xlzk xl ON xl.id = u.u_xlzk WHERE u.id = {$id}";
+	$sql="SELECT u.*, hl.hljb, hy.hyzk, xl.xlzk,b.* FROM users u LEFT JOIN dic_hljb hl ON hl.id = u.u_hljb LEFT JOIN dic_hyzk hy ON hy.id = u.u_hyzk LEFT JOIN dic_xlzk xl ON xl.id = u.u_xlzk left join bed b on b.user_id=u.id WHERE u.id = {$id}";
 	$userInfo=fetchOne($sql);
 }	
 $hljbs=getAllhljb();
 $xlzks=getAllxlzk();
 $hyzks=getAllhyzk();
+//print_r($userInfo['bed_id']);
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,6 +40,7 @@ $hyzks=getAllhyzk();
 				<li><label class="fl">婚烟状况：</label><div class="info_val fl"><?php echo $userInfo['hyzk']; ?></div></li>
 				<li><label class="fl">护理级别：</label><div class="info_val fl"><?php echo $userInfo['hljb']; ?></div></li>
 				<li><label class="fl">手机号码：</label><div class="info_val fl"><?php echo $userInfo['u_phone']; ?></div></li>
+				<li><label class="fl">床位号：</label><div class="info_val fl"><?php echo $userInfo['building_id']."幢楼 &nbsp;&nbsp;".$userInfo['floor_id']."层&nbsp;&nbsp;".$userInfo['room_id']."房间&nbsp;&nbsp;".$userInfo['bed_id']."号床"; ?></div></li>
 			</ul>
 		</div><!--info_list结束-->
 	</div>	<!--info_preview结束-->

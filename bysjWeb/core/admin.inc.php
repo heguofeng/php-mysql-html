@@ -274,4 +274,76 @@ function addBed(){
 		$mes = "添加失败!<br/><a href='addBed.php'>继续添加</a>|<a href='listEmployee.php'>查看列表</a>";
 	}
 	return $mes;
-}	
+}
+//楼层下拉框
+function select_floor(){
+	if($_POST['floor_id']!=""){
+		$floor_id=$_POST['floor_id'];
+		$sql="select distinct room_id from bed where is_used =0 and floor_id='{$floor_id}' order by id asc";
+		$rows=fetchAll($sql);
+		$res="<select name=\"room_id\" id=\"room_id\" class=\"select_big\">";
+		foreach ($rows as $row):
+		$res.="<option value='".$row["room_id"]."'>".$row['room_id']."室"."</option>";
+		endforeach;
+		$res.="</select>";
+	}
+	echo $res;
+}
+//房间下拉框
+function select_room(){
+	if($_POST['room_id']!=""){
+		$room_id=$_POST['room_id'];
+		$sql="select distinct bed_id from bed where is_used =0 and room_id='{$room_id}' order by id asc";
+		$rows=fetchAll($sql);
+		$res="<select name=\"bed_id\" id=\"bed_id\" class=\"select_big\">";
+		foreach ($rows as $row):
+		$res.="<option value='".$row["bed_id"]."'>".$row['bed_id']."号床"."</option>";
+		endforeach;
+		$res.="</select>";
+	}
+	echo $res;
+}
+//入住床位
+function add_bed(){
+	$arr=$_POST;
+	$sql="select id from bed where bed_id={$arr['bed_id']} and room_id={$arr['room_id']}";
+	$row=fetchOne($sql);
+	//$bed="入住成功，楼栋为:".$arr['bed_id']."&nbsp;&nbsp;楼层为:".$arr['floor_id']."&nbsp;&nbsp;房间号为:".$arr['room_id']."&nbsp;&nbsp;床号为:".$arr['bed_id'];
+	$sql1="update bed set user_id={$arr['user_id']},is_used=1 where id ={$row['id']}";
+	$sql2="update users set u_bed={$row['id']} where id={$arr['user_id']}";
+	if(mysql_query($sql1)&&mysql_query($sql2)){
+		$res='{"success":true,"msg":"入住成功"}';
+	}else{
+		$res='{"success":false,"msg":"入住失败，请检查是否全部已选完"}';
+	}
+	echo $res;
+}
+//换床
+function change_bed($id){
+	$arr=$_POST;
+	$sql="select id from bed where bed_id={$arr['bed_id']} and room_id={$arr['room_id']}";
+	$row=fetchOne($sql);
+	//$bed="入住成功，楼栋为:".$arr['bed_id']."&nbsp;&nbsp;楼层为:".$arr['floor_id']."&nbsp;&nbsp;房间号为:".$arr['room_id']."&nbsp;&nbsp;床号为:".$arr['bed_id'];
+	$sql3="update bed set user_id=null,is_used=0 where id ={$arr['u_bed']}";//删除原来的数据
+	$sql1="update bed set user_id={$id},is_used=1 where id ={$row['id']}";//新增新数据
+	$sql2="update users set u_bed={$row['id']} where id='{$id}'";//为老人添加床号
+	if(mysql_query($sql1)&&mysql_query($sql3)&&mysql_query($sql2)){
+		$res='{"success":true,"msg":"换床成功"}';
+	}else{
+		$res='{"success":false,"msg":"换床失败，请检查是否全部已选完"}';
+	}
+	echo $res;
+}
+function checkOut($id){
+	$sql="select u_bed from users where id={$id}";
+	$row=fetchOne($sql);
+	$sql1="update bed set user_id=null,is_used=0 where id ={$row['u_bed']}";
+	$sql2="update users set u_bed=0 where id='{$id}'";
+	if(mysql_query($sql1)&&mysql_query($sql2)){
+		$mes = "退房成功！<br/><a href='listUsers.php'>查看用户列表</a>";
+	}
+	else{
+		$mes = "退房失败！<br/><a href='listUsers.php'>请重新退房</a>";
+	}
+	return $mes;
+}

@@ -54,10 +54,10 @@ $rows = fetchAll($sql);
                     <td><?php echo "第".$row['building_id']."栋"; ?></td>
                		<td><?php echo $row['charge']."元"; ?></td>
                		<td><?php echo $row['user_id']?$row['user_id']:"无"; ?></td>
-               		<td><?php echo $row['is_usered']==0?"否":"已使用"; ?></td>
+               		<td><?php echo $row['is_used']==0?"否":"已使用"; ?></td>
                     <td align="center">
-                    	<input type="button" value="修改" class="btn btn-success" onclick="editCost(<?php echo $row['id']; ?>)">
-                    	<input type="button" value="删除" class="btn btn-danger"  onclick="delCost(<?php echo $row['id']; ?>)">
+                    	<input type="button" value="入住" class="btn btn-success" onclick="editCost(<?php echo $row['id']; ?>)">
+                    	<input type="button" value="离开" class="btn btn-danger"  onclick="delCost(<?php echo $row['id']; ?>)">
                     </td>
                 </tr>
                 <?php $i++; endforeach; ?>

@@ -111,7 +111,7 @@ $().ready(function(){
 				success:function(data){
 					if(data.success){
 						$("#createResult_green").html(data.msg);
-						$("#createResult_green").css("display","block");
+						$("#createResult_green").css("display","inline");
 						$("#createResult_red").css("display","none");
 						setTimeout(function(){
 							$("#createResult_green").css("display","none");
@@ -119,7 +119,7 @@ $().ready(function(){
 					}
 					else{
 						$("#createResult_red").html(data.msg);
-						$("#createResult_red").css("display","block");
+						$("#createResult_red").css("display","inline");
 						$("#createResult_green").css("display","none");
 					}
 				},

@@ -19,6 +19,16 @@ if($act=="checkEmp"){
 	checkCost();
 }elseif($act=="editCost"){
 	editCost($id);
+}elseif($act=="select_floor"){
+	select_floor();
+}elseif($act=="select_room"){
+	select_room();
+}elseif($act=="add_bed"){
+	add_bed();
 }
+elseif($act=="change_bed"){
+	change_bed($id);
+}
+
 
 

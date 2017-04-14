@@ -45,3 +45,4 @@ function getAllCate(){
 	$rows=fetchAll($sql);
 	return $rows;
 }
+

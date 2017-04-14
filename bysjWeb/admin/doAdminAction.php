@@ -53,6 +53,8 @@ elseif($act=="editEmpTx"){
 	$mes=delArticle($id);
 }elseif($act=="addBed"){
 	$mes=addBed();
+}elseif($act=="checkOut"){
+	$mes=checkOut($id);
 }
 
 
