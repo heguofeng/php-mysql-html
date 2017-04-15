@@ -114,16 +114,26 @@ function delEmployee($id) {
 
 /*删除老年人用户*/
 function delUsers($id){
-	$sql = "select u_photo from users where id=".$id;
+	$sql = "select u_photo,u_bed from users where id=".$id;
 	$row=fetchOne($sql);
 	$u_photo=$row['u_photo'];
+	$u_bed=$row['u_bed'];
 	$where="id=".$id;
 	/*删除照片*/
 	if (file_exists("../upload/" . $u_photo)) {
 		unlink("../upload/" . $u_photo);
 	}
 	if(delete("users",$where)){
-		$mes = "删除成功！<br/><a href='listUsers.php'>查看用户列表</a>";
+		if($u_bed!=0){
+			$sql1="update bed set user_id=null,is_used=0 where id ={$u_bed}";
+			if(mysql_query($sql1)){
+				$mes = "删除成功！<br/><a href='listUsers.php'>查看用户列表</a>";
+			}else{
+				$mes = "对应床位没有清除该用户信息！<br/><a href='listUsers.php'>查看用户列表</a>";
+			}
+		}else{
+			$mes = "删除成功！<br/><a href='listUsers.php'>查看用户列表</a>";
+		}
 	}
 	else{
 		$mes = "删除失败！<br/><a href='listUsers.php'>请重新删除</a>";
@@ -334,16 +344,17 @@ function change_bed($id){
 	}
 	echo $res;
 }
+//退房，离开床位
 function checkOut($id){
 	$sql="select u_bed from users where id={$id}";
 	$row=fetchOne($sql);
 	$sql1="update bed set user_id=null,is_used=0 where id ={$row['u_bed']}";
 	$sql2="update users set u_bed=0 where id='{$id}'";
 	if(mysql_query($sql1)&&mysql_query($sql2)){
-		$mes = "退房成功！<br/><a href='listUsers.php'>查看用户列表</a>";
+		$mes = "退房成功！<br/><a href='listUsers.php'>查看用户列表</a>|<a href='listBed.php'>查看床位使用具体情况</a>";
 	}
 	else{
-		$mes = "退房失败！<br/><a href='listUsers.php'>请重新退房</a>";
+		$mes = "退房失败！<br/><a href='listUsers.php'>请重新退房</a>|<a href='listBed.php'>查看床位使用具体情况</a>";
 	}
 	return $mes;
 }

@@ -15,10 +15,13 @@ $userInfo=getUserById($id);
 <head>
 <meta charset="UTF-8"/>
 <title>个人中心</title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/reset.css"/>
 <link rel="stylesheet" type="text/css" href="css/main.css"/>
+
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script src="js/My97DatePickerBeta/My97DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
 </head>
 <body>
 	<div class="table_all">
@@ -66,9 +69,11 @@ $userInfo=getUserById($id);
 					<td class="td_crossline">
 						<select name="u_hljb" class="select_big" id="u_hljb">
 							<?php foreach($hljbs as $hljb): ?>
-							<option value="<?php echo $hljb['id']; ?>" <?php echo $hyzk['id']==$userInfo['u_hljb']?"selected='selected'":null; ?>><?php echo $hljb['hljb']; ?></option>
+							<option value="<?php echo $hljb['id']; ?>" <?php echo $hyzk['id']==$userInfo['u_hljb']?"selected='selected'":null; ?>>
+									<?php echo $hljb['hljb']; ?></option>
 							<?php endforeach; ?>
 						</select>
+						<a tabindex="0" class="btn btn-danger" role="button" data-toggle="popover" title="护理明细说明" data-content="请看收费标准，内有各项护理级别详细信息。">护理级别怎么选？</a>
 					</td>
 				</tr>
 				<tr><td class="basicinfo_title td_crossline">手机号码：</td>
@@ -83,6 +88,7 @@ $userInfo=getUserById($id);
 		
 <script type="text/javascript">
 $().ready(function(){
+	 $('[data-toggle="popover"]').popover();
 	$("#btn_save").click(function(){
 		$.ajax({
 			type:"post",

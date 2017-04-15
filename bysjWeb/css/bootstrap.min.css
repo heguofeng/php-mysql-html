@@ -3661,7 +3661,7 @@ textarea.input-lg {
 .btn {
 	display: inline-block;
 	padding: 6px 12px;
-	margin-bottom: 0;
+	margin-bottom: 3px;
 	font-size: 14px;
 	font-weight: 400;
 	line-height: 1.42857143;
@@ -3679,6 +3679,7 @@ textarea.input-lg {
 	border: 1px solid transparent;
 	border-radius: 4px;
 	margin-left: 10px;
+	margin-bottom: 5px;
 }
 
 .btn.active.focus,

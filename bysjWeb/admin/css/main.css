@@ -20,6 +20,8 @@ body{
 .login_body .login_kuang .dl .bj_left{ float:left; width:360px; padding-left:65px; background:#FFF;}/*左边账号登录框*/
 .login_body .login_kuang .dl .bj_left h3{ font:16px/60px "微软雅黑", "黑体"; color:#37b5f9; width:270px; text-align:center;}/*字体大小/行高*/
 .login_body .login_kuang .dl .bj_left .kuang_txt{ width:220px; height:32px; border:1px solid #dddddd; background:#faffbd; line-height:32px; padding-left:4px; color:#b1a9a9;margin-left: 10px;margin-bottom: 10px; }/*输入框*/
+.login_body .login_kuang .dl .bj_left .kuang_txt:hover{border-color: #F06F11;border-radius: 3px;}
+.login_body .login_kuang .dl .bj_left .kuang_txt:focus{border-color: #0065D0;border-radius: 3px;}
 .login_body .login_kuang .dl .bj_left a{ color:#37bdl5f9; float:right; margin-right:15px;}/*忘记密码？*/
 /*按钮设置:边框圆角,鼠标移入形状颜色改变*/
 .login_body .login_kuang .dl .bj_left .btn_denglu{ width:227px; height:33px; background:#37b5f9; font-size:14px; line-height:33px; text-align:center; border:0px; color:#fff; border-radius:3px; cursor:pointer;margin-left:20px;}

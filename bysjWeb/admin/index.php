@@ -158,11 +158,6 @@ $row=fetchOne($sql);
 									添加新用户
 								</a>
 							</li>					
-							<li>
-								<a href="#" target="mainFrame">
-									换床
-								</a>
-							</li>
 						</ul>
 					</li>
 					<li class="menu_item" style="display: <?php echo $row['isAdmin']=='0'?'none':'block'; ?>;">

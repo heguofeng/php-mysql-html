@@ -3,7 +3,7 @@ require_once '../include.php';
 //checkAdminLogined();
 //checkIsAdmin();
 
-$sql = "select * from bed order by id asc";
+$sql = "select b.*,u.u_name from bed as b left join users u on b.user_id=u.id order by id asc";
 $rows = fetchAll($sql);
 
 ?>
@@ -22,12 +22,12 @@ $rows = fetchAll($sql);
 </head>
 <body>
 <div class="location">
-	当前位置:&nbsp;<a id="first" href="main.php">首页</a>&nbsp;&gt;&nbsp;<a>床位管理</a>&nbsp;&gt;&nbsp;<a href="#" id="third">床位具体情况</a>
+	当前位置:&nbsp;<a id="first" href="main.php">首页</a>&nbsp;&gt;&nbsp;<a>床位管理</a>&nbsp;&gt;&nbsp;<a href="listBed.php" id="third">床位具体情况</a>
 </div>
 <h3 class="biaoti">床位具体情况</h3>	
    <div class="details_operation clearfix">
             <div class="bui_select">
-                <input type="button" value="添&nbsp;&nbsp;加" class="btn btn-primary"  onclick="addCost()">
+                <input type="button" value="添加床位" class="btn btn-primary"  onclick="addCost()">
             </div>    
     </div>
   <table id="example" class="display" cellspacing="0" width="100%">
@@ -53,11 +53,14 @@ $rows = fetchAll($sql);
                     <td><?php echo "第".$row['floor_id']."层"; ?></td>
                     <td><?php echo "第".$row['building_id']."栋"; ?></td>
                		<td><?php echo $row['charge']."元"; ?></td>
-               		<td><?php echo $row['user_id']?$row['user_id']:"无"; ?></td>
+               		<td><?php echo $row['u_name']?$row['u_name']:"无"; ?></td>
                		<td><?php echo $row['is_used']==0?"否":"已使用"; ?></td>
                     <td align="center">
-                    	<input type="button" value="入住" class="btn btn-success" onclick="editCost(<?php echo $row['id']; ?>)">
-                    	<input type="button" value="离开" class="btn btn-danger"  onclick="delCost(<?php echo $row['id']; ?>)">
+                    	<?php if($row['is_used']==0): ?>
+                    		<input type="button" value="入住" class="btn btn-success" onclick="editCost(<?php echo $row['id']; ?>)">
+                    	<?php else:?>
+                    		<input type="button" value="离开" class="btn btn-danger"  onclick="checkOut(<?php echo $row['user_id']; ?>)">
+                    	<?php endif; ?>
                     </td>
                 </tr>
                 <?php $i++; endforeach; ?>
@@ -102,9 +105,9 @@ function editCost(id) {
 	window.location = "editCost.php?id=" + id;
 }
 
-function delCost(id) {
-	if(window.confirm("您确定要删除吗？,删除后已选该级别的用户护理级别将为空！")) {
-		window.location = "doAdminAction.php?act=delCost&id=" + id;
+function checkOut(id){
+	if(window.confirm("您确定要退房吗？")) {
+		window.location = "doAdminAction.php?act=checkOut&id=" + id;
 	}
 }
 

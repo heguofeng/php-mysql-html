@@ -21,18 +21,18 @@ $userInfo=getUserById($id);
 <html>
 <head>
 <meta charset="UTF-8"/>
-<title>个人中心</title>
+<title>老人入住</title>
 <link rel="stylesheet" type="text/css" href="css/reset.css"/>
 <link rel="stylesheet" type="text/css" href="css/backstage.css"/>
 <script type="text/javascript" src="js/jquery.min.js"></script>
 </head>
 <body>
 	<div class="location">
-	当前位置:&nbsp;<a id="first" href="main.php">首页</a>&nbsp;&gt;&nbsp;<a>老人管理</a>&nbsp;&gt;&nbsp;<a href="#" id="third">修改信息</a>
+	当前位置:&nbsp;<a id="first" href="main.php">首页</a>&nbsp;&gt;&nbsp;<a>老人管理</a>&nbsp;&gt;&nbsp;<a href="#" id="third">老人入住</a>
 	</div>
 	<div class="table_all">
 		<div class="info_title">
-			<h3>个人信息<a class="info_title_txt" href="detialUsers.php?id=<?php echo $id ?>" title="点击预览">预览</a></h3>
+			<h3>老人入住<a class="info_title_txt" href="detialUsers.php?id=<?php echo $id ?>" title="点击预览">预览</a></h3>
 		</div>
 		<div class="basicinfo_table">
 			<table  cellspacing="0" cellpadding="0">

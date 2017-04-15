@@ -1,6 +1,6 @@
 <?php
 require_once '../include.php';
-//checkAdminLogined();
+checkAdminLogined();
 $keywords = $_REQUEST['keywords'] ? $_REQUEST['keywords'] : null;
 $where = $keywords ? "where u.u_name like '%{$keywords}%'" : null;
 $sql="SELECT u.*, hl.hljb, hy.hyzk, xl.xlzk,b.bed_id,b.room_id,b.floor_id,b.building_id FROM users u LEFT JOIN dic_hljb hl ON hl.id = u.u_hljb LEFT JOIN dic_hyzk hy ON hy.id = u.u_hyzk LEFT JOIN dic_xlzk xl ON xl.id = u.u_xlzk left join bed b on b.user_id=u.id {$where}";
@@ -107,7 +107,7 @@ function editUsers(id) {
 }
 
 function delUsers(id) {
-	if(window.confirm("您确定要删除吗？,删除用户将会删除一切与其有关的信息！")) {
+	if(window.confirm("您确定要删除吗？,删除用户将会删除一切与其有关的信息！（包括床位信息）")) {
 		window.location = "doAdminAction.php?act=delUsers&id=" + id;
 	}
 }
