@@ -25,6 +25,8 @@ $userInfo=getUserById($id);
 <link rel="stylesheet" type="text/css" href="css/reset.css"/>
 <link rel="stylesheet" type="text/css" href="css/backstage.css"/>
 <script type="text/javascript" src="js/jquery.min.js"></script>
+<script src="../js/My97DatePickerBeta/My97DatePicker/WdatePicker.js"></script>
+
 </head>
 <body>
 	<div class="location">
@@ -38,6 +40,11 @@ $userInfo=getUserById($id);
 			<table  cellspacing="0" cellpadding="0">
 				<tr><td class="basicinfo_title">账号：</td><td ><input type="text" disabled="true" name="u_username" id="u_username" class="txtinput" value="<?php echo $userInfo['u_username'] ?>" /></td></tr>
 				<tr><td class="basicinfo_title td_crossline">姓名：</td><td class="td_crossline"><input type="text" name="u_name" id="u_name" class="txtinput" value="<?php echo $userInfo['u_name'] ?>" /></td></tr>
+				<tr><td class="basicinfo_title td_crossline">入住日期：</td>
+					<td class="td_crossline">
+						<input type="text"  name="checkIn_date" id="checkIn_date" class="date txtinput" onclick="WdatePicker()">
+					</td>
+				</tr>
 				<tr><td class="basicinfo_title td_crossline">床位号：</td>
 					<td class="td_crossline">
 						<span id="" class="fl">
@@ -166,6 +173,7 @@ $().ready(function(){
 			}
 		});
 	});
+	//按钮操作
 	var user_id='<?php echo $id; ?>';
 	$("#btn_save").click(function(){
 		$.ajax({
@@ -177,6 +185,7 @@ $().ready(function(){
 				floor_id:$("#floor_id").val(),
 				bed_id:$("#bed_id").val(),
 				user_id:user_id,
+				checkIn_date:$("#checkIn_date").val(),
 			},
 			dataType:"json",
 			success:function(data){

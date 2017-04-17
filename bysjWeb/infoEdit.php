@@ -1,6 +1,5 @@
 <?php
 require_once 'include.php';
-$hljbs=getAllhljb();
 $xlzks=getAllxlzk();
 $hyzks=getAllhyzk();
 if (isset($_SESSION['userId'])) {
@@ -18,7 +17,6 @@ $userInfo=getUserById($id);
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/reset.css"/>
 <link rel="stylesheet" type="text/css" href="css/main.css"/>
-
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script src="js/My97DatePickerBeta/My97DatePicker/WdatePicker.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
@@ -65,17 +63,7 @@ $userInfo=getUserById($id);
 						</select>
 					</td>
 				</tr>
-				<tr><td class="basicinfo_title td_crossline">护理级别：</td>
-					<td class="td_crossline">
-						<select name="u_hljb" class="select_big" id="u_hljb">
-							<?php foreach($hljbs as $hljb): ?>
-							<option value="<?php echo $hljb['id']; ?>" <?php echo $hyzk['id']==$userInfo['u_hljb']?"selected='selected'":null; ?>>
-									<?php echo $hljb['hljb']; ?></option>
-							<?php endforeach; ?>
-						</select>
-						<a tabindex="0" class="btn btn-danger" role="button" data-toggle="popover" title="护理明细说明" data-content="请看收费标准，内有各项护理级别详细信息。">护理级别怎么选？</a>
-					</td>
-				</tr>
+				
 				<tr><td class="basicinfo_title td_crossline">手机号码：</td>
 					<td class="td_crossline"><input type="text" class="txtinput" name="u_phone" id="u_phone" value="<?php echo $userInfo['u_phone']; ?>"  /></td>
 				</tr>
@@ -100,7 +88,6 @@ $().ready(function(){
 				u_mz:$("#u_mz").val(),
 				u_xlzk:$("#u_xlzk").val(),
 				u_hyzk:$("#u_hyzk").val(),
-				u_hljb:$("#u_hljb").val(),
 				u_phone:$("#u_phone").val()
 			},
 			dataType:"json",

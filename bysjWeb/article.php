@@ -41,7 +41,7 @@ myFocus.set({
 			<div class="top_content_l">
 				<a href="admin/index.php" class="backstage">进入后台管理系统</a>
 			</div>
-			<?php if($_SESSION['userId']):?>
+			<?php if($userInfo['id']):?>
 			<ul class="top_content_user">
 				<li>
 					<span>欢迎您</span>
@@ -50,7 +50,7 @@ myFocus.set({
 					<div id="pic_tx">
 						<img alt="我的头像" width="20" height="20" src="upload/<?php echo $userInfo['u_photo']?$userInfo['u_photo']:'/sys/login_no.png'; ?>" />
 					</div>
-					<a class="user" href="javascript:;"><?php echo $userInfo['u_name']?$userInfo['u_name']: $userInfo['u_username'];?></a>
+					<a class="user" href="javascript:;"><?php echo $userInfo['u_name']?$userInfo['u_name']:$userInfo['u_username'];?><i class="user_ico"></i></a>
 						<div class="userCard">
 							<a href="personal_info.php">个人中心</a>
 							<a href="doLogin.php?act=userOut">退出</a>
@@ -68,7 +68,7 @@ myFocus.set({
 	<!--页面顶部top结束-->
 	<div class="wrap_logo">
 	<div class="logo">
-			<div class="logo_left"><a href="#"><img src="images/logo.png"/></a> </div>
+			<div class="logo_left"><a href="#"><img src="images/logo.gif"/></a> </div>
 			<div class="logo_right"><img src="images/tel.jpg" width="28" height="28" />24小时服务热线：<span class="tel">158-8827-4549</span></div>
 	</div>
 	</div>
@@ -153,7 +153,7 @@ myFocus.set({
 		<!--<div class="footer_a"></div>-->
 		<div class="footer_b">
 			<div class="footer_b_text">
-				<p>CopyRight © 2017 温州快乐养老院版权所有</p>
+				<p>CopyRight © 2017 温州温医养老院版权所有</p>
 			</div>
 		</div>
 	</div>

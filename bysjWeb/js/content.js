@@ -29,5 +29,7 @@ window.onload=function(){
 	btnClick("#editmsg","infoEdit.php");
 	btnClick("#editpwd","infoEditPwd.php");	
 	btnClick("#editTx","infoEditTx.php");	
+	btnClick("#account","infoAccount.php");
+	btnClick("#pay","infoPay.php");
 
 }

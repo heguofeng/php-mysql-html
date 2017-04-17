@@ -23,7 +23,7 @@ $row=fetchOne($sql);
 		<a href="../index.php" title="官方首页">
 			<div class="logo fl"></div>
 		</a>
-		<h3 class="head_text fr">快乐养老院后台管理系统</h3>
+		<h3 class="head_text fr">温医养老院后台管理系统</h3>
 	</div>
 	<div class="top_user clearfix">
 		<div class="link fl">
@@ -225,7 +225,7 @@ $row=fetchOne($sql);
 	<div class="footer">
 		<div class="footer_text">
 			<p>
-				CopyRight © 2017 温州快乐养老院版权所有
+				CopyRight © 2017 温州温医养老院版权所有
 			</p>
 		</div>
 	</div>

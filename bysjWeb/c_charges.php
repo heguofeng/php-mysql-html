@@ -27,6 +27,7 @@ $rows=getAllhljb();
 	                    <th width="10%">伙食费</th>
 	                    <th width="10%">床位费</th>
 	                    <th width="10%">护理费</th>
+	                    <th width="10%">押金</th>
 	                    <th width="10%">共计</th>
 	                    <th width="10%">备注</th>
 					</tr>
@@ -40,6 +41,7 @@ $rows=getAllhljb();
 	                    <td><?php echo $row['hsf']."&nbsp;元/月"; ?></td>
 	                    <td><?php echo $row['cwf']."&nbsp;元/月"; ?></td>
 	               		<td><?php echo $row['hlf']."&nbsp;元/月"; ?></td>
+	               		<td><?php echo $row['deposit']."&nbsp;元/月"; ?></td>
 	               		<td><?php echo $row['allCost']."&nbsp;元/月"; ?></td>
 	               		<td><?php echo $row['bz']; ?></td>
 	                </tr>
@@ -50,10 +52,5 @@ $rows=getAllhljb();
 		</div><!--basicinfo_table结束-->	
 	</div><!--table_all-->		
 		
-<script type="text/javascript">
-$().ready(function(){
-	
-});
-</script>
 </body>
 </html>

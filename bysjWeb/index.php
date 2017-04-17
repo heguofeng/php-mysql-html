@@ -23,7 +23,7 @@ $last_bjcs=fetchOne($sql);
 <html>
 <head>
 <meta charset="UTF-8"/>
-<title>快乐养老院</title>
+<title>温医养老院</title>
 <link rel="stylesheet" type="text/css" href="css/reset.css"/>
 <link rel="stylesheet" type="text/css" href="css/main.css"/>
 <script type="text/javascript" src="js/myfocus-2.0.1.min.js"></script><!--引入myFocus库-->
@@ -47,7 +47,7 @@ myFocus.set({
 			<div class="top_content_l">
 				<a href="admin/index.php" class="backstage">进入后台管理系统</a>
 			</div>
-			<?php if($_SESSION['userId']):?>
+			<?php if($userInfo['id']):?>
 			<ul class="top_content_user">
 				<li>
 					<span>欢迎您</span>
@@ -56,7 +56,7 @@ myFocus.set({
 					<div id="pic_tx">
 						<img alt="我的头像" width="20" height="20" src="upload/<?php echo $userInfo['u_photo']?$userInfo['u_photo']:'/sys/login_no.png'; ?>" />
 					</div>
-					<a class="user" href="javascript:;"><?php echo $userInfo['u_name']?$userInfo['u_name']:$userInfo['u_username'];?></a>
+					<a class="user" href="javascript:;"><?php echo $userInfo['u_name']?$userInfo['u_name']:$userInfo['u_username'];?><i class="user_ico"></i></a>
 						<div class="userCard">
 							<a href="personal_info.php">个人中心</a>
 							<a href="doLogin.php?act=userOut">退出</a>
@@ -74,7 +74,7 @@ myFocus.set({
 	<!--页面顶部top结束-->
 	<div class="wrap_logo">
 	<div class="logo">
-			<div class="logo_left"><a href="#"><img src="images/logo.png"/></a> </div>
+			<div class="logo_left"><a href="#"><img src="images/logo.gif"/></a> </div>
 			<div class="logo_right"><img src="images/tel.jpg" width="28" height="28" />24小时服务热线：<span class="tel">158-8827-4549</span></div>
 	</div>
 	</div>
@@ -84,11 +84,11 @@ myFocus.set({
 				<ul>
 					<li><a href="index.php">首页</a></li>
 					<li><a href="nav_about.php?id=3">关于养老院</a></li>
-					<li><a href="#">服务特色</a></li>
-					<li><a href="#">保健常识</a></li>
-					<li><a href="#">环境设施</a></li>
-					<li><a href="nav_charges.php">收费标准</a></li>
-					<li><a href="personal_info.php">人才招聘</a></li>
+					<li><a href="nav_about.php?id=4">服务特色</a></li>
+					<li><a href="nav_about.php?id=2">保健常识</a></li>
+					<li><a href="nav_about.php?id=4">环境设施</a></li>
+					<li><a href="nav_about.php?id=10">收费标准</a></li>
+					<li><a href="nav_about.php?id=4">人才招聘</a></li>
 					<li><a href="personal_info.php">个人中心</a></li>
 				</ul>
 		</div>
@@ -232,36 +232,42 @@ myFocus.set({
 				<li class="environment02">
 					<a href="#">
 						<img src="images/environment01.jpg" >
+						<div class="img_cover"></div>
 					</a>
 					<p><a class="henfan" href="#">养老院院景</a></p>
 				</li>
 				<li class="environment03">
 					<a href="#">
 						<img src="images/environment02.jpg" alt="养老院院景" />	
+						<div class="img_cover"></div>
 					</a>
 					<p><a class="henfan"  href="#">养老院院景</a></p>
 				</li>
 				<li class="environment04">
 					<a href="#">
-						<img src="images/environment03.jpg" alt="养老院院景" />					
+						<img src="images/environment03.jpg" alt="养老院院景" />		
+						<div class="img_cover"></div>			
 					</a>
 					<p><a class="henfan" href="#">养老院院景</a></p>
 				</li>
 				<li class="environment05">
 					<a href="#">
 						<img src="images/environment04.jpg" alt="养老院院景">
+							<div class="img_cover"></div>
 					</a>
 					<p><a class="henfan"  href="#">养老院院景</a></p>
 				</li>
 				<li class="environment06">
 					<a href="#">
 						<img src="images/environment05.jpg" alt="养老院院景" />	
+						<div class="img_cover"></div>
 					</a>
 					<p><a class="henfan"  href="#">养老院院景</a></p>
 				</li>
 				<li class="environment07">
 					<a href="#">
 						<img src="images/environment06.jpg" alt="养老院院景" />
+						<div class="img_cover"></div>
 						
 					</a>
 					<p><a class="henfan"  href="#">养老院院景</a></p>
@@ -305,7 +311,7 @@ myFocus.set({
 			<!--history_pic结束-->
 			<div class="history_text">
 			<p >
-				快乐养老院位于浙江省温州市温州医科大学茶山校区边的快乐小镇上，优越的地理位置，秀丽的田园风光，温馨的居住环境，便捷的交通，观青山苍翠，神清气爽，无不洋溢着浓郁的生活风情。
+				温医养老院位于浙江省温州市温州医科大学茶山校区边的快乐小镇上，优越的地理位置，秀丽的田园风光，温馨的居住环境，便捷的交通，观青山苍翠，神清气爽，无不洋溢着浓郁的生活风情。
 				更有星级单人间房、温馨双人房、功能齐全的多人医疗护理房等为您的入住提供不同的选择。
 			</p>
 			</div>
@@ -317,7 +323,7 @@ myFocus.set({
 		<!--<div class="footer_a"></div>-->
 		<div class="footer_b">
 			<div class="footer_b_text">
-				<p>CopyRight © 2017 温州快乐养老院版权所有</p>
+				<p>CopyRight © 2017 温州温医养老院版权所有</p>
 			</div>
 		</div>
 	</div>

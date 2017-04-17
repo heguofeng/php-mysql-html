@@ -12,8 +12,11 @@ if(!$rows){
 <head>
 <meta charset="UTF-8" />
 <title>添加员工</title>
-<link rel="stylesheet" type="text/css" href="css/reset.css" />
+<link rel="stylesheet" type="text/css" href="css/reset.css"/>
 <link rel="stylesheet" type="text/css" href="css/backstage.css"/>
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
 <style type="text/css">
 	#username,#createResult{
 		float: left;
@@ -24,54 +27,58 @@ if(!$rows){
 </style>
 </head>
 <body>
-<div class="location">
-	当前位置:&nbsp;<a id="first" href="main.php">首页</a>&nbsp;&gt;&nbsp;<a>人事管理</a>&nbsp;&gt;&nbsp;<a href="#" id="third">添加部门</a>
-</div>
-<h3 class="biaoti">添加员工</h3>
-<form id="formEmp" action="doAdminAction.php?act=addEmployee" method="post" enctype="multipart/form-data">
-<table class="edittable" width="70%" cellpadding="0" cellspacing="0">
-	<tr>
-		<td align="right">用户名</td>
-		<td><input type="text" name="username" id="username" placeholder="请输入员工用户名"/><p id="checkname" class="fl"></p></td>
-	</tr>
-	<tr>
-		<td align="right">密码</td>
-		<td><input type="password" name="password" /></td>
-	</tr>
-	<tr>
-		<td align="right">手机号</td>
-		<td><input type="text" name="phone" placeholder="请输入员工手机号"/></td>
-	</tr>
-	<tr>
-		<td align="right">性别</td>
-		<td>
-			<div class="radio">			
-				<input class="fl" type="radio" name="sex" value="1" checked="checked"/><span class="fl">男</span>
-				<input class="fl" type="radio" name="sex" value="2" /><span class="fl">女</span>
-				<input class="fl" type="radio" name="sex" value="3" /><span class="fl">保密</span>
-			</div>
-		</td>	
-	</tr>
-	<tr>
-		<td align="right">所属部门</td>
-		<td>
-			<select name="d_id">
-				<?php foreach($rows as $row):?>
-				<option value="<?php echo $row['id']; ?>"><?php echo $row['d_name']; ?></option>
-				<?php endforeach; ?>
-			</select>
-		</td>
-	</tr>
-	<tr>
-		<td align="right">头像</td>
-		<td><input type="file" name="photo" style="border: 0;"/></td>
-	</tr>
-	<tr>
-		<td colspan="2"><input class="editbtn fr" id="editbtn" type="submit"  value="添加员工"/></td>
-	</tr>
-
-</table>
-</form>
+	<div class="location">
+		当前位置:&nbsp;<a id="first" href="main.php">首页</a>&nbsp;&gt;&nbsp;<a>人事管理</a>&nbsp;&gt;&nbsp;<a href="#" id="third">添加员工</a>
+	</div>
+	<div class="info_title">
+		<h3>添加员工</h3>
+	</div>
+	<div class="basicinfo_table">
+	<form id="formEmp" action="doAdminAction.php?act=addEmployee" method="post" enctype="multipart/form-data">
+	<table width="70%" cellpadding="0" cellspacing="0">
+		<tr>
+			<td class="basicinfo_title">用户名</td>
+			<td><input type="text" class="txtinput fl" name="username" id="username" placeholder="请输入员工用户名"/><p id="checkname" class="fl"></p></td>
+		</tr>
+		<tr>
+			<td class="basicinfo_title td_crossline">密码</td>
+			<td class="td_crossline" ><input type="password" class="txtinput fl" name="password" /></td>
+		</tr>
+		<tr>
+			<td class="basicinfo_title td_crossline">手机号</td>
+			<td class="td_crossline" ><input type="text" class="txtinput fl" name="phone" placeholder="请输入员工手机号"/></td>
+		</tr>
+		<tr>
+			<td class="basicinfo_title td_crossline">性别</td>
+			<td class="td_crossline" >
+				<div >			
+					<input class="fl" type="radio" name="sex" value="1" checked="checked"/><span class="fl">男</span>
+					<input class="fl" type="radio" name="sex" value="2" /><span class="fl">女</span>
+					<input class="fl" type="radio" name="sex" value="3" /><span class="fl">保密</span>
+				</div>
+			</td>	
+		</tr>
+		<tr>
+			<td class="basicinfo_title td_crossline">所属部门</td>
+			<td class="td_crossline" >
+				<select name="d_id" class="txtinput point">
+					<?php foreach($rows as $row):?>
+					<option value="<?php echo $row['id']; ?>"><?php echo $row['d_name']; ?></option>
+					<?php endforeach; ?>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td class="basicinfo_title td_crossline">头像</td>
+			<td class="td_crossline" ><input type="file" class="txtinput fl" name="photo" style="border: 0;"/></td>
+		</tr>
+		<tr>
+			<td colspan="2"><input class="btn btn-primary" id="editbtn" type="submit"  value="添加员工"/></td>
+		</tr>
+	
+	</table>
+	</form>
+	</div>
 </body>
 
 <script type="text/javascript" src="js/jquery.min.js"></script>

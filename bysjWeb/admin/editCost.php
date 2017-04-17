@@ -27,10 +27,11 @@ $row=fetchOne($sql);
 				<table  cellspacing="0" cellpadding="0">
 					<tr><td class="basicinfo_title">编号：</td><td ><input type="text" disabled="true" name="id" id="id" class="txtinput" value="<?php echo $row['id'] ?>" /></td></tr>
 					<tr><td class="basicinfo_title td_crossline">护理级别：</td> <td class="td_crossline"><input type="text" name="hljb" id="hljb" class="txtinput fl" value="<?php echo $row['hljb'] ?>" /><p id="checkname" class="fl"></p></td> </tr>
-					<tr><td class="basicinfo_title td_crossline">护理标准：</td> <td class="td_crossline"><textarea name="hlbz" id="hlbz" class="txtarea"> <?php echo $row['bz'] ?></textarea> </td></td> </tr>
+					<tr><td class="basicinfo_title td_crossline">护理标准：</td> <td class="td_crossline"><textarea name="hlbz" id="hlbz" class="txtarea"> <?php echo $row['hlbz'] ?></textarea> </td></td> </tr>
 					<tr><td class="basicinfo_title td_crossline">伙食费：</td> <td class="td_crossline"><input type="text" name="hsf" id="hsf" class="txtinput" value="<?php echo $row['hsf'] ?>" />&nbsp;元</td> </tr>	
 					<tr><td class="basicinfo_title td_crossline">床位费：</td> <td class="td_crossline"><input type="text" name="cwf" id="cwf" class="txtinput" value="<?php echo $row['cwf'] ?>" />&nbsp;元</td> </tr>
 					<tr><td class="basicinfo_title td_crossline">护理费：</td> <td class="td_crossline"><input type="text" name="hlf" id="hlf" class="txtinput" value="<?php echo $row['hlf'] ?>" />&nbsp;元</td> </tr>
+					<tr><td class="basicinfo_title td_crossline">押金：</td> <td class="td_crossline"><input type="text" name="deposit" id="deposit" class="txtinput" value="<?php echo $row['deposit'] ?>" />&nbsp;元</td> </tr>
 					<tr><td class="basicinfo_title td_crossline">共计：</td> <td class="td_crossline"><input type="text" name="allCost" id="allCost" class="txtinput" value="<?php echo $row['allCost'] ?>" />&nbsp;元</td> </tr>
 					<tr><td class="basicinfo_title td_crossline">备注：</td> <td class="td_crossline"><textarea name="bz" id="bz" class="txtarea" ><?php echo $row['bz'] ?></textarea></td> </tr>	
 				</table>
@@ -55,6 +56,7 @@ $().ready(function(){
 					hsf:$("#hsf").val(),
 					cwf:$("#cwf").val(),
 					hlf:$("#hlf").val(),
+					deposit:$("#deposit").val(),
 					allCost:$("#allCost").val(),
 					bz:$("#bz").val()
 				},
@@ -146,7 +148,8 @@ $().ready(function(){
 		$hsf=parseInt($("#hsf").val()?$("#hsf").val():'0');
 		$cwf=parseInt($("#cwf").val()?$("#cwf").val():'0');
 		$hlf=parseInt($("#hlf").val()?$("#hlf").val():'0');
-		$("#allCost").val($hsf+$cwf+$hlf);
+		$deposit=parseInt($("#deposit").val()?$("#deposit").val():'0');
+		$("#allCost").val($hsf+$cwf+$hlf+$deposit);
 	});
 });
 </script>

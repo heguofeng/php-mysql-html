@@ -108,11 +108,24 @@ input.error {border: 1px solid red;}
 .top_content_user li span{margin-right: 10px;}
 .user{
 	font-size: 16px;
-	padding: 0 18px 0 3px;
+	padding-left: 3px;
 	height: 30px;
 }
+/*箭头图标*/
+.user_ico{
+	background: url(../images/down.png) no-repeat center;
+	display: inline-block;
+    height: 30px;
+ 	background-size: 16px;
+    vertical-align: middle;
+    width: 16px;
+}
+.top_content_nav a:hover .user_ico{
+	background: url(../images/up.png)  no-repeat center;
+	background-size: 16px;
+}
 .top_content_nav a:hover,.top_content_nav a:focus{
-	color: #fff;
+	color: #eb4f38;
 	text-decoration: none;
 }
 /*用户信息卡*/
@@ -126,9 +139,6 @@ input.error {border: 1px solid red;}
 	z-index: 1000;
 	border: 1px solid #DDD;
 	border-top: 0;
-/*	box-shadow: 0 0 8px #DDD;
-    -moz-box-shadow: 0 0 8px #DDD;
-    -webkit-box-shadow: 0 0 8px #DDD;*/
 }
 .top_content_user .userCard a{
 	display: block;
@@ -146,6 +156,14 @@ input.error {border: 1px solid red;}
 }
 .top_content_nav:hover .userCard{
 	display: block;
+}
+.top_content_nav:hover .user{
+	color: #eb4f38;
+	text-decoration: none;
+}
+.top_content_nav:hover .user_ico{
+	background: url(../images/up.png)  no-repeat center;
+	background-size: 16px;
 }
 /*登录注册*/
 .top_content .top_content_r li a{
@@ -442,17 +460,18 @@ input.error {border: 1px solid red;}
 	display: inline;
 	float: left;
 	text-align: center;
+	backface-visibility: hidden;
 }
 #scrollPic ul li img{
 		display: block;
 		width: 235px;
 		height: 160px;
 		margin: 0 10px 10px;
+		transition: all 0.2s ease-in-out 0s; 
+		backface-visibility: hidden;
 }
-#scrollPic ul li img:hover{
-		border: 1px solid green;
-		width: 233px;
-		height: 158px;
+#scrollPic ul li:hover img{
+		transform: translate(0px) scale(1.05, 1.05);
 }
 #scrollPic ul li .pic_name{
 	display: block;
@@ -471,6 +490,26 @@ input.error {border: 1px solid red;}
 .environment ul li{
 	position: absolute;
 	overflow: hidden;
+}
+/*阴影层*/
+.img_cover{
+	box-shadow: 0 -70px 123px #000 inset;
+    height: 100%;
+    filter:alpha(Opacity=70);-moz-opacity:0.7;opacity: 0.7;/*兼容所有浏览器的透明度*/
+    position: absolute;
+    top: 0;
+    transition: all 0.2s ease-in-out 0s;
+    width: 100%;
+    z-index: 1;
+}
+.environment ul li:hover .img_cover{
+	box-shadow: none;
+}
+.environment ul li img{
+	transition: all 0.2s ease-in-out 0s;
+}
+.environment ul li:hover img{
+	transform: translateZ(0px) scale(1.05,1.05);
 }
 .environment01{
 	background-color: #228B22;
@@ -836,6 +875,12 @@ input.error {border: 1px solid red;}
 	border: 1px solid #CCCCCC;
 	overflow: hidden;
 }
+.pic_bigtx img{
+	transition: all 0.2s ease-in-out 0s;
+}
+.pic_bigtx:hover img{
+	transform: translateZ(0px) scale(1.1,1.1);
+}
 .pic_bigtx .ghtx{
 	background: #000 none repeat scroll 0 0;
     bottom: -40px;
@@ -850,8 +895,10 @@ input.error {border: 1px solid red;}
     font-size: 16px;
 }
 .pic_bigtx:hover .ghtx{
-	bottom: 2px;
+	bottom: 0px;
 	text-decoration: none;
+	z-index: 2;
+	transition: all 0.2x ease-in-out 0s;
 }
 
 /*收费标准*/
@@ -873,7 +920,7 @@ input.error {border: 1px solid red;}
 /*——————————————————————————————————————————下面是article.php个人页面内容————————————————————————————————————————————————*/
 .content_right{
 	overflow: hidden;
-	min-height: 600px;
+	min-height: 655px;
 	padding-bottom: 30px;
 	padding-left: 20px;
     width: 740px;
@@ -893,4 +940,67 @@ input.error {border: 1px solid red;}
 }
 .a_content P{
 	font-size: 15.5px;
+}
+/*下面是我的账户的样式*/
+.balance_span{
+	 position: relative;
+    display: inline-block;
+    width: 118px;
+    height: 38px;
+    border: 1px solid #ccc;
+    vertical-align: middle;
+}
+.balance_span:hover{
+	border-color: #F06F11;border-radius: 3px;
+}
+
+.balance_input{
+	 width: 75px;
+	height: 20px;
+	padding: 8px 5px;
+	margin: 0;
+	border: none;
+	outline: 0;
+	line-height: 20px;
+	color: #bbb;
+}
+.balance_text,.balance_input{
+	display: inline-block;
+	vertical-align: middle;
+}
+.current_balance{
+	color: #ff824d;
+	font-size: 36px;
+	margin: 10px 0;
+	float: left;
+}
+.current_balance i{
+	font-size: 16px;
+	font-style: normal;
+}
+.shuaxin{
+	cursor: pointer;
+    float: left;
+    height: 25px;
+    margin-left: 20px;
+    margin-top: 16px;
+    width: 25px;
+    
+}
+.rotate{
+	transform:rotate(720deg);
+    transition: all 3s;
+}
+#alertText{
+	background: url(../images/chacha.png) no-repeat left;
+	color: red;
+	padding-left: 30px;
+	display: none;
+}
+.current_balance_after{
+	font-size: 16px;
+	font-style: normal;	
+	color: #ff824d;
+	padding-top: 16px;
+	float: left;
 }

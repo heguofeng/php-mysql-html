@@ -11,6 +11,7 @@ if (isset($_SESSION['userId'])) {
 <head>
 <meta charset="UTF-8"/>
 <title>个人中心</title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/reset.css"/>
 <link rel="stylesheet" type="text/css" href="css/main.css"/>
 <script type="text/javascript" src="js/jquery.min.js"></script>
@@ -37,6 +38,7 @@ if (isset($_SESSION['userId'])) {
 		
 <script type="text/javascript">
 $().ready(function(){
+	$("#u_pwd").focus();
 	$("#btn_editPwd").click(function(){
 		var flag=$("#formP").valid();
 		if(flag){

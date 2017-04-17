@@ -95,21 +95,6 @@ body{
 .details{padding: 15px;}
 .bui_select{height: 30px; float: left;}
 
-/*左上角添加按钮*/
-/*.add{width: 92px; height: 30px;cursor: pointer;border: 1px solid #000000;border-radius: 5px;}
-.green_btn:hover,.green_btn:active{
-	color: #fff;
-	background-color: #228b22;
-}
-.tomato_btn:hover,.tomato_btn:active{
-	color: #fff;
-	background-color: #ff6347;
-}
-.blue_btn:hover,.blue_btn:active{
-	color: #fff;
-	background-color: #00BFFF;
-}*/
-
 .select{height: 22px; margin: 4px 8px;}
 .text {float: left; margin-left: 30px; display: inline;}
 .text span{line-height: 30px;float:left; margin-right: 10px;}
@@ -124,48 +109,6 @@ body{
 .label_id,.check{vertical-align: middle;}
 .check{margin-right: 4px;}
 
-/*修改删除按钮*/
-/*.btn_bd{width: 62px; height: 30px;cursor: pointer;border: 1px solid #000000;border-radius: 5px;margin-left: 10px;}*/
-.edittable{
-	background-color: #ccc;
-	margin-left: 20px;
-	font-size: 16px;	
-}
-.edittable th,.edittable td{
-	border: 1px solid #000000;
-	padding: 8px;
-}
-.edittable input{
-	height: 25px;
-	border: 1px solid #000000;
-	padding-left: 5px;
-	padding-right: 5px;
-}
-.edittable select{
-	height: 25px;
-	width: 142px;
-	border: 1px solid #000000;	
-}
-.editbtn{
-	width: 65px;
-	height: 27px;
-	border: 1px solid #000000;
-	border-radius: 5px;
-	cursor:pointer;
-	padding: 0;
-}
-.editbtn:hover,.editbtn:active{
-	color: #fff;
-	background-color: #228b22;
-}
-.edittable .radio{
-	height: 25px;
-	display: block;
-}
-.edittable .radio span{
-	padding-right: 8px;
-	line-height: 25px;
-}
 /*footer部分*/
 .footer{
 	width: 100%;
@@ -183,12 +126,7 @@ body{
 .date{
 	background: #fff url(../../js/My97DatePickerBeta/My97DatePicker/skin/datePicker.gif) no-repeat right;
 	cursor: pointer;
-	border: 1px solid #F5F5F5;
 }
-.date:hover{
-	border-color: #37B5F9;
-}
-.reason{width:100%;height: 150px;}
 
 /*validate的错误提示*/
 input.error ,textarea.error{

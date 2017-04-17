@@ -7,7 +7,7 @@ if (isset($_SESSION['userId'])) {
 	$id=$_COOKIE['userId' ];
 	}
 if($id){
-	$sql="SELECT u.*, hl.hljb, hy.hyzk, xl.xlzk,b.* FROM users u LEFT JOIN dic_hljb hl ON hl.id = u.u_hljb LEFT JOIN dic_hyzk hy ON hy.id = u.u_hyzk LEFT JOIN dic_xlzk xl ON xl.id = u.u_xlzk left join bed b on b.user_id=u.id WHERE u.id = {$id}";
+	$sql="SELECT u.*, hl.hljb, hy.hyzk, xl.xlzk,b.bed_id,b.room_id,b.floor_id,b.building_id FROM users u LEFT JOIN dic_hljb hl ON hl.id = u.u_hljb LEFT JOIN dic_hyzk hy ON hy.id = u.u_hyzk LEFT JOIN dic_xlzk xl ON xl.id = u.u_xlzk left join bed b on b.user_id=u.id WHERE u.id = {$id}";
 	$userInfo=fetchOne($sql);
 }	
 $hljbs=getAllhljb();
@@ -30,7 +30,7 @@ $hyzks=getAllhyzk();
 			<div class="top_content_l">
 				<a href="admin/index.php" class="backstage">进入后台管理系统</a>
 			</div>
-			<?php if($_SESSION['userId']):?>
+			<?php if($userInfo['id']):?>
 			<ul class="top_content_user">
 				<li>
 					<span>欢迎您</span>
@@ -39,7 +39,7 @@ $hyzks=getAllhyzk();
 					<div id="pic_tx">
 						<img alt="我的头像" width="20" height="20" src="upload/<?php echo $userInfo['u_photo']?$userInfo['u_photo']:'/sys/login_no.png'; ?>" />
 					</div>
-					<a class="user" href="javascript:;"><?php echo $userInfo['u_name']?$userInfo['u_name']: $userInfo['u_username'];?></a>
+					<a class="user" href="javascript:;"><?php echo $userInfo['u_name']?$userInfo['u_name']:$userInfo['u_username'];?><i class="user_ico"></i></a>
 						<div class="userCard">
 							<a href="personal_info.php">个人中心</a>
 							<a href="doLogin.php?act=userOut">退出</a>
@@ -57,7 +57,7 @@ $hyzks=getAllhyzk();
 	<!--页面顶部top结束-->
 	<div class="wrap_logo">
 	<div class="logo">
-			<div class="logo_left"><a href="#"><img src="images/logo.png"/></a> </div>
+			<div class="logo_left"><a href="#"><img src="images/logo.gif"/></a> </div>
 			<div class="logo_right"><img src="images/tel.jpg" width="28" height="28" />24小时服务热线：<span class="tel">158-8827-4549</span></div>
 	</div>
 	</div>
@@ -91,6 +91,8 @@ $hyzks=getAllhyzk();
 					<li><a id="personal" href="personal_info.php">个人中心<span>About Us</span></a></li>
 					<li><a id="editmsg" href="javascript:;">修改信息<span>Services</span></a></li>
 					<li><a id="editpwd" href="javascript:;">修改密码<span>Knowledge</span></a></li>						
+					<li><a id="account" href="javascript:;">我的账户<span>Account</span></a></li>
+					<li><a id="pay" href="javascript:;">我的缴费<span>Pay</span></a></li>	
 				</ul>
 			</div>
 		</div>
@@ -110,7 +112,8 @@ $hyzks=getAllhyzk();
 						<li><label class="fl">护理级别：</label><div class="info_val fl"><?php echo $userInfo['hljb']; ?></div></li>
 						<li><label class="fl">手机号码：</label><div class="info_val fl"><?php echo $userInfo['u_phone']; ?></div></li>
 						<li><label class="fl">床位号：</label><div class="info_val fl"><?php if($userInfo['u_bed']!=0): ?>	<?php echo $userInfo['building_id']."幢楼 &nbsp;&nbsp;".$userInfo['floor_id']."层&nbsp;&nbsp;".$userInfo['room_id']."房间&nbsp;&nbsp;".$userInfo['bed_id']."号床"; ?><?php else: ?>暂未居住<?php endif;?></div></li>
-			
+						<li><label class="fl">入住日期：</label><div class="info_val fl"><?php echo $userInfo['checkIn_date']; ?></div></li>
+
 					</ul>
 				</div><!--info_list结束-->
 			</div>	<!--info_preview结束-->
@@ -120,10 +123,10 @@ $hyzks=getAllhyzk();
 	</div>
 	<!--wrap结束-->
 	<div class="footer">
-		<div class="footer_a"></div>
+		<!--<div class="footer_a"></div>-->
 		<div class="footer_b">
 			<div class="footer_b_text">
-				<p>CopyRight © 2017 温州快乐养老院版权所有</p>
+				<p>CopyRight © 2017 温州温医养老院版权所有</p>
 			</div>
 		</div>
 	</div>

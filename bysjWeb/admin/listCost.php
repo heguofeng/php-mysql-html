@@ -61,6 +61,7 @@ if(!$rows){
                     <th width="10%">伙食费</th>
                     <th width="10%">床位费</th>
                     <th width="10%">护理费</th>
+                    <th width="10%">押金</th>
                     <th width="10%">共计</th>
                     <th width="10%">备注</th>
                     <th>操作</th>
@@ -75,6 +76,7 @@ if(!$rows){
                     <td><?php echo $row['hsf']."元"; ?></td>
                     <td><?php echo $row['cwf']."元"; ?></td>
                		<td><?php echo $row['hlf']."元"; ?></td>
+               		<td><?php echo $row['deposit']."元"; ?></td>
                		<td><?php echo $row['allCost']."元"; ?></td>
                		<td><?php echo $row['bz']; ?></td>
                     <td align="center">

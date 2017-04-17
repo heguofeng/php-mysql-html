@@ -9,6 +9,14 @@ if($act=="save"){
 }
 elseif($act=="editTx"){
 	editTx($id);
+}elseif($act=="addBalance"){
+	addBalance($id);
+}elseif($act=="shuaxin"){
+	shuaxin($id);
+}elseif($act=="hljb_select"){
+	hljb_select();
+}elseif($act=="pay"){
+	pay();
 }
 
 /*保存用户信息*/
@@ -71,6 +79,101 @@ function editTx($id){
 			unlink($filename);
 		}
 		$result="操作失败！";
+	}
+echo $result;
+}
+//充值账户
+function addBalance($id){
+	$arr=$_POST;
+	$sql="select balance from users where id={$id}";
+	$row=fetchOne($sql);
+	$new_balance=$row['balance']+$arr['balance'];
+	$sql="update users set balance= '{$new_balance}' where id={$id}";
+	$array=array(
+		'success'=>true,
+		'msg'=>'充值成功',
+		'banalce'=>$arr['balance']
+	);
+	//数组转换成json格式
+	$result=json_encode($array);
+	if(mysql_query($sql)){
+		$result=json_encode($array);;
+	}else{
+		$result	='{"success":false,"msg":"充值失败"}';
+	}
+	echo $result;
+}
+//刷新金额
+function shuaxin($id){
+	$sql="select balance from users where id={$id}";
+	$row=fetchOne($sql);
+	$result="{$row['balance']}";
+	echo $result;
+}
+//下拉框选项
+function hljb_select(){
+	$arr=$_GET;
+	$id=$arr['u_hljb'];
+	$sql="select * from dic_hljb where id={$id}";
+	$row=fetchOne($sql);
+	$array=array(
+		'success'=>true,
+		'hljb'=>$row['hljb'],
+		'hsf'=>$row['hsf'],
+		'cwf'=>$row['cwf'],
+		'hlf'=>$row['hlf'],
+		'deposit'=>$row['deposit'],
+		'allCost'=>$row['allCost']
+	);
+	//数组转换成json格式
+	$result=json_encode($array);	
+	echo $result;
+}
+//缴费按钮
+function pay(){
+	$arr=$_POST;
+	$pay_status=1;
+	$pay_time =date('Y-m-d H:i:s');
+	//查询余额
+	$sql="select balance from users where id={$arr['user_id']}";
+	$row=fetchOne($sql);
+	$sql5="select id from pay_records where user_id={$arr['user_id']}";
+	//验证是否已缴费
+	if(fetchOne($sql5)){
+		$result	='{"res_id":5,"msg":"请勿调皮重复充值！"}';
+		}else{
+		//如果余额不够
+		if($arr['pay_money']<=$row['balance']){
+			$new_balance=$row['balance']-$arr['pay_money'];
+			//更新余额
+			$sql1="update users set balance={$new_balance} where id={$arr['user_id']}";
+			if(mysql_query($sql1)){
+				//进行记录缴费信息
+				$sql="insert into pay_records(pay_status,user_id,pay_time,pay_money) values('{$pay_status}','{$arr['user_id']}','{$pay_time}','{$arr['pay_money']}')";
+				if(mysql_query($sql)){
+					//获取当前的缴费合同号
+					$sql="select id from pay_records where user_id={$arr['user_id']}";
+					$row=fetchOne($sql);
+					//更新护理级别与缴费合同号
+					$sql="update users set u_hljb={$arr['u_hljb']},pay_id={$row['id']} where id={$arr['user_id']}";
+					mysql_query($sql);
+					$result	='{"res_id":1,"msg":"缴费成功,扣款成功,护理级别更新成功"}';
+				}
+				else{
+					$result	='{"res_id":2,"msg":"缴费失败,扣款成功,即将退款"}';
+					$sql="select balance from users where id={$arr['user_id']}";
+					$row=fetchOne($sql);
+					$new_balance=$row['balance']+$arr['pay_money'];
+					//更新余额
+					$sql1="update users set balance={$new_balance} where id={$arr['user_id']}";
+					mysql_query($sql1);
+				}
+			}else{
+				$result	='{"res_id":3,"msg":"扣款失败"}';
+			}
+		}else{
+			$result	='{"res_id":4,"msg":"余额不够,请充值"}';
+		}
 	}
 echo $result;
 }

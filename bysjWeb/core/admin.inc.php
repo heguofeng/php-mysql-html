@@ -318,9 +318,10 @@ function add_bed(){
 	$arr=$_POST;
 	$sql="select id from bed where bed_id={$arr['bed_id']} and room_id={$arr['room_id']}";
 	$row=fetchOne($sql);
-	//$bed="入住成功，楼栋为:".$arr['bed_id']."&nbsp;&nbsp;楼层为:".$arr['floor_id']."&nbsp;&nbsp;房间号为:".$arr['room_id']."&nbsp;&nbsp;床号为:".$arr['bed_id'];
+	//更新床位表
 	$sql1="update bed set user_id={$arr['user_id']},is_used=1 where id ={$row['id']}";
-	$sql2="update users set u_bed={$row['id']} where id={$arr['user_id']}";
+	//更新用户表
+	$sql2="update users set u_bed={$row['id']},checkIn_date='{$arr['checkIn_date']}' where id={$arr['user_id']}";
 	if(mysql_query($sql1)&&mysql_query($sql2)){
 		$res='{"success":true,"msg":"入住成功"}';
 	}else{
@@ -333,10 +334,9 @@ function change_bed($id){
 	$arr=$_POST;
 	$sql="select id from bed where bed_id={$arr['bed_id']} and room_id={$arr['room_id']}";
 	$row=fetchOne($sql);
-	//$bed="入住成功，楼栋为:".$arr['bed_id']."&nbsp;&nbsp;楼层为:".$arr['floor_id']."&nbsp;&nbsp;房间号为:".$arr['room_id']."&nbsp;&nbsp;床号为:".$arr['bed_id'];
-	$sql3="update bed set user_id=null,is_used=0 where id ={$arr['u_bed']}";//删除原来的数据
-	$sql1="update bed set user_id={$id},is_used=1 where id ={$row['id']}";//新增新数据
-	$sql2="update users set u_bed={$row['id']} where id='{$id}'";//为老人添加床号
+	$sql3="update bed set user_id=null,is_used=0 where id ={$arr['u_bed']}";//床位表删除原来的数据
+	$sql1="update bed set user_id={$id},is_used=1 where id ={$row['id']}";//床位表新增新数据
+	$sql2="update users set u_bed={$row['id']} where id='{$id}'";//为用户表添加床号
 	if(mysql_query($sql1)&&mysql_query($sql3)&&mysql_query($sql2)){
 		$res='{"success":true,"msg":"换床成功"}';
 	}else{
@@ -348,8 +348,11 @@ function change_bed($id){
 function checkOut($id){
 	$sql="select u_bed from users where id={$id}";
 	$row=fetchOne($sql);
+	$nowDate=date('Y-m-d');
+	//更新床位表
 	$sql1="update bed set user_id=null,is_used=0 where id ={$row['u_bed']}";
-	$sql2="update users set u_bed=0 where id='{$id}'";
+	//更新用户表
+	$sql2="update users set u_bed=0,checkOut_date='{$nowDate}' where id='{$id}'";
 	if(mysql_query($sql1)&&mysql_query($sql2)){
 		$mes = "退房成功！<br/><a href='listUsers.php'>查看用户列表</a>|<a href='listBed.php'>查看床位使用具体情况</a>";
 	}

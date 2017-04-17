@@ -76,7 +76,7 @@ if(!$rows){
                     <td><?php echo $row['username'];?></td>
                     <td><a href="detialEmployee.php?id=<?php echo $row['eid'];?>"><?php echo $row['name'];?></a></td>
                 </tr>
-                <?php endforeach;?>
+                <?php $i++; endforeach;?>
                 <?php if($totalRows>$pageSize):?>
                 <tr>
                 	<td colspan="7"><?php echo showPage($page, $totalPage,"keywords={$keywords}&condition={$condition}");?></td>
