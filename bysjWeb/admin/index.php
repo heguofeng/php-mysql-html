@@ -164,18 +164,8 @@ $row=fetchOne($sql);
 						<h3><span>+</span>费用管理</h3>
 						<ul class="menu_item_child none">
 							<li>
-								<a href="" target="mainFrame">
-									养老院财务状况
-								</a>
-							</li>
-							<li>
-								<a href="" target="mainFrame">
+								<a href="listPayment.php" target="mainFrame">
 									入住老人缴费信息
-								</a>
-							</li>
-							<li>
-								<a href="" target="mainFrame">
-									欠费信息
 								</a>
 							</li>
 							<li>

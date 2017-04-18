@@ -312,8 +312,19 @@ label.error {
 	bottom: 2px;
 	text-decoration: none;
 }
-
-
+.current_balance{
+	color: #ff824d;
+	font-size: 36px;
+	margin: 10px 0;
+	float: left;
+}
+.current_balance i{
+	font-size: 16px;
+	font-style: normal;
+}
+.pay_nums{
+		margin: 10px 0;
+}
 
 
 

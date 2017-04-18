@@ -60,7 +60,7 @@ if(mysql_query($sql)){
 						<a tabindex="0" class="btn btn-danger" role="button" data-toggle="popover" title="护理明细说明" data-content="请看收费标准，内有各项护理级别详细信息。">护理级别怎么选？</a>
 					</td>
 				</tr>
-				<tr><td class="basicinfo_title" style="vertical-align: middle;width: 130px;">应缴费用：</td><td ><p class="current_balance allCost"><?php echo $user_hljb['allCost'];?></p><i class="current_balance_after">.00元</i><img id="shuaxin" class="shuaxin" src="images/shuaxin.png"/></td></tr>
+				<tr><td class="basicinfo_title" style="vertical-align: middle;width: 130px;">应缴费用：</td><td ><p class="current_balance allCost"><?php echo $user_hljb['allCost'];?></p><i class="current_balance_after">.00元</i></td></tr>
 				<tr><td class="basicinfo_title td_crossline" style="vertical-align: middle;">我的账单详情：</td> <td class="td_crossline">  </td> </tr>
 				<tr><td class="basicinfo_title " style="vertical-align: middle;">我的护理级别名称：</td>
 					<td class="">
@@ -96,11 +96,35 @@ if(mysql_query($sql)){
 					<?php if($row['pay_status']==0):?>
 						<button id="payCharge" class="btn btn-warning">自助缴费</button>
 					<?php else:?>
-						<button id="payCharge" class="btn btn-warning" disabled="disabled">已缴费</button>
+						<button id="payCharge" class="btn btn-warning" style="background-color: #11CD6E;border-color: #11cd6e;" disabled="disabled">已缴费</button>
 					<?php endif;?>
-					</td><td ></td></tr>
+					</td><td >
+						<span class="fl" id="alertText"></span>
+						<span class="fl" id="alertText2"></span>
+					</td></tr>
 			</table>
-			<span id="alertText"></span>
+			<table  cellspacing="0" cellpadding="0">
+				<tr><td class="basicinfo_title td_crossline" style="vertical-align: middle;">缴费记录：</td> <td class="td_crossline">  </td> </tr>
+				<tr><td colspan="2" class=""> 
+					<table  cellspacing="0" cellpadding="0" style="text-align: center;">
+						<tr>
+							<td width="5%">缴费订单号</td>
+							<td width="15%">缴费时间</td>
+							<td width="5%">缴费金额</td>
+							<td width="10%">缴费者</td>
+						</tr>
+						<tr>
+							<td><?php echo $row['id'];?></td>
+							<td><?php echo $row['pay_time'];?></td>
+							<td><?php echo $row['pay_money'].".00 元";?></td>
+							<td><?php echo $userInfo['u_name'];?></td>
+						</tr>
+					</table>
+					</td> 
+				</tr>
+				
+			</table>
+			
 		</div><!--basicinfo_table结束-->	
 	</div><!--table_all-->			
 <script type="text/javascript">
@@ -147,46 +171,27 @@ $().ready(function(){
 			},
 			dataType:"json",
 			success:function(data){
-				if(data.res_id){
-					$("#alertText").html(data.msg);
-					$("#alertText").css("display","block");
+				if(data.res_id=='1'){
+					$("#alertText2").html(data.msg);
+					$("#alertText2").css("display","block");
 					setTimeout(function(){
 							$("#payCharge").attr("disabled","disabled");
+							$("#payCharge").css({"background-color":"#11cd6e","border-color":"#11cd6e"});
 							$("#payCharge").html("已缴费");
 					},2000);
 					
-				}
-						
+				}else{
+					$("#alertText").html(data.msg);
+					$("#alertText").css("display","block");
+					
+				}			
 			},
 			error:function(jqXHR){
 				alert("发生错误:"+jqXHR.status);
 			},
 		});
 	}); 
-	  $("#shuaxin").click(function(){
-    	//添加旋转属性
-    	$("#shuaxin").addClass("rotate");
-    	//3s后把这个属性撤销掉
-    	setTimeout(function(){
-    		$("#shuaxin").removeClass("rotate");
-    		},3000);
-		$.ajax({
-			type:"post",
-			url:"doUserAction.php?act=shuaxin&id=<?php echo $id ?>",
-			dataType:"html",
-			success:function(data){
-				if(data){
-					$(".real_balance").html(data);
-				}
-				else{
-					$(".real_balance").html("刷新失败！");
-				}
-			},
-			error:function(jqXHR){
-				alert("发生错误:"+jqXHR.status);
-			},
-		});
-	}); 
+	 
 }); 
 </script>
 </body>

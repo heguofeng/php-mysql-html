@@ -997,6 +997,12 @@ input.error {border: 1px solid red;}
 	padding-left: 30px;
 	display: none;
 }
+#alertText2{
+	background: url(../images/check.png) no-repeat left;
+	color: #11cd6e;
+	padding-left: 30px;
+	display: none;
+}
 .current_balance_after{
 	font-size: 16px;
 	font-style: normal;	

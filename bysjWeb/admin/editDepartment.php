@@ -10,24 +10,27 @@ $row=getDepartmentById($id);
 <title>修改部门</title>
 <link rel="stylesheet" type="text/css" href="css/reset.css"/>
 <link rel="stylesheet" type="text/css" href="css/backstage.css"/>
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 </head>
 <body>
 <div class="location">
 	当前位置:&nbsp;<a id="first" href="main.php">首页</a>&nbsp;&gt;&nbsp;<a>部门管理</a>&nbsp;&gt;&nbsp;<a href="#" id="third">修改部门</a>
 </div>
 <h3 class="biaoti">修改部门</h3>
+<div class="basicinfo_table">
 <form id="formDep" action="doAdminAction.php?act=editDepartment&id=<?php echo $id; ?>" method="post">
-<table class="edittable" width="70%" cellpadding="0" cellspacing="0" >
+<table width="70%" cellpadding="0" cellspacing="0" >
 	<tr>
-		<td align="right">部门名称</td>
-		<td><input type="text" name="d_name" id="d_name" class="fl" placeholder="<?php echo $row['d_name']; ?>"/><p id="checkname" class="fl"></p></td>
+		<td class="basicinfo_title">部门名称</td>
+		<td><input type="text" name="d_name" id="d_name" class="txtinput fl" placeholder="<?php echo $row['d_name']; ?>"/><p id="checkname" class="fl"></p></td>
 	</tr>
 	<tr>
-		<td colspan="2"><input type="submit" class="editbtn fr" value="修改部门"/></td>
+		<td colspan="2"><input type="submit" class="btn btn-primary" value="修改部门"/></td>
 	</tr>
 
 </table>
 </form>
+</div>
 </body>
 
 <script type="text/javascript" src="js/jquery.min.js"></script>

@@ -13,7 +13,7 @@ if ($page < 1 || $page == null || !is_numeric($page))
 if ($page > $totalPage)
 	$page = $totalPage;
 $offset = ($page - 1) * $pageSize;
-$sql = "SELECT u.*, hl.hljb, hy.hyzk, xl.xlzk,b.bed_id,b.room_id,b.floor_id,b.building_id FROM users u LEFT JOIN dic_hljb hl ON hl.id = u.u_hljb LEFT JOIN dic_hyzk hy ON hy.id = u.u_hyzk LEFT JOIN dic_xlzk xl ON xl.id = u.u_xlzk left join bed b on b.user_id=u.id {$where} order by u.id asc limit {$offset},{$pageSize} ";
+$sql = "SELECT u.*, hl.hljb, hy.hyzk, xl.xlzk,b.bed_id,b.room_id,b.floor_id,b.building_id,p.pay_status FROM users u LEFT JOIN dic_hljb hl ON hl.id = u.u_hljb LEFT JOIN dic_hyzk hy ON hy.id = u.u_hyzk LEFT JOIN dic_xlzk xl ON xl.id = u.u_xlzk left join bed b on b.user_id=u.id left join pay_records p on u.pay_id=p.id {$where} order by u.id asc limit {$offset},{$pageSize} ";
 $rows = fetchAll($sql);
 if(!$rows){
 	alertMes("查找无效，请重新输入关键词", "listUsers.php");
@@ -60,7 +60,7 @@ if(!$rows){
                     <th width="5%">用户性别</th>
                     <th width="10%">护理级别</th>
                     <th width="20%">床位信息</th>
-                    <th width="10%">学历状况</th>
+                    <th width="10%">是否已缴费</th>
                     <th>操作</th>
                 </tr>
             </thead>
@@ -73,7 +73,7 @@ if(!$rows){
                     <td><?php echo $row['u_sex']; ?></td>
                     <td><?php echo $row['hljb']; ?></td>
                		<td><?php if($row['u_bed']!=0): ?>	<?php echo $row['building_id']."幢楼 &nbsp;&nbsp;".$row['floor_id']."层&nbsp;&nbsp;".$row['room_id']."房间&nbsp;&nbsp;".$row['bed_id']."号床"; ?><?php else: ?>暂未居住<?php endif;?></td>
-               		<td><?php echo $row['xlzk']; ?></td>
+               		<td><?php echo $row['pay_status']==1?"已缴费":"未缴费"; ?></td>
                     <td align="left">
                     	<input type="button" value="详细信息" class="btn btn-info"  onclick="detialUsers(<?php echo $row['id']; ?>)">	
                     	<input type="button" value="修改资料" class="btn btn-success" onclick="editUsers(<?php echo $row['id']; ?>)">
