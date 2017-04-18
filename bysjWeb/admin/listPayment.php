@@ -58,7 +58,6 @@ $nums=fetchOne($sql1);
                 <?php $i++; endforeach; ?>
             </tbody>
         </table>
-        
 </body>
 <script type="text/javascript">
 $(document).ready(function() {
