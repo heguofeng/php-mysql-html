@@ -18,6 +18,17 @@ $bjcss=fetchAll($sql);
 /*最后一条保健常识*/
 $sql="select * from article where category_id=2 order by id desc limit 1";
 $last_bjcs=fetchOne($sql);
+//以下是生活照料、医疗护理、等五个子导航
+$sql="select * from article where category_id=6";
+$shzl=fetchOne($sql);
+$sql="select * from article where category_id=7";
+$ylhl=fetchOne($sql);
+$sql="select * from article where category_id=8";
+$ylhd=fetchOne($sql);
+$sql="select * from article where category_id=9";
+$jkgl=fetchOne($sql);
+$sql="select * from article where category_id=10";
+$yyss=fetchOne($sql);
 ?>
 <!DOCTYPE html>
 <html>
@@ -45,7 +56,7 @@ myFocus.set({
 	<div class="top">
 		<div class="top_content">
 			<div class="top_content_l">
-				<a href="admin/index.php" class="backstage">进入后台管理系统</a>
+				<a href="admin/index.php" target="_blank" title="进入后台管理系统" class="backstage">进入后台管理系统</a>
 			</div>
 			<?php if($userInfo['id']):?>
 			<ul class="top_content_user">
@@ -88,7 +99,7 @@ myFocus.set({
 					<li><a href="nav_about.php?id=2">保健常识</a></li>
 					<li><a href="nav_about.php?id=4">环境设施</a></li>
 					<li><a href="nav_about.php?id=10">收费标准</a></li>
-					<li><a href="nav_about.php?id=4">人才招聘</a></li>
+					<li><a href="nav_about.php?id=100">人才招聘</a></li>
 					<li><a href="personal_info.php">个人中心</a></li>
 				</ul>
 		</div>
@@ -101,10 +112,10 @@ myFocus.set({
 			<div class="loading"><img src="images/loading.gif" alt="请稍等..."/></div><!--载入画面-->
 			<div class="pic">
 				<ul>
-					<li><a href="#"><img src="images/pic4.jpg" alt="美丽风貌" text="详细描述1"/></a></li>
-					<li><a href="#"><img src="images/pic3.jpg" alt="养生食物" text="详细描述1"/></a></li>
-					<li><a href="#"><img src="images/pic2.jpg" alt="美丽风貌" text="详细描述1"/></a></li>
-					<li><a href="#"><img src="images/pic1.png" alt="空闲生活" text="详细描述1"/></a></li>
+					<li><a href="#"><img src="images/pic4.jpg" alt="美丽风貌" text="美丽的山庄景色，适合养生"/></a></li>
+					<li><a href="#"><img src="images/pic3.jpg" alt="养生食物" text="空心泡，草莓，车厘子"/></a></li>
+					<li><a href="#"><img src="images/pic2.jpg" alt="来一杯" text="不如坐下喝一杯"/></a></li>
+					<li><a href="#"><img src="images/pic1.png" alt="空闲生活" text="去海边看看"/></a></li>
 				</ul>
 			</div>
 		</div>
@@ -116,23 +127,23 @@ myFocus.set({
 				<ul>
 					<li class="special01">
 						<i></i>
-						<a href="#"><em></em><span><strong>生活照料</strong>Life Care</span></a>
+						<a href="article.php?id=<?php echo $shzl['id']; ?>" title="生活照料"><em></em><span><strong>生活照料</strong>Life Care</span></a>
 					</li>
 					<li class="special02">
 						<i></i>
-						<a href="#"><em></em><span><strong>医疗护理</strong>Medical Care</span></a>
+						<a href="article.php?id=<?php echo $ylhl['id']; ?>" title="医疗护理"><em></em><span><strong>医疗护理</strong>Medical Care</span></a>
 					</li>
 					<li class="special03">
 						<i></i>
-						<a href="#"><em></em><span><strong>娱乐活动</strong>Activities</span></a>
+						<a href="article.php?id=<?php echo $ylhd['id']; ?>" title="娱乐活动"><em></em><span><strong>娱乐活动</strong>Activities</span></a>
 					</li>
 					<li class="special04">
 						<i></i>
-						<a href="#"><em></em><span><strong>健康管理</strong>Management</span></a>
+						<a href="article.php?id=<?php echo $jkgl['id']; ?>" title="健康管理"><em></em><span><strong>健康管理</strong>Management</span></a>
 					</li>
 					<li class="special05">
 						<i></i>
-						<a href="#"><em></em><span><strong>营养膳食</strong>Dietary</span></a>
+						<a href="article.php?id=<?php echo $yyss['id']; ?>" title="营养膳食"><em></em><span><strong>营养膳食</strong>Dietary</span></a>
 					</li>
 				</ul>
 			</div>
@@ -147,7 +158,7 @@ myFocus.set({
 							<a href="#" title="【糖尿病】老人糖尿病如何护理"><img src="images/img01.jpg" width="260" height="100" alt="【糖尿病】老人糖尿病如何护理"></a>
 						</dt>
 						<?php foreach ($zyhls as $zyhl): ?>
-							<dd><a href="article.php?id=<?php echo $zyhl['id']; ?>"><?php echo $zyhl['title']; ?></php?></a></dd>
+							<dd><a href="article.php?id=<?php echo $zyhl['id']; ?>" title="<?php echo $zyhl['title']; ?>"><?php echo $zyhl['title']; ?></a></dd>
 						<?php endforeach; ?>
 					</dl>
 				</div>
@@ -169,7 +180,7 @@ myFocus.set({
 						<div id="scrollBox">
 							<ul>
 								<?php foreach ($bjcss as $bjcs):?>
-									<li><a href="article.php?id=<?php echo $bjcs['id']; ?>"><?php echo $bjcs['title']; ?></a></li>
+									<li><a href="article.php?id=<?php echo $bjcs['id']; ?>" title="<?php echo $bjcs['title']; ?>"><?php echo $bjcs['title']; ?></a></li>
 								<?php endforeach;?>
 							</ul>
 						</div>
@@ -207,14 +218,14 @@ myFocus.set({
 								<td id="scrollPic1">
 									<table border="0" cellspacing="0" cellpadding="0">
 										<tr>
-											<td><li><img src="images/intu1.jpg"/><a class="pic_name">这是图片1</a></li></td>
-											<td><li><img src="images/intu2.jpg"/><a class="pic_name">这是图片2</a></li></td>
-											<td><li><img src="images/intu3.jpg"/><a class="pic_name">这是图片3</a></li></td>
-											<td><li><img src="images/intu4.jpg"/><a class="pic_name">这是图片4</a></li></td>
-											<td><li><img src="images/intu5.jpg"/><a class="pic_name">这是图片5</a></li></td>
-											<td><li><img src="images/intu6.jpg"/><a class="pic_name">这是图片6</a></li></td>
-											<td><li><img src="images/intu7.jpg"/><a class="pic_name">这是图片7</a></li></td>
-											<td><li><img src="images/intu8.jpg"/><a class="pic_name">这是图片8</a></li></td>
+											<td><li><img src="images/intu1.jpg"/><a class="pic_name">温馨</a></li></td>
+											<td><li><img src="images/intu2.jpg"/><a class="pic_name">一家人</a></li></td>
+											<td><li><img src="images/intu3.jpg"/><a class="pic_name">休闲时光</a></li></td>
+											<td><li><img src="images/intu4.jpg"/><a class="pic_name">快乐一家人</a></li></td>
+											<td><li><img src="images/intu5.jpg"/><a class="pic_name">看书阅读</a></li></td>
+											<td><li><img src="images/intu6.jpg"/><a class="pic_name">甜蜜恩爱</a></li></td>
+											<td><li><img src="images/intu7.jpg"/><a class="pic_name">熟悉彼此</a></li></td>
+											<td><li><img src="images/intu8.jpg"/><a class="pic_name">一家人</a></li></td>
 										</tr>
 									</table>
 								</td>

@@ -19,10 +19,11 @@ window.onload=function(){
 			$(".content_right").load(newhtml);
 		})
 	}
-	//按钮事件
+	//左侧按钮事件
 	btnClick("#charges","c_charges.php");
 	btnClick("#about","c_about.php");
 	btnClick("#services","c_services.php");
+	btnClick("#joinUs","c_services.php");
 
 	/*个人信息页面的按钮*/
 	btnClick(".info_title_txt","infoEdit.php");

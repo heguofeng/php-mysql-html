@@ -20,7 +20,7 @@ $row=fetchOne($sql);
 </head>
 <body>
 	<div class="head">
-		<a href="../index.php" title="官方首页">
+		<a href="../index.php" target="_blank" title="官方首页">
 			<div class="logo fl"></div>
 		</a>
 		<h3 class="head_text fr">温医养老院后台管理系统</h3>
@@ -179,12 +179,12 @@ $row=fetchOne($sql);
 						<h3><span>+</span>接待管理</h3>
 						<ul class="menu_item_child none">
 							<li>
-								<a href="" target="mainFrame">
+								<a href="main.php" target="mainFrame">
 									来客登记
 								</a>
 							</li>
 							<li>
-								<a href="" target="mainFrame">
+								<a href="main.php" target="mainFrame">
 									接待登记信息
 								</a>
 							</li>

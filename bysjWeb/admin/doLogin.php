@@ -4,7 +4,7 @@ $username = $_GET['username'];
 $password = md5($_GET['password']);
 $autoFlag = $_GET['autoFlag'];
 $result = '{"success":false,"msg":"没有找到账号。"}';
-$sql = "select * from employee where username='$username' and password='$password'";
+$sql = "select * from employee where username='$username' and password='$password' and isJob=1";
 $row = checkAdmin($sql);
 if ($row) {
 	$result = '{"success":true,"msg":"登录成功!"}';

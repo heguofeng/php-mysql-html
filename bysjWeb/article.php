@@ -11,6 +11,18 @@ if($id){
 $a_id=$_REQUEST['id'];
 $sql="select * from article where id = {$a_id}";
 $row=fetchOne($sql);
+
+//以下是生活照料、医疗护理、等五个子导航
+$sql="select * from article where category_id=6";
+$shzl=fetchOne($sql);
+$sql="select * from article where category_id=7";
+$ylhl=fetchOne($sql);
+$sql="select * from article where category_id=8";
+$ylhd=fetchOne($sql);
+$sql="select * from article where category_id=9";
+$jkgl=fetchOne($sql);
+$sql="select * from article where category_id=10";
+$yyss=fetchOne($sql);
 ?>
 <!DOCTYPE html>
 <html>
@@ -95,10 +107,10 @@ myFocus.set({
 			<div class="loading"><img src="images/loading.gif" alt="请稍等..."/></div><!--载入画面-->
 			<div class="pic">
 				<ul>
-					<li><a href="#"><img src="images/pic4.jpg" alt="美丽风貌" text="详细描述1"/></a></li>
-					<li><a href="#"><img src="images/pic3.jpg" alt="养生食物" text="详细描述1"/></a></li>
-					<li><a href="#"><img src="images/pic2.jpg" alt="美丽风貌" text="详细描述1"/></a></li>
-					<li><a href="#"><img src="images/pic1.png" alt="空闲生活" text="详细描述1"/></a></li>
+					<li><a href="#"><img src="images/pic4.jpg" alt="美丽风貌" text="美丽的山庄景色，适合养生"/></a></li>
+					<li><a href="#"><img src="images/pic3.jpg" alt="养生食物" text="空心泡，草莓，车厘子"/></a></li>
+					<li><a href="#"><img src="images/pic2.jpg" alt="来一杯" text="不如坐下喝一杯"/></a></li>
+					<li><a href="#"><img src="images/pic1.png" alt="空闲生活" text="去海边看看"/></a></li>
 				</ul>
 			</div>
 		</div>
@@ -108,19 +120,19 @@ myFocus.set({
 	<div class="pages">
 		<ul>
 			<li class="pages01">
-				<a href="javascript:;" title="生活照料"><img src="images/page01.jpg" alt="生活照料"></a>
+				<a href="article.php?id=<?php echo $shzl['id']; ?>" title="生活照料"><img src="images/page01.jpg" alt="生活照料"></a>
 			</li>
 			<li class="pages02">
-				<a href="javascript:;" title="医疗护理"><img src="images/page02.jpg" alt="医疗护理"></a>
+				<a href="article.php?id=<?php echo $ylhl['id']; ?>" title="医疗护理"><img src="images/page02.jpg" alt="医疗护理"></a>
 			</li>
 			<li class="pages03">
-				<a href="javascript:;" title="娱乐活动"><img src="images/page03.jpg" alt="娱乐活动"></a>
+				<a href="article.php?id=<?php echo $ylhd['id']; ?>" title="娱乐活动"><img src="images/page03.jpg" alt="娱乐活动"></a>
 			</li>
 			<li class="pages04">
-				<a href="javascript:;" title="健康管理"><img src="images/page04.jpg" alt="健康管理"></a>
+				<a href="article.php?id=<?php echo $jkgl['id']; ?>" title="健康管理"><img src="images/page04.jpg" alt="健康管理"></a>
 			</li>
 			<li class="pages05">
-				<a href="javascript:;" title="营养膳食"><img src="images/page05.jpg" alt="营养膳食"></a>
+				<a href="article.php?id=<?php echo $yyss['id']; ?>" title="营养膳食"><img src="images/page05.jpg" alt="营养膳食"></a>
 			</li>
 		</ul>
 	</div>
