@@ -11,6 +11,9 @@ if($id){
 $a_id=$_REQUEST['id'];
 $sql="select * from article where id = {$a_id}";
 $row=fetchOne($sql);
+//设置对应的title
+$sql="select * from art_category where id={$row['category_id']}";
+$title=fetchOne($sql);
 
 //以下是生活照料、医疗护理、等五个子导航
 $sql="select * from article where category_id=6";
@@ -28,7 +31,7 @@ $yyss=fetchOne($sql);
 <html>
 <head>
 <meta charset="UTF-8"/>
-<title>内容页</title>
+<title> <?php echo $title['category']; ?> </title>
 <link rel="stylesheet" type="text/css" href="css/reset.css"/>
 <link rel="stylesheet" type="text/css" href="css/main.css"/>
 <script type="text/javascript" src="js/myfocus-2.0.1.min.js"></script><!--引入myFocus库-->
@@ -51,7 +54,7 @@ myFocus.set({
 	<div class="top">
 		<div class="top_content">
 			<div class="top_content_l">
-				<a href="admin/index.php" class="backstage">进入后台管理系统</a>
+				<a href="admin/index.php" target="_blank" class="backstage">进入后台管理系统</a>
 			</div>
 			<?php if($userInfo['id']):?>
 			<ul class="top_content_user">
@@ -92,9 +95,9 @@ myFocus.set({
 					<li><a href="nav_about.php?id=3">关于养老院</a></li>
 					<li><a href="nav_about.php?id=4">服务特色</a></li>
 					<li><a href="nav_about.php?id=2">保健常识</a></li>
-					<li><a href="nav_about.php?id=4">环境设施</a></li>
-					<li><a href="nav_about.php?id=10">收费标准</a></li>
-					<li><a href="nav_about.php?id=4">人才招聘</a></li>
+					<li><a href="nav_about.php?id=12">环境设施</a></li>
+					<li><a href="nav_about.php?id=13">收费标准</a></li>
+					<li><a href="nav_about.php?id=5">人才招聘</a></li>
 					<li><a href="personal_info.php">个人中心</a></li>
 				</ul>
 		</div>
@@ -161,6 +164,7 @@ myFocus.set({
 		</div><!--content_right结束-->
 	</div><!--content结束-->
 	</div><!--wrap结束-->
+	<a id="to_top" href="javascript:;" title="回到顶部"></a>
 	<div class="footer">
 		<!--<div class="footer_a"></div>-->
 		<div class="footer_b">

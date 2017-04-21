@@ -199,7 +199,7 @@ input.error {border: 1px solid red;}
 	position: fixed;
 	top: 30px;
 	left: 0;
-	z-index: 3000;
+	z-index: 900;
 }
 .logo{
 	width: 1000px;
@@ -668,6 +668,20 @@ input.error {border: 1px solid red;}
 	width: 980px;
 	padding: 10px;
 }
+#to_top{
+	display: block;
+	background: url(../images/top_bg.png) no-repeat left top;
+	width: 40px;
+	height: 40px;
+	position: fixed;
+	left: 50%;
+	margin-left: 510px;
+	bottom: 60px;
+	/*display: none;*/
+}
+#to_top:hover{
+	background: url(../images/top_bg.png) no-repeat 0 -40px;
+}
 .footer_a{
 	width: 100%;
 	height: 160px;
@@ -926,7 +940,7 @@ input.error {border: 1px solid red;}
     width: 740px;
 }
 .a_title{
-	font: 25px/2 "微软雅黑";
+	font: 30px/2 "微软雅黑";
 	text-align: center;
 	border-bottom: 10px solid #808080;
     margin-bottom: 20px;
@@ -941,7 +955,7 @@ input.error {border: 1px solid red;}
 .a_content P{
 	font-size: 15.5px;
 }
-/*下面是我的账户的样式*/
+/*—————————————————————————————————————下面是myAccount.php我的账户的样式*————————————————————————————————————————————————*/
 .balance_span{
 	 position: relative;
     display: inline-block;
@@ -1009,4 +1023,33 @@ input.error {border: 1px solid red;}
 	color: #ff824d;
 	padding-top: 16px;
 	float: left;
+}
+/*—————————————————————————————————————下面是c_bjcs.php保健常识页面的样式*————————————————————————————————————————————————*/
+.page_li{
+	display: inline-block;
+	width: 734px;
+	margin:0 3px 5px 3px;
+	padding: 5px 0;
+	border-bottom: 1px solid #CCCCCC;
+}
+.page_title a{
+	font-size: 24px;
+	line-height: 30px;
+	color:#228B22;
+}
+.page_title a:hover{
+	text-decoration: none;
+	color: #FF6347;
+}
+.page_title span{
+	color: #FF6347;
+	font-size: 12px;
+	line-height: 30px;
+}
+.page_li p{
+	display: inline-block;
+	width: 734px;
+	padding: 5px 0;
+	text-indent: 2em;
+	color: #8c8c8c;
 }

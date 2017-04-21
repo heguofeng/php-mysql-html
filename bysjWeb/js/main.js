@@ -11,6 +11,7 @@ myFocus.set({
 });
 
 window.onload=function(){
+//var clientHeight=document.documentElement.clientHeight;//获取页面可视区域高度	
 //scrollBox文字滚动效果   间歇性滚动
  var scrollBox = document.getElementById('scrollBox');
  var iliHeight = 30;//单行滚动的高度
@@ -73,7 +74,6 @@ scrollPic.onmouseout = function(){
 $(window).scroll(function(){
 	var top=$(document).scrollTop();
 	var nav=$('.nav');
-	var navTop=nav.offset().top;
 	if(top>120){
 		nav.addClass("wrap_logo_fixed");
 		nav.removeClass("wrap_logo");
@@ -81,6 +81,18 @@ $(window).scroll(function(){
 		nav.addClass("wrap_logo");
 		nav.removeClass("wrap_logo_fixed");
 	}
+	if(top>=400){
+		$('#to_top').css("display","block");
+	}else{
+		$('#to_top').css("display","none");
+	}
 });
+//回到顶部
+$('#to_top').click(function(){
+		$('body,html').animate({scrollTop:0},500);
+});
+
+
+
 
 }

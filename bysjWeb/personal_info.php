@@ -28,7 +28,7 @@ $hyzks=getAllhyzk();
 	<div class="top">
 		<div class="top_content">
 			<div class="top_content_l">
-				<a href="admin/index.php" class="backstage">进入后台管理系统</a>
+				<a href="admin/index.php" target="_blank" class="backstage">进入后台管理系统</a>
 			</div>
 			<?php if($userInfo['id']):?>
 			<ul class="top_content_user">
@@ -69,9 +69,9 @@ $hyzks=getAllhyzk();
 					<li><a href="nav_about.php?id=3">关于养老院</a></li>
 					<li><a href="nav_about.php?id=4">服务特色</a></li>
 					<li><a href="nav_about.php?id=2">保健常识</a></li>
-					<li><a href="nav_about.php?id=4">环境设施</a></li>
-					<li><a href="nav_about.php?id=10">收费标准</a></li>
-					<li><a href="nav_about.php?id=4">人才招聘</a></li>
+					<li><a href="nav_about.php?id=12">环境设施</a></li>
+					<li><a href="nav_about.php?id=13">收费标准</a></li>
+					<li><a href="nav_about.php?id=5">人才招聘</a></li>
 					<li><a href="personal_info.php">个人中心</a></li>
 				</ul>
 		</div>
@@ -85,7 +85,7 @@ $hyzks=getAllhyzk();
 			<div class="content_l_list">
 				<ul>
 					<div class="pic_bigtx">
-						<img width="176" height="176" src="upload/<?php echo $userInfo['u_photo']?$userInfo['u_photo']:'/sys/login_no.png'; ?>"/>	
+						<img width="178" height="178" src="upload/<?php echo $userInfo['u_photo']?$userInfo['u_photo']:'/sys/login_no.png'; ?>"/>	
 						<a id="editTx" class="ghtx" href="javascript:;">更换头像</a>
 					</div>						
 					<li><a id="personal" href="personal_info.php">个人中心<span>About Us</span></a></li>

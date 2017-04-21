@@ -97,9 +97,9 @@ myFocus.set({
 					<li><a href="nav_about.php?id=3">关于养老院</a></li>
 					<li><a href="nav_about.php?id=4">服务特色</a></li>
 					<li><a href="nav_about.php?id=2">保健常识</a></li>
-					<li><a href="nav_about.php?id=4">环境设施</a></li>
-					<li><a href="nav_about.php?id=10">收费标准</a></li>
-					<li><a href="nav_about.php?id=100">人才招聘</a></li>
+					<li><a href="nav_about.php?id=12">环境设施</a></li>
+					<li><a href="nav_about.php?id=13">收费标准</a></li>
+					<li><a href="nav_about.php?id=5">人才招聘</a></li>
 					<li><a href="personal_info.php">个人中心</a></li>
 				</ul>
 		</div>
@@ -165,7 +165,7 @@ myFocus.set({
 			</div>
 			<div class="new_mid">
 				<div class="titleBox">
-					<h3 class="title"><a href="#" title="保健常识"><span>保健常识</span>/Knowledge</a></h3>
+					<h3 class="title"><a href="nav_about.php?id=2" title="保健常识"><span>保健常识</span>/Knowledge</a></h3>
 				</div>
 				<div class="CHlist">
 					<dl>
@@ -330,6 +330,7 @@ myFocus.set({
 		<!--history结束-->
 	</div>
 	<!--wrap结束-->
+	<a id="to_top" href="javascript:;" title="回到顶部"></a>
 	<div class="footer">
 		<!--<div class="footer_a"></div>-->
 		<div class="footer_b">
@@ -342,18 +343,6 @@ myFocus.set({
 
 <script type="text/javascript" src="js/main.js"></script><!--自己写的js文件要放在最后面-->
 <script type="text/javascript">
-	/*导航条设置fixed效果*/
-	$(window).scroll(function(){
-	var top=$(document).scrollTop();
-	var nav=$('.nav');
-	var navTop=nav.offset().top;
-	if(top>120){
-		nav.addClass("wrap_logo_fixed");
-		nav.removeClass("wrap_logo");
-	}else{
-		nav.addClass("wrap_logo");
-		nav.removeClass("wrap_logo_fixed");
-	}
-});
+
 </script>
 </html>
