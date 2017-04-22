@@ -9,6 +9,11 @@ if($id){
 	$userInfo=getUserById($id);	
 }
 $a_id=$_REQUEST['id'];
+//更新浏览次数
+$sql="update article set history=history+1 where id={$a_id} ";
+mysql_query($sql);
+
+//查找该文章
 $sql="select * from article where id = {$a_id}";
 $row=fetchOne($sql);
 //设置对应的title
@@ -26,6 +31,8 @@ $sql="select * from article where category_id=9";
 $jkgl=fetchOne($sql);
 $sql="select * from article where category_id=10";
 $yyss=fetchOne($sql);
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -156,7 +163,10 @@ myFocus.set({
 		</div>
 		<div class="content_right">
 			<!--文章标题放这里-->
-			<h1 class="a_title"><?php echo $row['title'] ?><span>作者：<?php echo $row['author']; ?></span></h1>
+			<h1 class="a_title"><?php echo $row['title'] ?><br />
+				<span>发布日期：<?php echo $row['dateline']; ?></span><span class="a_title2">作者：<?php echo $row['author']; ?></span><span class="a_title2">浏览次数:<?php echo $row['history']; ?></span>
+			</h1>
+			
 			<div class="a_content">
 				<!--文章内容放这里-->
 				<?php echo $row['content']; ?>		
@@ -173,9 +183,5 @@ myFocus.set({
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript">
-
-	
-	</script>
 </body>
 </html>

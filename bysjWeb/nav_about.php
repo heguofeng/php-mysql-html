@@ -168,15 +168,15 @@ myFocus.set({
 <script type="text/javascript" src="js/content.js"></script>
 <script type="text/javascript">
 	<?php if($a_id==3): ?>//关于养老院
-	$(".content_right").load("c_about.php");
+	$(".content_right").load("c_about.php?id=3");
 	<?php elseif($a_id==4): ?>//服务特色
-	$(".content_right").load("c_services.php");
+	$(".content_right").load("c_about.php?id=4");
 	<?php elseif($a_id==13): ?>//收费标准
 	$(".content_right").load("c_charges.php");
 	<?php elseif($a_id==5): ?>//人才招聘
-	$(".content_right").load("c_joinUs.php");
+	$(".content_right").load("c_about.php?id=5");
 	<?php elseif($a_id==2): ?>//保健常识
-	$(".content_right").load("c_knowledge.php");
+	$(".content_right").load("c_knowledge.php?id=2");
 	<?php elseif($a_id==12): ?>//环境设施
 	$(".content_right").load("c_environment.php");
 	<?php endif; ?>

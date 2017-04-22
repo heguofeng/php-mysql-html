@@ -20,6 +20,7 @@ $hyzks=getAllhyzk();
 <head>
 <meta charset="UTF-8"/>
 <title>个人中心</title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/reset.css"/>
 <link rel="stylesheet" type="text/css" href="css/main.css"/>
 <script type="text/javascript" src="js/jquery.min.js"></script>
@@ -113,7 +114,6 @@ $hyzks=getAllhyzk();
 						<li><label class="fl">手机号码：</label><div class="info_val fl"><?php echo $userInfo['u_phone']; ?></div></li>
 						<li><label class="fl">床位号：</label><div class="info_val fl"><?php if($userInfo['u_bed']!=0): ?>	<?php echo $userInfo['building_id']."幢楼 &nbsp;&nbsp;".$userInfo['floor_id']."层&nbsp;&nbsp;".$userInfo['room_id']."房间&nbsp;&nbsp;".$userInfo['bed_id']."号床"; ?><?php else: ?>暂未居住<?php endif;?></div></li>
 						<li><label class="fl">入住日期：</label><div class="info_val fl"><?php echo $userInfo['checkIn_date']; ?></div></li>
-
 					</ul>
 				</div><!--info_list结束-->
 			</div>	<!--info_preview结束-->

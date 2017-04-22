@@ -19,7 +19,6 @@ $userInfo=getUserById($id);
 <link rel="stylesheet" type="text/css" href="css/main.css"/>
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script src="js/My97DatePickerBeta/My97DatePicker/WdatePicker.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
 </head>
 <body>
 	<div class="table_all">

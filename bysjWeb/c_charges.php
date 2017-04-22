@@ -3,17 +3,6 @@ require_once 'include.php';
 $rows=getAllhljb();
 
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8"/>
-<title>个人中心</title>
-<link rel="stylesheet" type="text/css" href="css/reset.css"/>
-<link rel="stylesheet" type="text/css" href="css/main.css"/>
-<script type="text/javascript" src="js/jquery.min.js"></script>
-
-</head>
-<body>
 	<div><!--没有任何css属性-->
 		<div class="info_title">
 			<h3>收费标准</h3>
@@ -51,6 +40,3 @@ $rows=getAllhljb();
 			<p>注：最终解释权归快乐养老院</p>
 		</div><!--basicinfo_table结束-->	
 	</div><!--table_all-->		
-		
-</body>
-</html>

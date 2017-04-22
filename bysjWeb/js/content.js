@@ -36,12 +36,12 @@ window.onload=function(){
 	}
 	//左侧菜单按钮事件
 	btnClick("#charges","c_charges.php");
-	btnClick("#about","c_about.php");
-	btnClick("#services","c_services.php");
-	btnClick("#joinUs","c_services.php");
-	btnClick("#knowledge","c_knowledge.php");
+	btnClick("#about","c_about.php?id=3");
+	btnClick("#services","c_about.php?id=4");
+	btnClick("#knowledge","c_knowledge.php?id=2");
 	btnClick("#professional","c_knowledge.php?id=1");
-	
+	btnClick("#contact","c_contact.php");
+	btnClick("#environment","c_environment.php");
 	
 	/*个人信息页面的按钮*/
 	btnClick(".info_title_txt","infoEdit.php");

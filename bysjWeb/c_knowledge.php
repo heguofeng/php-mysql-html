@@ -1,24 +1,13 @@
 <?php
 require_once 'include.php';
-$a_id=$_REQUEST['id']?$_REQUEST['id']:2;
+$a_id=$_REQUEST['id'];
 $sql="select * from article where category_id = {$a_id}";
 $rows=fetchAll($sql);
 if(!$rows){
-	alertMes("目前没有保健常识信息，请先浏览其他页面", "index.php");
+	alertMes("目前没有文章，请先浏览其他页面", "index.php");
 }
 
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8"/>
-<title>保健常识</title>
-<link rel="stylesheet" type="text/css" href="css/reset.css"/>
-<link rel="stylesheet" type="text/css" href="css/main.css"/>
-<script type="text/javascript" src="js/jquery.min.js"></script>
-</style>
-</head>
-<body>
 	<h1 class="a_title"><?php echo $a_id==1?"专业护理":"保健常识"; ?></h1>
 	<div id="page">
 		<ul>
@@ -37,6 +26,3 @@ if(!$rows){
 			<?php endforeach; ?>
 		</ul>
 	</div>
-</script>
-</body>
-</html>

@@ -677,7 +677,7 @@ input.error {border: 1px solid red;}
 	left: 50%;
 	margin-left: 510px;
 	bottom: 60px;
-	/*display: none;*/
+	display: none;
 }
 #to_top:hover{
 	background: url(../images/top_bg.png) no-repeat 0 -40px;
@@ -740,6 +740,7 @@ input.error {border: 1px solid red;}
 	height: 50px;
 	font: 18px/50px "微软雅黑";
 	padding-left: 12px;
+	text-decoration: none;
 }
 .content_l_list li a span{
 	font-size: 12px;
@@ -747,7 +748,7 @@ input.error {border: 1px solid red;}
 	margin-left: 12px;
 	font-family: arial, helvetica, sans-serif;
 }
-.content_l_list li a:hover{
+.content_l_list li a:hover,.content_l_list li a:active{
 	transition: padding-left 0.3s linear 0s;
 	padding-left: 20px;
 	text-decoration: none;
@@ -940,7 +941,7 @@ input.error {border: 1px solid red;}
     width: 740px;
 }
 .a_title{
-	font: 30px/2 "微软雅黑";
+	font: 30px/1 "微软雅黑";
 	text-align: center;
 	border-bottom: 10px solid #808080;
     margin-bottom: 20px;
@@ -950,7 +951,9 @@ input.error {border: 1px solid red;}
 .a_title span{
 	color: 	#A9A9A9;
 	font-size: 14px;
-	padding-left: 30px;
+}
+.a_title2{
+	padding-left: 50px;
 }
 .a_content P{
 	font-size: 15.5px;
