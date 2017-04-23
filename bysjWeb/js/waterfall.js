@@ -1,9 +1,7 @@
 window.onload=function(){
 
     waterfall('main','pin');
-
-    var dataInt={'data':[{'src':'1.jpg'},{'src':'2.jpg'},{'src':'3.jpg'},{'src':'4.jpg'}]};
-    
+    var dataInt={'data':[{'src':'1.jpg'},{'src':'2.jpg'},{'src':'3.jpg'},{'src':'4.jpg'}]};    
     window.onscroll=function(){
         if(checkscrollside()){
             var oParent = document.getElementById('main');// 父级对象
@@ -31,14 +29,16 @@ function waterfall(parent,pin){
     var oParent=document.getElementById(parent);// 父级对象
     var aPin=getClassObj(oParent,pin);// 获取存储块框pin的数组aPin
     var iPinW=aPin[0].offsetWidth;// 一个块框pin的宽
-    var num=Math.floor(document.documentElement.clientWidth/iPinW);//每行中能容纳的pin个数【窗口宽度除以一个块框宽度】
+    var num=Math.floor(740/iPinW);//每行中能容纳的pin个数【窗口宽度除以一个块框宽度】
+//  var num=Math.floor(ooParaent.offsetWidth/iPinW);
     oParent.style.cssText='width:'+iPinW*num+'px;ma rgin:0 auto;';//设置父级居中样式：定宽+自动水平外边距
-
+	console.log(num);
     var pinHArr=[];//用于存储 每列中的所有块框相加的高度。
     for(var i=0;i<aPin.length;i++){//遍历数组aPin的每个块框元素
         var pinH=aPin[i].offsetHeight;
         if(i<num){
             pinHArr[i]=pinH; //第一行中的num个块框pin 先添加进数组pinHArr
+            
         }else{
             var minH=Math.min.apply(null,pinHArr);//数组pinHArr中的最小值minH
             var minHIndex=getminHIndex(pinHArr,minH);
@@ -65,7 +65,7 @@ function getClassObj(parent,className){
     return pinS;
 }
 /****
-    *获取 pin高度 最小值的索引index
+    *获取 pin高度最小值的索引index
     */
 function getminHIndex(arr,minH){
     for(var i in arr){
@@ -84,3 +84,8 @@ function checkscrollside(){
     var documentH=document.documentElement.clientHeight;//页面高度
     return (lastPinH<scrollTop+documentH+1000)?true:false;//到达指定高度后 返回true，触发waterfall()函数
 }
+//window.onresize = function(){
+//
+//	window.location.reload(); 
+//
+//}

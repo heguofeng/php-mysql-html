@@ -4,11 +4,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <script type="text/javascript" src="js/jquery.min.js"/></script>
 <script type="text/javascript" src="js/waterfall.js"/></script>
-
-<title></title>
+<title>环境设施</title>
 <style type="text/css">
     *{padding: 0;margin:0;}
-
     #main{
         position: relative;
     }
@@ -23,7 +21,7 @@
         border-radius: 5px;
     }
     .box img{
-        width:162px;
+        width:200px;
         height:auto;
     }
 </style>

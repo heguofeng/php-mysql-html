@@ -938,7 +938,15 @@ input.error {border: 1px solid red;}
 	min-height: 655px;
 	padding-bottom: 30px;
 	padding-left: 20px;
+    max-width: 740px;
+}
+.content_right2{
+	overflow: hidden;
+	height: 655px;
+	padding-bottom: 30px;
+	padding-left: 20px;
     width: 740px;
+    display: none;
 }
 .a_title{
 	font: 30px/1 "微软雅黑";

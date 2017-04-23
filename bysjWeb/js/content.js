@@ -31,6 +31,8 @@ window.onload=function(){
 	//封装一个ajax异步更新按钮事件			
 	function btnClick(btn,newhtml){
 		$(btn).on("click",function(){
+			$(".content_right").css("display","block");
+			$(".content_right2").css("display","none");
 			$(".content_right").load(newhtml);
 		})
 	}
@@ -41,7 +43,11 @@ window.onload=function(){
 	btnClick("#knowledge","c_knowledge.php?id=2");
 	btnClick("#professional","c_knowledge.php?id=1");
 	btnClick("#contact","c_contact.php");
-	btnClick("#environment","c_environment.php");
+	$("#environment").on('click',function(){
+		$(".content_right").css("display","none");
+		$(".content_right2").css("display","block");
+	});
+	
 	
 	/*个人信息页面的按钮*/
 	btnClick(".info_title_txt","infoEdit.php");

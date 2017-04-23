@@ -152,6 +152,7 @@ myFocus.set({
 		<div class="content_right" name="content_right">
 			
 		</div><!--content_right结束-->
+		<iframe class="content_right2" src="c_environment.php" frameborder="0" width="" height=""></iframe>
 	</div><!--content结束-->
 	</div><!--wrap结束-->
 	<a id="to_top" href="javascript:;" title="回到顶部"></a>
@@ -178,7 +179,8 @@ myFocus.set({
 	<?php elseif($a_id==2): ?>//保健常识
 	$(".content_right").load("c_knowledge.php?id=2");
 	<?php elseif($a_id==12): ?>//环境设施
-	$(".content_right").load("c_environment.php");
+	$(".content_right").css("display","none");
+	$(".content_right2").css("display","block");
 	<?php endif; ?>
 	
 </script>
