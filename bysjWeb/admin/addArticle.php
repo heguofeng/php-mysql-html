@@ -56,8 +56,8 @@ if(!$cates){
 		<div><p id="createResult_green"></p></div>
 	</div><!--table_all-->		
 <script type="text/javascript" src="js/jquery.validate.min.js"></script>
-<script type="text/javascript" charset="utf-8" src="../plugins/kindeditor-4.1.10/kindeditor.js"></script>	
-<script type="text/javascript" charset="utf-8" src="../plugins/kindeditor-4.1.10/lang/zh_CN.js"></script>	
+<script type="text/javascript" charset="utf-8" src="../plugins/kindeditor/kindeditor.js"></script>	
+<script type="text/javascript" charset="utf-8" src="../plugins/kindeditor/lang/zh_CN.js"></script>	
 <script type="text/javascript">
 $().ready(function(){
 	$("#formArticle").validate({
