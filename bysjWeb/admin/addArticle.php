@@ -56,44 +56,10 @@ if(!$cates){
 		<div><p id="createResult_green"></p></div>
 	</div><!--table_all-->		
 <script type="text/javascript" src="js/jquery.validate.min.js"></script>
-<script type="text/javascript" charset="utf-8" src="../plugins/kindeditor/kindeditor.js"></script>	
-<script type="text/javascript" charset="utf-8" src="../plugins/kindeditor/lang/zh_CN.js"></script>	
+<script type="text/javascript" charset="utf-8" src="../plugins/kindeditor-4.1.10/kindeditor.js"></script>	
+<script type="text/javascript" charset="utf-8" src="../plugins/kindeditor-4.1.10/lang/zh_CN.js"></script>	
 <script type="text/javascript">
 $().ready(function(){
-//	$("#btn_add").click(function(){
-//		var flag=$("#formArticle").valid();
-//		if(flag){
-//			$.ajax({
-//				type:"post",
-//				url:"doAdminEcho.php?act=addArticle",
-//				data:{
-//					title:$("#title").val(),
-//					author:$("#author").val(),
-//					description:$("#description").val(),
-//					content:$("#content").val(),	
-//				},
-//				dataType:"json",
-//				success:function(data){
-//					if(data.success){
-//						$("#createResult_green").html(data.msg);
-//						$("#createResult_green").css("display","block");
-//						$("#createResult_red").css("display","none");
-//						setTimeout(function(){
-//							$("#createResult_green").css("display","none");
-//						},2000);
-//					}
-//					else{
-//						$("#createResult_red").html(data.msg);
-//						$("#createResult_red").css("display","block");
-//						$("#createResult_green").css("display","none");
-//					}
-//				},
-//				error:function(jqXHR){
-//					alert("发生错误:"+jqXHR.status);
-//				}
-//			});
-//		}
-//	});
 	$("#formArticle").validate({
 			rules:{
 				title:{
