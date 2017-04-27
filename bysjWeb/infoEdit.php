@@ -75,7 +75,6 @@ $userInfo=getUserById($id);
 		
 <script type="text/javascript">
 $().ready(function(){
-	 $('[data-toggle="popover"]').popover();
 	$("#btn_save").click(function(){
 		$.ajax({
 			type:"post",
