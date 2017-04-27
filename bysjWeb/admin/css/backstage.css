@@ -119,9 +119,15 @@ body{
 	text-align: center;
 	line-height: 60px;
 	color: #fff;
-	font-size: 15px;
+	font-size: 13px;
 }
-
+.footer_text a{
+	color: #FFFFFF;
+}
+.footer_text a:hover{
+	text-decoration: none;
+	color: #228B22;
+}
 /*我要请假*/
 .date{
 	background: #fff url(../../js/My97DatePickerBeta/My97DatePicker/skin/datePicker.gif) no-repeat right;

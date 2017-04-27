@@ -15,6 +15,7 @@ $row=fetchOne($sql);
 <head>
 	<meta charset="UTF-8" />
 	<title>养老院后台首页</title>
+	<link rel="shortcut icon" href="images/favicon.ico"/><!--加图标-->
 	<link rel="stylesheet" type="text/css" href="css/reset.css" />
 	<link rel="stylesheet" type="text/css" href="css/backstage.css">
 </head>
@@ -214,9 +215,7 @@ $row=fetchOne($sql);
 	<!--content结束-->
 	<div class="footer">
 		<div class="footer_text">
-			<p>
-				CopyRight © 2017 温州温医养老院版权所有
-			</p>
+			<p><a href="https://github.com/heguofeng" target="_blank" title="我的个人GitHUb">我的GitHub</a>&nbsp;&nbsp;&nbsp;&nbsp;CopyRight © 2017 温州温医养老院版权所有&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.miitbeian.gov.cn" target="_blank" title="浙ICP备17016736号">浙ICP备17016736号</a></p>
 		</div>
 	</div>
 </body>

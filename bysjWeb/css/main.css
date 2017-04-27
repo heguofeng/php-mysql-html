@@ -69,10 +69,6 @@ body{
 label.error {margin-bottom: 10px;margin-left: 5px;color: red;font-size: 14px; font-weight: bold; clear: both;  display: inline-block; border: 1px solid red;background-color: #DDDDDD;background:url(../images/no.png) no-repeat 1px 1px; padding-left: 16px;}
 input.error {border: 1px solid red;}
 
-.banquan{position: fixed; width: 500px;height: 40px;top: 90%;left: 50%;margin-left: -250px;}
-.banquan p{text-align: center;font-size: 16px;font-family:"微软雅黑", "黑体"; font-weight: bold; line-height: 16px;margin-top: 11px;}
-
-
 /*——————————————————————————————————————index首页页面————————————————————————————————*/
 .top{
 	width: 100%;
@@ -682,11 +678,6 @@ input.error {border: 1px solid red;}
 #to_top:hover{
 	background: url(../images/top_bg.png) no-repeat 0 -40px;
 }
-.footer_a{
-	width: 100%;
-	height: 160px;
-	background-color: #228B22;
-}
 .footer_b{
 	width: 100%;
 	background-color: #30393A;
@@ -696,7 +687,14 @@ input.error {border: 1px solid red;}
 	text-align: center;
 	line-height: 60px;
 	color: #fff;
-	font-size: 15px;
+	font-size: 13px;
+}
+.footer_b_text a{
+	color: #FFFFFF;
+}
+.footer_b_text a:hover{
+	text-decoration: none;
+	color: #228B22;
 }
 /*——————————————————————————————————————————下面是content页面内容————————————————————————————————————————————————*/
 /*五张图片pages*/

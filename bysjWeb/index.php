@@ -33,8 +33,11 @@ $yyss=fetchOne($sql);
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="keywords" content="养老院网站模板,毕业设计网站,管理系统,前后台开发,养老院网站的设计与实现,温医养老院,温州医科大学" />
+<meta name="description" content="本网站为毕业设计网站，主题养老院"/>
 <meta charset="UTF-8"/>
 <title>温医养老院</title>
+<link rel="shortcut icon" href="images/favicon.ico"/><!--加图标-->
 <link rel="stylesheet" type="text/css" href="css/reset.css"/>
 <link rel="stylesheet" type="text/css" href="css/main.css"/>
 <script type="text/javascript" src="js/myfocus-2.0.1.min.js"></script><!--引入myFocus库-->
@@ -284,7 +287,7 @@ myFocus.set({
 					<p><a class="henfan"  href="#">养老院院景</a></p>
 				</li>
 				<li class="environment08">
-					<a href="#">查看更多&gt;&gt;</a>
+					<a href="nav_about.php?id=12">查看更多&gt;&gt;</a>
 				</li>
 			</ul>
 		</div>
@@ -335,7 +338,7 @@ myFocus.set({
 		<!--<div class="footer_a"></div>-->
 		<div class="footer_b">
 			<div class="footer_b_text">
-				<p>CopyRight © 2017 温州温医养老院版权所有</p>
+				<p><a href="https://github.com/heguofeng" target="_blank" title="我的个人GitHUb">我的GitHub</a>&nbsp;&nbsp;&nbsp;&nbsp;CopyRight © 2017 温州温医养老院版权所有&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.miitbeian.gov.cn" target="_blank" title="浙ICP备17016736号">浙ICP备17016736号</a></p>
 			</div>
 		</div>
 	</div>
