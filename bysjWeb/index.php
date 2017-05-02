@@ -232,7 +232,7 @@ myFocus.set({
 										</tr>
 									</table>
 								</td>
-								<td id="scrollPic2"></td>
+								<td id="scrollPic2"></td><!--复制一个框-->
 							</tr>
 						</table>
 					</ul>

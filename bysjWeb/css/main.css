@@ -243,7 +243,7 @@ input.error {border: 1px solid red;}
 /*导航条文字列*/
 .nav_mid li{
 	float: left;
-	width: 120px;
+	width: 125px;
 	text-align: center;	
 }
 .nav_mid li a{
@@ -459,6 +459,7 @@ input.error {border: 1px solid red;}
 	backface-visibility: hidden;
 }
 #scrollPic ul li img{
+		border: none;
 		display: block;
 		width: 235px;
 		height: 160px;
@@ -467,11 +468,16 @@ input.error {border: 1px solid red;}
 		backface-visibility: hidden;
 }
 #scrollPic ul li:hover img{
+	border: none;
 		transform: translate(0px) scale(1.05, 1.05);
 }
 #scrollPic ul li .pic_name{
 	display: block;
 	line-height: 20px;
+}
+#scrollPic ul li:hover .pic_name{
+	color: #228B22;
+	text-decoration: none;
 }
 /*环境environment*/
 .environment{
