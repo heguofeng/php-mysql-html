@@ -181,6 +181,7 @@ input.error {border: 1px solid red;}
 	width: 1000px;
 	margin: 0 auto;
 	background-color: #fff;
+	box-shadow: 0 0 10px #999;
 }
 /*logo栏目*/
 .wrap_logo{
@@ -478,6 +479,7 @@ input.error {border: 1px solid red;}
 #scrollPic ul li:hover .pic_name{
 	color: #228B22;
 	text-decoration: none;
+	font-weight: 600;
 }
 /*环境environment*/
 .environment{
@@ -861,6 +863,25 @@ input.error {border: 1px solid red;}
 .btn_save:hover{
 	background-color: #6c7d8e;	
 }
+/*dialog提示框的样式*/
+.save_success,.save_failed,.save_start{
+	height: 32px;
+	line-height: 32px;
+	padding-left: 35px;
+	background-size: contain;
+	display: block;
+}
+.save_success{
+	background: url(../images/success32.png) no-repeat 0 0;	
+}
+.save_failed{
+	background: url(../images/failed.png) no-repeat 0 0;
+}
+.save_start{
+	background: url(../images/loading2.gif) no-repeat 0 0;	
+	line-height: 37px;
+	padding-left: 40px;
+}
 
 /*以下是预览信息页面*/
 .prev_title{
@@ -882,6 +903,7 @@ input.error {border: 1px solid red;}
 	height: 25px;
 	line-height: 25px;
 	display: block;
+	font-weight: normal;
 }
 /*大头像*/
 .pic_bigtx{

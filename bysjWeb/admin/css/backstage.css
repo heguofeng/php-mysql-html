@@ -133,6 +133,25 @@ body{
 	background: #fff url(../../js/My97DatePickerBeta/My97DatePicker/skin/datePicker.gif) no-repeat right;
 	cursor: pointer;
 }
+/*dialog提示框的样式*/
+.save_success,.save_failed,.save_start{
+	height: 32px;
+	line-height: 32px;
+	padding-left: 35px;
+	background-size: contain;
+	display: block;
+}
+.save_success{
+	background: url(../../images/success32.png) no-repeat 0 0;	
+}
+.save_failed{
+	background: url(../../images/failed.png) no-repeat 0 0;
+}
+.save_start{
+	background: url(../../images/loading2.gif) no-repeat 0 0;	
+	line-height: 37px;
+	padding-left: 40px;
+}
 
 /*validate的错误提示*/
 input.error ,textarea.error{

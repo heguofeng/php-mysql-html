@@ -84,8 +84,33 @@ $empInfo=getEmpById($id);
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery.validate.min.js"></script>
 <script>
+	var changeFlag=false;//标识文本框值是否改变，为true，标识已变
+	function changeFlagTrue(){
+		changeFlag=true;
+	}
+	//当页面刷新或者离开时，警告提示
+	window.onbeforeunload = function(event) {
+		if (changeFlag==true) {
+		    event.returnValue = "我在这写点东西...";
+		}
+	}
 	$(document).ready(function(){
 		$("#username").focus();
+		$("input[type='text']").change(function(){
+			changeFlagTrue()
+		});
+		$("input[type='radio']").change(function(){
+			changeFlagTrue()
+		});
+		$("select").change(function(){
+			changeFlagTrue()
+		});
+		$("textarea").change(function(){
+			changeFlagTrue()
+		});
+		$(".btn").click(function(){
+			changeFlag=false;//更新标识值
+		});
 		$("#formEmp").validate({
 			rules:{
 				username:{

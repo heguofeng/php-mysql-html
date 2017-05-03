@@ -26,7 +26,7 @@ function save($id){
 	if(update("users", $arr, "id={$id}")){
 		$result	='{"success":true,"msg":"保存成功!"}';
 	}else{		
-		$result	='{"success":false,"msg":"保存失败"}';
+		$result	='{"success":false,"msg":"保存失败,可能是您未修改任何资料。"}';
 	}
 	echo $result;
 }
@@ -45,7 +45,7 @@ function editPwd($id){
 			$result	='{"success":true,"msg":"修改密码成功!"}';
 		}
 		else{
-			$result	='{"success":false,"msg":"修改密码失败"}';
+			$result	='{"success":false,"msg":"修改密码失败。"}';
 		}
 	}
 	else{

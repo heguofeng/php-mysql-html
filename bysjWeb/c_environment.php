@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <script type="text/javascript" src="js/jquery.min.js"/></script>
-<script type="text/javascript" src="js/waterfall.js"/></script>
+<script type="text/javascript" src="plugins/waterfall.js"/></script>
 <title>环境设施</title>
 <style type="text/css">
     *{padding: 0;margin:0;}

@@ -84,34 +84,56 @@ if(!$rows){
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery.validate.min.js"></script>
 <script>
+	var changeFlag=false;//标识文本框值是否改变，为true，标识已变
+	function changeFlagTrue(){
+		changeFlag=true;
+	}
+	//当页面刷新或者离开时，警告提示
+	window.onbeforeunload = function(event) {
+		if (changeFlag==true) {
+		    event.returnValue = "我在这写点东西...";
+		}
+	}
 	$(document).ready(function(){
-	$("#username").focus();
-	$("#username").keyup(function(){
-			$.ajax({
-				type:"post",
-				url:"doAdminEcho.php?act=checkEmp",
-				data:{
-					username:$("#username").val()
-				},
-				dataType:'json',
-				success:function(data){
-					if(data.d==1){
-						$("#checkname").html("已存在该用户名，请更换");
-						$("#checkname").css("color","red");
-						$("#editbtn").attr("disabled",true);
+		$("#username").focus();
+		$("input[type='text']").change(function(){
+			changeFlagTrue()
+		});
+		$("select").change(function(){
+			changeFlagTrue()
+		});
+		$("textarea").change(function(){
+			changeFlagTrue()
+		});
+		$("#editbtn").click(function(){
+			changeFlag=false;//更新标识值
+		});
+		$("#username").keyup(function(){
+				$.ajax({
+					type:"post",
+					url:"doAdminEcho.php?act=checkEmp",
+					data:{
+						username:$("#username").val()
+					},
+					dataType:'json',
+					success:function(data){
+						if(data.d==1){
+							$("#checkname").html("已存在该用户名，请更换");
+							$("#checkname").css("color","red");
+							$("#editbtn").attr("disabled",true);
+						}
+						if(data.d==2){
+							$("#checkname").html("用户名可用");
+							$("#checkname").css("color","green");
+							$("#editbtn").attr("disabled",false);
+						}
+					},
+					error:function(jqXHR){
+						alert("发生错误"+jqXHR.status);
 					}
-					if(data.d==2){
-						$("#checkname").html("用户名可用");
-						$("#checkname").css("color","green");
-						$("#editbtn").attr("disabled",false);
-					}
-				},
-				error:function(jqXHR){
-					alert("发生错误"+jqXHR.status);
-				}
-			});
-		
-	});
+				});
+			
+		});
 			
 		$("#formEmp").validate({
 			rules:{

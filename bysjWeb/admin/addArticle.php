@@ -59,27 +59,49 @@ if(!$cates){
 <script type="text/javascript" charset="utf-8" src="../plugins/kindeditor/kindeditor.js"></script>	
 <script type="text/javascript" charset="utf-8" src="../plugins/kindeditor/lang/zh_CN.js"></script>	
 <script type="text/javascript">
-$().ready(function(){
-	$("#formArticle").validate({
-			rules:{
-				title:{
-					required:true
-				}
-				
-			},
-			messages:{
-				title:{
-					required:'必填项'
-				}
-			}
+	var changeFlag=false;//标识文本框值是否改变，为true，标识已变
+	function changeFlagTrue(){
+		changeFlag=true;
+	}
+		//当页面刷新或者离开时，警告提示
+	window.onbeforeunload = function(event) {
+		if (changeFlag==true) {
+		    event.returnValue = "我在这写点东西...";
+		}
+	}
+	$().ready(function(){
+		$("input[type='text']").change(function(){
+			changeFlagTrue()
 		});
-		$("#title").focus();
-	
-});
-//调用编辑器
-KindEditor.ready(function(K){
-	window.editor=K.create('#content');
-});
+		$("select").change(function(){
+			changeFlagTrue()
+		});
+		$("textarea").change(function(){
+			changeFlagTrue()
+		});
+		$("#btn_add").click(function(){
+			changeFlag=false;//更新标识值
+		});
+		$("#formArticle").validate({
+				rules:{
+					title:{
+						required:true
+					}
+					
+				},
+				messages:{
+					title:{
+						required:'必填项'
+					}
+				}
+			});
+			$("#title").focus();
+		
+	});
+	//调用编辑器
+	KindEditor.ready(function(K){
+		window.editor=K.create('#content');
+	});
 </script>
 </body>
 </html>

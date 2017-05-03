@@ -81,10 +81,13 @@ $(window).scroll(function(){
 		nav.addClass("wrap_logo");
 		nav.removeClass("wrap_logo_fixed");
 	}
+	//设置回到顶部按钮效果
 	if(top>=400){
-		$('#to_top').css("display","block");
+		//$('#to_top').css("display","block");
+		$("#to_top").fadeIn("slow");
 	}else{
-		$('#to_top').css("display","none");
+		//$('#to_top').css("display","none");
+		$("#to_top").fadeOut("slow");
 	}
 });
 //回到顶部

@@ -42,7 +42,7 @@ $hyzks=getAllhyzk();
 				</tr>
 				<tr><td class="basicinfo_title td_crossline">生日：</td>
 					<td class="td_crossline">
-						<input type="text" id="u_birth" class="birth txtinput" name="u_birth"  onclick="WdatePicker({minDate: '1900-01-01',startDate:'1980-01-01' })">
+						<input type="text" id="u_birth" class="birth txtinput" name="u_birth"   onclick="WdatePicker({onpicked:changeFlagTrue(),minDate: '1900-01-01',startDate:'1980-01-01' })">
 					</td>
 				</tr>
 				<tr><td class="basicinfo_title td_crossline">民族：</td>
@@ -86,12 +86,36 @@ $hyzks=getAllhyzk();
 		<div><p id="createResult_red"></p></div>
 		<div><p id="createResult_green"></p></div>
 	</div><!--table_all-->		
-		
+<script type="text/javascript" src="../plugins/dialog.js"></script>		
 <script type="text/javascript">
+	var changeFlag=false;//标识文本框值是否改变，为true，标识已变
+	function changeFlagTrue(){
+		changeFlag=true;
+	}
+		//当页面刷新或者离开时，警告提示
+	window.onbeforeunload = function(event) {
+		if (changeFlag==true) {
+		    event.returnValue = "我在这写点东西...";
+		}
+	}
 $().ready(function(){
+	$("input[type='text']").change(function(){
+			changeFlagTrue()
+		});
+		$("select").change(function(){
+			changeFlagTrue()
+		});
 	$("#btn_add").click(function(){
+		changeFlag=false;//更新标识值
 		var flag=$("#formUsers").valid();
 		if(flag){
+			//过渡中的提示框
+		    var d1= dialog({
+				content:'<span class=\'save_start\'>正在保存您的信息。</span>'
+			});
+			$(document).ajaxStart(function(){
+				d1.show();					 
+			});
 			$.ajax({
 				type:"post",
 				url:"doAdminEcho.php?act=addUsers",
@@ -110,17 +134,24 @@ $().ready(function(){
 				dataType:"json",
 				success:function(data){
 					if(data.success){
-						$("#createResult_green").html(data.msg);
-						$("#createResult_green").css("display","inline");
-						$("#createResult_red").css("display","none");
+						d1.close().remove();//关闭中间过度动画
+						var d= dialog({
+							content:'<span class=\'save_success\'>'+data.msg+'</span>'
+						});
+						d.show();
 						setTimeout(function(){
-							$("#createResult_green").css("display","none");
-						},2000);
+							d.close().remove();
+						},2500);
 					}
 					else{
-						$("#createResult_red").html(data.msg);
-						$("#createResult_red").css("display","inline");
-						$("#createResult_green").css("display","none");
+						d1.close().remove();//关闭中间过度动画
+						var d= dialog({
+							content:'<span class=\'save_failed\'>'+data.msg+'</span>'
+						});
+						d.show();
+						setTimeout(function(){
+							d.close().remove();
+						},3000);
 					}
 				},
 				error:function(jqXHR){

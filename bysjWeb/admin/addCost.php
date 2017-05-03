@@ -35,121 +35,150 @@ require_once '../include.php';
 			</form>
 			<button id="btn_add" class="btn_save">添加</button>
 		</div><!--basicinfo_table结束-->	
-		<div><p id="createResult_red"></p></div>
-		<div><p id="createResult_green"></p></div>
 	</div><!--table_all-->		
-		
+<script type="text/javascript" src="../plugins/dialog.js"></script>		
 <script type="text/javascript">
-$().ready(function(){
-	$("#btn_add").click(function(){
-		var flag=$("#formCost").valid();
-		if(flag){
-			$.ajax({
-				type:"post",
-				url:"doAdminEcho.php?act=addCost",
-				data:{
-					hljb:$("#hljb").val(),
-					hlbz:$("#hlbz").val(),
-					hsf:$("#hsf").val(),
-					cwf:$("#cwf").val(),
-					hlf:$("#hlf").val(),
-					deposit:$("#deposit").val(),
-					allCost:$("#allCost").val(),
-					bz:$("#bz").val()
-				},
-				dataType:"json",
-				success:function(data){
-					if(data.success){
-						$("#createResult_green").html(data.msg);
-						$("#createResult_green").css("display","inline");
-						$("#createResult_red").css("display","none");
-						setTimeout(function(){
-							$("#createResult_green").css("display","none");
-						},2000);
-					}
-					else{
-						$("#createResult_red").html(data.msg);
-						$("#createResult_red").css("display","inline");
-						$("#createResult_green").css("display","none");
-					}
-				},
-				error:function(jqXHR){
-					alert("发生错误:"+jqXHR.status);
-				}
-			});
+	var changeFlag=false;//标识文本框值是否改变，为true，标识已变
+	function changeFlagTrue(){
+		changeFlag=true;
+	}
+		//当页面刷新或者离开时，警告提示
+	window.onbeforeunload = function(event) {
+		if (changeFlag==true) {
+		    event.returnValue = "我在这写点东西...";
 		}
-	});
-	$("#formCost").validate({
-			rules:{
-				hljb:{
-					required:true
-				},
-				hlbz:{
-					required:true
-				},
-				hsf:{
-					required:true
-				},
-				cwf:{
-					required:true
-				},
-				hlf:{
-					required:true
-				}
-			},
-			messages:{
-				hljb:{
-						required:"一定要写哦"
+	}
+	$().ready(function(){
+		$("input[type='text']").change(function(){
+			changeFlagTrue()
+		});
+		$("textarea").change(function(){
+			changeFlagTrue()
+		});
+		$("#btn_add").click(function(){
+			changeFlag=false;//更新标识值
+			var flag=$("#formCost").valid();
+			if(flag){
+				//过渡中的提示框
+			    var d1= dialog({
+					content:'<span class=\'save_start\'>正在保存您的信息。</span>'
+				});
+				$(document).ajaxStart(function(){
+					d1.show();					 
+				});
+				$.ajax({
+					type:"post",
+					url:"doAdminEcho.php?act=addCost",
+					data:{
+						hljb:$("#hljb").val(),
+						hlbz:$("#hlbz").val(),
+						hsf:$("#hsf").val(),
+						cwf:$("#cwf").val(),
+						hlf:$("#hlf").val(),
+						deposit:$("#deposit").val(),
+						allCost:$("#allCost").val(),
+						bz:$("#bz").val()
 					},
-					hlbz:{
-						required:"一定要写哦"
+					dataType:"json",
+					success:function(data){
+						if(data.success){
+							d1.close().remove();//关闭中间过度动画
+							var d= dialog({
+								content:'<span class=\'save_success\'>'+data.msg+'</span>'
+							});
+							d.show();
+							setTimeout(function(){
+								d.close().remove();
+							},2500);
+						}
+						else{
+							d1.close().remove();//关闭中间过度动画
+							var d= dialog({
+								content:'<span class=\'save_failed\'>'+data.msg+'</span>'
+							});
+							d.show();
+							setTimeout(function(){
+								d.close().remove();
+							},3000);
+						}
 					},
-					hsf:{
-						required:"一定要写哦"
-					},
-					cwf:{
-						required:"一定要写哦"
-					},
-					hlf:{
-						required:"一定要写哦"
+					error:function(jqXHR){
+						alert("发生错误:"+jqXHR.status);
 					}
+				});
 			}
 		});
-		$("#hljb").focus();
-		$("#hljb").keyup(function(){
-			$.ajax({
-				type:"post",
-				url:"doAdminEcho.php?act=checkCost",
-				data:{
-					hljb:$("#hljb").val()
-				},
-				dataType:'json',
-				success:function(data){
-					if(data.d==1){
-						$("#checkname").html("已存在该名称，请更换");
-						$("#checkname").css("color","red");
-						$("#btn_add").attr("disabled",true);
-					}
-					if(data.d==2){
-						$("#checkname").html("名称可用");
-						$("#checkname").css("color","green");
-						$("#btn_add").attr("disabled",false);
+		$("#formCost").validate({
+				rules:{
+					hljb:{
+						required:true
+					},
+					hlbz:{
+						required:true
+					},
+					hsf:{
+						required:true
+					},
+					cwf:{
+						required:true
+					},
+					hlf:{
+						required:true
 					}
 				},
-				error:function(jqXHR){
-					alert("发生错误"+jqXHR.status);
+				messages:{
+					hljb:{
+							required:"一定要写哦"
+						},
+						hlbz:{
+							required:"一定要写哦"
+						},
+						hsf:{
+							required:"一定要写哦"
+						},
+						cwf:{
+							required:"一定要写哦"
+						},
+						hlf:{
+							required:"一定要写哦"
+						}
 				}
-			});	
-		});
-		$("#allCost").focus(function(){
-			$hsf=parseInt($("#hsf").val()?$("#hsf").val():'0');
-			$cwf=parseInt($("#cwf").val()?$("#cwf").val():'0');
-			$hlf=parseInt($("#hlf").val()?$("#hlf").val():'0');
-			$deposit=parseInt($("#deposit").val()?$("#deposit").val():'0');
-			$("#allCost").val($hsf+$cwf+$hlf+$deposit);
-		});
-	
-});
+			});
+			$("#hljb").focus();
+			$("#hljb").keyup(function(){
+				$.ajax({
+					type:"post",
+					url:"doAdminEcho.php?act=checkCost",
+					data:{
+						hljb:$("#hljb").val()
+					},
+					dataType:'json',
+					success:function(data){
+						if(data.d==1){
+							$("#checkname").html("已存在该名称，请更换");
+							$("#checkname").css("color","red");
+							$("#btn_add").attr("disabled",true);
+						}
+						if(data.d==2){
+							$("#checkname").html("名称可用");
+							$("#checkname").css("color","green");
+							$("#btn_add").attr("disabled",false);
+						}
+					},
+					error:function(jqXHR){
+						alert("发生错误"+jqXHR.status);
+					}
+				});	
+			});
+			$("#allCost").focus(function(){
+				$hsf=parseInt($("#hsf").val()?$("#hsf").val():'0');
+				$cwf=parseInt($("#cwf").val()?$("#cwf").val():'0');
+				$hlf=parseInt($("#hlf").val()?$("#hlf").val():'0');
+				$deposit=parseInt($("#deposit").val()?$("#deposit").val():'0');
+				$("#allCost").val($hsf+$cwf+$hlf+$deposit);
+			});
+		
+	});
 </script>
 </body>
 </html>
