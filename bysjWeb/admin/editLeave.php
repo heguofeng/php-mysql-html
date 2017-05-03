@@ -35,13 +35,13 @@ $row=fetchOne($sql);
 	<tr>
 		<td class="basicinfo_title td_crossline">请假开始日期</td>
 		<td class="td_crossline">
-			<input type="text" name="startTime" class="date txtinput" value="<?php echo $row['startTime'] ?>" onclick="WdatePicker()">
+			<input type="text" name="startTime" class="date txtinput" value="<?php echo $row['startTime'] ?>" onclick="WdatePicker({onpicked:changeFlagTrue()})">
 		</td>
 	</tr>
 	<tr>
 		<td class="basicinfo_title td_crossline">请假结束日期</td>
 		<td class="td_crossline">
-			<input type="text" name="finishTime" class="date txtinput" value="<?php echo $row['startTime'] ?>" onclick="WdatePicker()">
+			<input type="text" name="finishTime" class="date txtinput" value="<?php echo $row['startTime'] ?>" onclick="WdatePicker({onpicked:changeFlagTrue()})">
 		</td>
 	</tr>
 	<tr>
@@ -60,8 +60,24 @@ $row=fetchOne($sql);
 <script type="text/javascript" src="js/jquery.validate.min.js"></script>
 <script src="../js/My97DatePickerBeta/My97DatePicker/WdatePicker.js"></script>
 <script type="text/javascript">
+	var changeFlag=false;//标识文本框值是否改变，为true，标识已变
+	function changeFlagTrue(){
+		changeFlag=true;
+	}
+	//当页面刷新或者离开时，警告提示
+	window.onbeforeunload = function(event) {
+		if (changeFlag==true) {
+		    event.returnValue = "我在这写点东西...";
+		}
+	}
     $(document).ready(function () {
     	$("#reason").focus();
+    	$("textarea").change(function(){
+			changeFlagTrue()
+		});
+		$(".btn").click(function(){
+			changeFlag=false;//更新标识值
+		});
        $("#formLeave").validate({
             rules: {
                 username: {
