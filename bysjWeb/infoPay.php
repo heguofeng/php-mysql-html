@@ -183,7 +183,6 @@ $().ready(function(){
 				}else{
 					$("#alertText").html(data.msg);
 					$("#alertText").css("display","block");
-					
 				}			
 			},
 			error:function(jqXHR){

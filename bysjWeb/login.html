@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="plugins/dialog.js"></script>
 </head>
 <body class="login_bj" >
 <div class="zhuce_body">
@@ -25,6 +26,7 @@
 		                </div>
 		                <input name="btn_denglu" type="button" id="btn_denglu" class="btn_denglu" value="登录">
 		                <p id="createResult"></p>
+		                <span class="save_start" style="display: none;margin-left: 50px;"> 正在登录 </span>
 	              </form>
             </div>
         	<div class="bj_right">
@@ -42,12 +44,16 @@ $().ready(function() {
 	$("#username").focus();
 
 	$("#btn_denglu").click(function(){
+		$(document).ajaxStart(function(){
+			$(".save_start").css("display",'block');
+			$("#createResult").css("display",'none');
+		});
 			var flag = $('#formD').valid();//验证表单有效性
 	    	if(flag){
 				$.ajax({
 					type:"GET",
 					//url:"login.php?username="+$("#username").val(),
-					url:"doLogin.php?act=login",
+					url:"doUserAction.php?act=login",
 					data:{
 						username:$("#username").val(),
 						password:$("#password").val(),
@@ -56,11 +62,19 @@ $().ready(function() {
 					dataType:"json",
 					success:function(data){
 						if(data.success){
+							$(".save_start").css("display",'none');
+							$("#createResult").css({"display":'block',"color":"#228b22"});
 							$("#createResult").html(data.msg);
 							window.location="index.php";
 						}
 						else{
-								$("#createResult").html(data.msg);
+							$(".save_start").css("display",'none');
+							$("#createResult").css({"display":'block',"color":"red"});
+							$("#createResult").html(data.msg);
+							setTimeout(function(){
+								$("#createResult").css("display",'none');
+							},2000);
+							$("#password").val("");
 						}
 					},
 					error:function(jqXHR){

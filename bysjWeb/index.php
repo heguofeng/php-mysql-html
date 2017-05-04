@@ -40,8 +40,8 @@ $yyss=fetchOne($sql);
 <link rel="shortcut icon" href="images/favicon.ico"/><!--加图标-->
 <link rel="stylesheet" type="text/css" href="css/reset.css"/>
 <link rel="stylesheet" type="text/css" href="css/main.css"/>
-<script type="text/javascript" src="js/myfocus-2.0.1.min.js"></script><!--引入myFocus库-->
 <script type="text/javascript" src="js/jquery.min.js"></script>
+<script src="plugins/myFocus/myfocus-2.0.4.min.js" type="text/javascript" charset="utf-8"></script><!--引入myFocus库-->
 <script type="text/javascript">
 myFocus.set({
 	id:'boxID',//焦点图盒子ID
@@ -73,7 +73,7 @@ myFocus.set({
 					<a class="user" href="javascript:;"><?php echo $userInfo['u_name']?$userInfo['u_name']:$userInfo['u_username'];?><i class="user_ico"></i></a>
 						<div class="userCard">
 							<a href="personal_info.php">个人中心</a>
-							<a href="doLogin.php?act=userOut">退出</a>
+							<a href="doUserAction.php?act=userOut">退出</a>
 						</div>
 				</li>
 			</ul>

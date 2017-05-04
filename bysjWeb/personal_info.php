@@ -44,7 +44,7 @@ $hyzks=getAllhyzk();
 					<a class="user" href="javascript:;"><?php echo $userInfo['u_name']?$userInfo['u_name']:$userInfo['u_username'];?><i class="user_ico"></i></a>
 						<div class="userCard">
 							<a href="personal_info.php">个人中心</a>
-							<a href="doLogin.php?act=userOut">退出</a>
+							<a href="doUserAction.php?act=userOut">退出</a>
 						</div>
 				</li>
 			</ul>
