@@ -110,7 +110,7 @@ $userInfo=getUserById($id);
 					if(data.success){
 						d1.close().remove();//关闭中间过度动画
 						var d= dialog({
-							content:'<span class=\'save_success\'>'+data.msg+'</span>'
+							content:'<span class=\'save_success\'>'+data.msg+'</span>',
 						});
 						d.show();
 						setTimeout(function(){
@@ -120,7 +120,8 @@ $userInfo=getUserById($id);
 					else{
 						d1.close().remove();//关闭中间过度动画
 						var d= dialog({
-							content:'<span class=\'save_failed\'>'+data.msg+'</span>'
+							content:'<span class=\'save_failed\'>'+data.msg+'</span>',
+							quickClose:true,//点击空白出快速关闭
 						});
 						d.show();
 						setTimeout(function(){

@@ -218,13 +218,12 @@ function login(){
 /*注册*/
 function reg(){
 		if(!isset($_POST["username"])||empty($_POST["username"])){
-		echo '{"success":false,"msg":"参数错误"}';
-		return;
-	}
+			echo '{"success":false,"msg":"参数错误"}';
+			return;
+		}
 		$username=$_POST['username'];
 		$email=$_POST['email'];
 		$password=md5($_POST['password']);
-//		$confirm_password=md5($_POST['confirm_password']);
 		$autoFlag=$_POST['autoFlag'];
 		$result='{"success":false,"msg":"注册失败。"}';
 		if($autoFlag=="true"){
@@ -235,7 +234,7 @@ function reg(){
 				//执行注册操作
 				$sql="INSERT INTO users( `u_username`, `u_email`, `u_pwd`) VALUES ('$username','$email','$password')";
 				if(mysql_query($sql)){
-						$result='{"success":true,"msg":"注册成功！3秒后跳回登录页面..."}';
+						$result='{"success":true,"msg":"注册成功！3秒后跳至登录页面..."}';
 				}
 				else{
 						$result='{"success":false,"msg":"注册失败!"}';

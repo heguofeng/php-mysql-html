@@ -62,56 +62,6 @@ $().ready(function() {
 					$("#createResult").html("用户名可用");
 					$("#createResult").css("color","#228B22");
 					$("#btn_zhuce").attr("disabled",false);
-					$("#btn_zhuce").click(function(){
-					//先通过button验证表单有效性
-					var flag = $('#formZ').valid();
-			    	if(flag){
-			    		var d1= dialog({
-							content:'<span class=\'save_start\'>正在注册您的信息。</span>'
-						});
-						$(document).ajaxStart(function(){
-							d1.show();					 
-						});
-						$.ajax({
-							type:"POST",
-							url:"doUserAction.php?act=reg",
-							data:{
-								username:$("#username").val(),
-								email:$("#email").val(),
-								password:$("#password").val(),
-								confirm_password:$("#confirm_password").val(),
-								autoFlag:$("#autoFlag").is(':checked')
-								},
-							dataType:"json",
-							success:function(data){
-								if(data.success){
-									d1.close().remove();//关闭中间过度动画
-									var d= dialog({
-										content:'<span class=\'save_success\'>'+data.msg+'</span>'
-									});
-									d.show();
-									setTimeout(function(){
-										d.close().remove();
-										//window.location='login.html';
-									},2500);	
-								}
-								else{
-									d1.close().remove();//关闭中间过度动画
-									var d= dialog({
-										content:'<span class=\'save_failed\'>'+data.msg+'</span>'
-									});
-									d.show();
-									setTimeout(function(){
-										d.close().remove();
-									},3000);
-								}
-							},
-							error:function(jqXHR){
-								alert("发生错误:"+jqXHR.status);
-							},
-						});
-					}
-				});
 				}
 			},
 			error:function(jqXHR){
@@ -119,7 +69,57 @@ $().ready(function() {
 			}
 		});
 	});
-	
+	$("#btn_zhuce").click(function(){
+		//先通过button验证表单有效性
+		var flag = $('#formZ').valid();
+    	if(flag){
+    		var d1= dialog({
+				content:'<span class=\'save_start\'>正在注册您的信息。</span>'
+			});
+			$(document).ajaxStart(function(){
+				d1.show();					 
+			});
+			$.ajax({
+				type:"POST",
+				url:"doUserAction.php?act=reg",
+				data:{
+					username:$("#username").val(),
+					email:$("#email").val(),
+					password:$("#password").val(),
+					confirm_password:$("#confirm_password").val(),
+					autoFlag:$("#autoFlag").is(':checked')
+					},
+				dataType:"json",
+				success:function(data){
+					if(data.success){
+						d1.close().remove();//关闭中间过度动画
+						var d= dialog({
+							content:'<span class=\'save_success\'>'+data.msg+'</span>'
+						});
+						d.show();
+						setTimeout(function(){
+							d.close().remove();
+							window.location='login.html';
+						},2500);	
+					}
+					else{
+						d1.close().remove();//关闭中间过度动画
+						var d= dialog({
+							content:'<span class=\'save_failed\'>'+data.msg+'</span>',
+							quickClose:true,//点击空白出快速关闭
+						});
+						d.show();
+						setTimeout(function(){
+							d.close().remove();
+						},3000);
+					}
+				},
+				error:function(jqXHR){
+					alert("发生错误:"+jqXHR.status);
+				},
+			});
+		}
+	});
 	$("#formZ").validate({	 	
 	        rules: {
 			    username: {
