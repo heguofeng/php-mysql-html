@@ -32,7 +32,7 @@ function checkUser($sql){
  */
 function checkUserLogined(){
 	if($_SESSION['userId']==""&&$_COOKIE['userId']==""){
-		alertMes("请先登陆","login.html");
+		alertMes("当前没有用户登录，请先登陆。","login.html");
 	}
 }
 

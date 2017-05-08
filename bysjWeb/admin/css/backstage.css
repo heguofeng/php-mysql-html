@@ -2,6 +2,7 @@
 /*头部*/
 body{
 	background-color:#F5F5F5 ;
+	overflow: hidden;
 }
 .none{display: none;}
 .point{cursor: pointer;}

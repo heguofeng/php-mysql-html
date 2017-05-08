@@ -87,7 +87,7 @@ if(!$rows){
                 <?php $i++; endforeach; ?>
                 <?php if($totalRows>$pageSize):?>
                 <tr>
-                	<td colspan="9"><?php echo showPage($page, $totalPage, "keywords={$keywords}&condition={$condition}"); ?></td>
+                	<td colspan="10"><?php echo showPage($page, $totalPage, "keywords={$keywords}&condition={$condition}"); ?></td>
                 </tr>
                 <?php endif; ?>
             </tbody>

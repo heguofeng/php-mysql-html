@@ -112,7 +112,7 @@ myFocus.set({
 	 <div class="wrap">
 	<div class="ad">
 		<div id="boxID"> <!--焦点图盒子-->
-			<div class="loading"><img src="images/loading.gif" alt="请稍等..."/></div><!--载入画面-->
+			<div class="loading"></div><!--载入画面-->
 			<div class="pic">
 				<ul>
 					<li><a href="#"><img src="images/pic4.jpg" alt="美丽风貌" text="美丽的山庄景色，适合养生"/></a></li>

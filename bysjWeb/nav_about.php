@@ -42,7 +42,7 @@ myFocus.set({
 	width:1000,//设置图片区域宽度(像素)
 	height:340,//设置图片区域高度(像素)
 	txtHeight:'default',//文字层高度设置(像素),'default'为默认高度，0为隐藏
-	loadIMGTimeout:3 //loading时间
+
 });
 </script>
 </head>
@@ -103,7 +103,7 @@ myFocus.set({
 	 <div class="wrap">
 	<div class="ad">
 		<div id="boxID"> <!--焦点图盒子-->
-			<div class="loading"><img src="images/loading.gif" alt="请稍等..."/></div><!--载入画面-->
+			<div class="loading"></div><!--载入画面-->
 			<div class="pic">
 				<ul>
 					<li><a href="#"><img src="images/pic4.jpg" alt="美丽风貌" text="美丽的山庄景色，适合养生"/></a></li>

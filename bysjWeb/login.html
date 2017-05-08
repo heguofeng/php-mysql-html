@@ -11,7 +11,8 @@
     <script type="text/javascript" src="js/jquery.validate.min.js"></script>
     <script type="text/javascript" src="plugins/dialog.js"></script>
 </head>
-<body class="login_bj" >
+<body>
+<div id="background"><img src="images/bg_login2.jpg" width="100%" height="100%"/></div><!--背景层-->
 <div class="zhuce_body">
 	<div class="logo"><a href="index.php"><img src="images/logo1.png" alt="logo" width="350" height="100" border="0"></a></div>
     <div class="zhuce_kong login_kuang">
@@ -22,7 +23,7 @@
 		                <input type="text" id="username" name="username" class="kuang_txt" placeholder="账号" onkeypress="dologin(event)">
 		                <input type="password" id="password" name="password" class="kuang_txt" placeholder="密码" onkeypress="dologin(event)">
 		                <div>
-		               		<a href="#" title="忘记密码">忘记密码？</a><input id="autoFlag" name="autoFlag" type="checkbox" value=""><span>记住我</span> 
+		               		<a href="javascript:;" title="忘记密码">忘记密码？</a><input id="autoFlag" name="autoFlag" type="checkbox" value=""><span>记住我</span> 
 		                </div>
 		                <input name="btn_denglu" type="button" id="btn_denglu" class="btn_denglu" value="登录">
 		                <p id="createResult"></p>
@@ -31,9 +32,9 @@
             </div>
         	<div class="bj_right">
             	<p>使用以下账号直接登录</p>
-                 <a href="#" class="zhuce_qq" title="QQ注册">QQ注册</a>
-                <a href="#" class="zhuce_wb" title="微博注册">微博注册</a>
-                <a href="#" class="zhuce_wx" title="微信注册">微信注册</a>
+                <a href="javascript:;" class="zhuce_qq" title="QQ注册">QQ注册</a>
+                <a href="javascript:;" class="zhuce_wb" title="微博注册">微博注册</a>
+                <a href="javascript:;" class="zhuce_wx" title="微信注册">微信注册</a>
                 <p>还没有账号？<a href="reg.html" title="立即注册">立即注册</a></p>            
             </div>
         </div>

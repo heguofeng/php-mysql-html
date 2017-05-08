@@ -5,7 +5,17 @@ body{
 .bor{border: 1px solid #ddd;}
 
 /*登录页面*/
-.login_bj{ background:url(../../images/bj_zhuce.jpg) no-repeat top center;}
+#background{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		z-index: -1;
+		overflow: hidden;/*自适应整个屏幕*/
+}
 .login_body{ float:left; width:100%; height:auto;}
 .login_body .logo{ width:350px; height:100px; margin:90px 0 0 175px;}
 .login_body .dl .bj_left #createResult{margin:10px 0;font-size: 15px; color: red;display: block;text-align: center;width: 220px; }
@@ -13,7 +23,6 @@ body{
 .login_body  .dl .bj_left div input{ float:left; margin-top:15px;}
 .login_body  .dl .bj_left div span{ padding-left:5px;}
 .login_body  .dl .bj_left div .lan{ color:#19aaf8; padding-left:0px;}
-
 
 .login_body .login_kuang{ position:absolute; top:50%; left:50%; width:360px; height:350px; margin-left:-180px; margin-top:-175px;} /*登录框居中*/
 .login_body .login_kuang .dl{ width:360px;min-height: 300px;}
