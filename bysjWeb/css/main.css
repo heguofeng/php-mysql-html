@@ -698,23 +698,40 @@ input.error {border: 1px solid red;}
 #to_top:hover{
 	background: url(../images/top_bg.png) no-repeat 0 -40px;
 }
-.footer_b{
+.footer{
 	width: 100%;
 	background-color: #30393A;
+	display: block;
+	padding-top: 20px;
+	overflow: hidden;
 }
-.footer_b_text{
+.footer_text{
+	width: 900px;
+	height: 40px;
 	margin: 0 auto;
-	text-align: center;
-	line-height: 60px;
-	color: #fff;
-	font-size: 13px;
 }
-.footer_b_text a{
+.copyright,.icp,.zgwba{
+	border-left: 1px solid 	#C0C0C0;
+	margin-left: 10px;
+	padding-left: 10px;
+	color: 	#C0C0C0;
+}
+.copyright i{
 	color: #FFFFFF;
+	font-style: normal;
 }
-.footer_b_text a:hover{
+.github{
+	color: #C0C0C0;
+}
+.zgwba{
+	line-height: 20px;
+}
+.zgwba p{
+	margin-left: 5px;
+}
+.footer_text a:hover{
 	text-decoration: none;
-	color: #228B22;
+	color: #FFFFFF;
 }
 /*——————————————————————————————————————————下面是content页面内容————————————————————————————————————————————————*/
 /*五张图片pages*/

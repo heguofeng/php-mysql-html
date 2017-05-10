@@ -215,7 +215,10 @@ $row=fetchOne($sql);
 	<!--content结束-->
 	<div class="footer">
 		<div class="footer_text">
-			<p><a href="https://github.com/heguofeng" target="_blank" title="我的个人GitHUb">我的GitHub</a>&nbsp;&nbsp;&nbsp;&nbsp;CopyRight © 2017 温州温医养老院版权所有&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.miitbeian.gov.cn" target="_blank" title="浙ICP备17016736号">浙ICP备17016736号</a></p>
+			<a class="github fl" href="https://github.com/heguofeng" target="_blank" title="我的个人GitHUb">我的GitHub</a>
+			<span class="copyright fl">CopyRight © 2017 温州温医养老院 Design by <i>HeGuoFeng</i></span>
+			<a class="icp fl" href="http://www.miitbeian.gov.cn" target="_blank" title="浙ICP备17016736号">浙ICP备17016736号</a>
+	 		<a class="zgwba fl" target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33078302100239" ><img src="../images/备案图标.png" class="fl"/><p class="fl">浙公网安备 33078302100239号</p></a>
 		</div>
 	</div>
 </body>

@@ -113,21 +113,39 @@ body{
 /*footer部分*/
 .footer{
 	width: 100%;
+	height: 60px;
 	background-color: #30393A;
+	display: block;
+	padding-top: 20px;
+	overflow: hidden;
 }
 .footer_text{
+	width: 900px;
+	height: 60px;
 	margin: 0 auto;
-	text-align: center;
-	line-height: 60px;
-	color: #fff;
-	font-size: 13px;
 }
-.footer_text a{
+.copyright,.icp,.zgwba{
+	border-left: 1px solid 	#C0C0C0;
+	margin-left: 10px;
+	padding-left: 10px;
+	color: 	#C0C0C0;
+}
+.copyright i{
 	color: #FFFFFF;
+	font-style: normal;
+}
+.github{
+	color: #C0C0C0;
+}
+.zgwba{
+	line-height: 20px;
+}
+.zgwba p{
+	margin-left: 5px;
 }
 .footer_text a:hover{
 	text-decoration: none;
-	color: #228B22;
+	color: #FFFFFF;
 }
 /*我要请假*/
 .date{
