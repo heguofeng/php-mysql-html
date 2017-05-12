@@ -173,6 +173,7 @@ myFocus.set({
 				<?php echo $row['content']; ?>		
 			</div>
 		</div><!--content_right结束-->
+		<iframe class="content_right2" src="c_environment.php" frameborder="0" width="" height=""></iframe>
 	</div><!--content结束-->
 	</div><!--wrap结束-->
 	<a id="to_top" href="javascript:;" title="回到顶部"></a>

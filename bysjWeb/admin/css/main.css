@@ -18,7 +18,7 @@ body{
 }
 .login_body{ float:left; width:100%; height:auto;}
 .login_body .logo{ width:350px; height:100px; margin:90px 0 0 175px;}
-.login_body .dl .bj_left #createResult{margin:10px 0;font-size: 15px; color: red;display: block;text-align: center;width: 220px; }
+.login_body .dl .bj_left #createResult{margin:10px -40px;font-size: 15px; color: red;display: block;text-align: center;width: 100%; }
 .login_body  .dl .bj_left div{ float:left; width:80%; line-height:43px;}
 .login_body  .dl .bj_left div input{ float:left; margin-top:15px;}
 .login_body  .dl .bj_left div span{ padding-left:5px;}
@@ -33,10 +33,20 @@ body{
 .login_body .login_kuang .dl .bj_left .kuang_txt:focus{border-color: #0065D0;border-radius: 3px;}
 .login_body .login_kuang .dl .bj_left a{ color:#37bdl5f9; float:right; margin-right:15px;}/*忘记密码？*/
 /*按钮设置:边框圆角,鼠标移入形状颜色改变*/
-.login_body .login_kuang .dl .bj_left .btn_denglu{ width:227px; height:33px; background:#37b5f9; font-size:14px; line-height:33px; text-align:center; border:0px; color:#fff; border-radius:3px; cursor:pointer;margin-left:20px;}
+.login_body .login_kuang .dl .bj_left .btn_denglu{ width:227px; height:33px; background:#37b5f9; font-size:14px; line-height:33px; text-align:center; border:0px; color:#fff; border-radius:3px; cursor:pointer;margin-left:20px;margin-bottom: 10px;}
 .login_body .login_kuang .dl .bj_left .btn_denglu:hover{ background:#0065d0;}
 
 /*错误提示*/
 label.error {margin-bottom: 10px;margin-left: 5px;color: red;font-size: 14px; font-weight: bold; clear: both;  display: inline-block; border: 1px solid red;background-color: #DDDDDD;background:url(../images/no.png) no-repeat 1px 1px; padding-left: 16px;}
 input.error {border: 1px solid red;}
 
+.save_start{
+	background: url(../../images/loading2.gif) no-repeat 0 0;	
+	line-height: 37px;
+	padding-left: 40px;
+	height: 32px;
+	line-height: 32px;
+	padding-left: 35px;
+	background-size: contain;
+	display: block;
+}

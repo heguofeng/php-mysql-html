@@ -20,20 +20,25 @@
 	            <h3>管理员登录</h3>
 	       	  	  <form id="formD" name="formD" method="get" action="#">
 		       	  	  	<table border="0" cellspacing="0" cellpadding="0">
-		       	  	  		<tr><td>账号<input type="text" id="username" name="username" class="kuang_txt" placeholder="账号"></td></tr>
-		       	  	  		<tr><td>密码<input type="password" id="password" name="password" class="kuang_txt" placeholder="密码" onkeypress="login(event)"></td></tr>
+		       	  	  		<tr><td>账号<input type="text" id="username" name="username" class="kuang_txt" placeholder="admin" value="admin"></td></tr>
+		       	  	  		<tr><td>密码<input type="password" id="password" name="password" class="kuang_txt" placeholder="admin" value="admin" onkeypress="login(event)"></td></tr>
 		       	  	  	</table>       
 		                <div>
 		               		<a href="#" title="忘记密码">忘记密码？</a><input id="autoFlag" name="autoFlag" type="checkbox" value=""><span>记住我</span> 
 		                </div>
 		                <input name="btn_denglu" type="button" id="btn_denglu" class="btn_denglu" value="登录">
 		                <p id="createResult"></p>
+		                  <span class="save_start" style="display: none;margin-left: 80px;"> 正在登录 </span>
 	              </form>
             </div>
         </div>
     </div>
 </div>
 <script type="text/javascript"> 
+	$(document).ajaxStart(function(){
+		$(".save_start").css("display",'block');
+		$("#createResult").css("display",'none');
+	});
 $().ready(function() {	
 		$("#username").focus();
 		$("#btn_denglu").click(function(){
@@ -50,12 +55,18 @@ $().ready(function() {
 						},
 					dataType:"json",
 					success:function(data){
+						$(".save_start").css("display",'none');
 						if(data.success){
 								$("#createResult").html(data.msg);
+								$("#createResult").css({"display":'block',"color":"#228b22"});
 							   window.location="index.php";
 						}
 						else{
 								$("#createResult").html(data.msg);
+								$("#createResult").css({"display":'block',"color":"red"});
+								setTimeout(function(){
+									$("#createResult").css("display",'none');
+								},2000);
 						}
 					},
 					error:function(jqXHR){

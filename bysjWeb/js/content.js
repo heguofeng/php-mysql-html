@@ -33,9 +33,17 @@ window.onload=function(){
 		$(btn).on("click",function(){
 			$(".content_right").css("display","block");
 			$(".content_right2").css("display","none");
+			$(".content_right").html("<div class=\"load_img\"> <img src=\"images\/loading2.gif\"/> </div>");//过度动画
 			$(".content_right").load(newhtml);
-		})
+		});
 	}
+	//过度动画
+	$(document).ajaxStart(function(){
+		$(".load_img").css("display","block");
+	});
+	$(document).ajaxStop(function(){
+		$(".load_img").css("display","none");
+	});
 	//左侧菜单按钮事件
 	btnClick("#charges","c_charges.php");
 	btnClick("#about","c_about.php?id=3");

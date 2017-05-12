@@ -794,12 +794,27 @@ input.error {border: 1px solid red;}
 	color: 	#DCDCDC;
 }
 
-/*内容右边框*/
-.content_r{
-	float: right;
-	width: 750px;
-	min-height: 600px;
-	/*border-left: 1px solid #E5E5E5;*/
+.content_right{
+	overflow: hidden;
+	min-height: 655px;
+	padding-bottom: 30px;
+	padding-left: 20px;
+    max-width: 740px;
+}
+.content_right .load_img{
+	margin: 200px auto;
+	width: 37px;
+	height: 37px;
+	/*display: none;*/
+	opacity: 0.3;-webkit-opacity: 0.3;
+}
+.content_right2{
+	overflow: hidden;
+	height: 655px;
+	padding-bottom: 30px;
+	padding-left: 20px;
+    width: 740px;
+    display: none;
 }
 
 /*——————————————————————————————————————————下面是personal_info个人页面内容————————————————————————————————————————————————*/
@@ -988,21 +1003,7 @@ input.error {border: 1px solid red;}
 }
 
 /*——————————————————————————————————————————下面是article.php个人页面内容————————————————————————————————————————————————*/
-.content_right{
-	overflow: hidden;
-	min-height: 655px;
-	padding-bottom: 30px;
-	padding-left: 20px;
-    max-width: 740px;
-}
-.content_right2{
-	overflow: hidden;
-	height: 655px;
-	padding-bottom: 30px;
-	padding-left: 20px;
-    width: 740px;
-    display: none;
-}
+
 .a_title{
 	font: 30px/1 "微软雅黑";
 	text-align: center;
@@ -1118,4 +1119,31 @@ input.error {border: 1px solid red;}
 	padding: 5px 0;
 	text-indent: 2em;
 	color: #8c8c8c;
+}
+
+.lbn{
+	background: url(../images/lbn.png) no-repeat;
+	display: block;
+	height: 100px;
+	width: 100px;
+	position: fixed;
+	border: 2px solid #ccc;
+	right: 10px;
+	bottom: 60px;
+	border-radius: 50%;
+	color: #E2E2E2;
+	font: 24px "微软雅黑";
+	text-align: center;
+	transition: 0.5s;
+}
+.lbn:hover{
+	text-decoration: none;
+	color: #fff;
+	font-weight: 500;
+	box-shadow: 10px 10px 70px #000 inset;
+	-webkit-box-shadow: 10px 10px 70px #000 inset;
+}
+
+.lbn p{
+	line-height: 100px;
 }

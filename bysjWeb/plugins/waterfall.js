@@ -32,7 +32,7 @@ function waterfall(parent,pin){
     var num=Math.floor(740/iPinW);//每行中能容纳的pin个数【窗口宽度除以一个块框宽度】
 //  var num=Math.floor(ooParaent.offsetWidth/iPinW);
     oParent.style.cssText='width:'+iPinW*num+'px;ma rgin:0 auto;';//设置父级居中样式：定宽+自动水平外边距
-	console.log(num);
+//	console.log(num);
     var pinHArr=[];//用于存储 每列中的所有块框相加的高度。
     for(var i=0;i<aPin.length;i++){//遍历数组aPin的每个块框元素
         var pinH=aPin[i].offsetHeight;

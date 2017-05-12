@@ -88,7 +88,7 @@ myFocus.set({
 	<!--页面顶部top结束-->
 	<div class="wrap_logo">
 	<div class="logo">
-			<div class="logo_left"><a href="#"><img src="images/logo.gif"/></a> </div>
+			<div class="logo_left"><a href="index.php"><img src="images/logo.gif"/></a> </div>
 			<div class="logo_right"><img src="images/tel.jpg" width="28" height="28" />24小时服务热线：<span class="tel">158-8827-4549</span></div>
 	</div>
 	</div>
@@ -333,6 +333,9 @@ myFocus.set({
 		<!--history结束-->
 	</div>
 	<!--wrap结束-->
+	<!--乐佰年入口-->
+	<a class="lbn" href="LBN/index.html" title="乐佰年"><p>乐佰年</p></a>
+	<!--to_top-->
 	<a id="to_top" class="clearfix" href="javascript:;" title="回到顶部"></a>
 	<div class="footer">
 		<div class="footer_text">

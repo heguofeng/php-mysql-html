@@ -30,5 +30,6 @@
 		<p class="p2">联系方式：</p><br />
 		<p class="p3">手机：15888274549</p><br />
 		<p class="p4">Q&nbsp;&nbsp;Q: 32927202</p><br />
+		<a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=bV5fVF9aX11fLRwcQw4CAA" style="text-decoration:none;margin-left: 64px;"><img src="http://rescdn.qqmail.com/zh_CN/htmledition/images/function/qm_open/ico_mailme_22.png"/></a>
 		<div><img src="images/aboutme.jpg"/></div>
 	</body>

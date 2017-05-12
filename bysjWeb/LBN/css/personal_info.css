@@ -1,0 +1,132 @@
+body{
+	background-color: #f1f1f1;
+}
+.bor_left{
+	border-left: 1px solid #c2c2c2;
+}
+.top{
+	background-color: #2B2E4A;
+	width: 100%;
+}
+.top_header{
+	height: 60px;
+	width: 1140px;
+	margin: 0 auto;
+}
+.top_header_l img{
+	margin: 2px auto;
+}
+.logo_txt{
+    font: 25px/60px "微软雅黑";
+    color: #FFFAFA;
+    margin-left: 15px;
+    display: block;
+    transition: all 0.5s;
+}
+.logo_txt:hover{color: #c2c2c2;}
+.top_header_r{
+	
+}
+.top_header_r li{
+	float: left;
+/*	margin: 0 20px;*/
+	height: 60px;
+}
+.top_header_r li a{
+	font: 16px "微软雅黑";
+	color: #c2c2c2;
+	display: block;
+	margin-top: 20px;
+	padding: 0 20px;
+	transition: all 0.5s;
+}
+.top_header_r li a:hover{
+	color: #fff;
+}
+/*personal_info页面*/
+.p_picbox{
+	width: 100%;
+	height: 150px;
+	position: relative;
+	overflow: hidden;
+	text-align: center;
+}
+.p_picbox_pic{
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: url(../images/beijing500.jpg) no-repeat;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	margin: 0 auto;
+}
+.p_picbox_title h1{
+	font: 60px/130px "微软雅黑";
+	color: #fff;
+	font-weight: 100;
+}
+.p_main{
+	background-color: #f1f1f1;
+	
+	width: 1085px;
+	overflow: hidden;
+	margin: 0 auto;
+	position: relative;
+	margin-top: 15px;
+	margin-bottom: 20px;
+}
+.p_main_left{
+	width: 200px;
+	position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+}
+.p_main_right{
+	background-color: #FFFFFF;
+	width: 860px;
+	min-height: 900px;
+	padding: 10px 20px 10px;
+	margin: 0 0 0 215px;
+}
+.main_right_title{
+	width: 100%;
+	height: 40px;
+	margin-bottom:20px ;
+	
+}
+.main_right_title h1{
+	font: 40px/40px "微软雅黑";
+	font-weight: 300;
+	color: #E84545;
+}
+/*#53354A#903749#E84545#2B2E4A*/
+.layui-form-label{
+	width: 90px;
+}
+.layui-input-block{
+	margin-left: 120px;
+}
+.unit{
+	line-height: 38px;
+	font-size: 14px;
+	font-weight: 400;
+}
+footer{
+	margin: 30px 0;
+	padding: 30px 0;
+	width: 100%;
+	border-top: 1px solid #e2e2e2;
+	line-height: 30px;
+	text-align: center;
+	color: #737573;
+}
+footer a{
+	padding: 0 6px;
+	color: #333;
+	font-weight: 300px;
+}
+footer i{
+	font-style: normal;
+}

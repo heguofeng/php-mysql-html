@@ -32,8 +32,8 @@ $userInfo=getUserById($id);
 				<tr><td class="basicinfo_title td_crossline">性别：</td>
 					<td class="td_crossline">
 						<select name="u_sex" id="u_sex" class="select_small">
-							<option value="1" <?php echo $empInfo['u_sex']=="1"?"selected='selected'":null; ?>>男</option>
-							<option value="2" <?php echo $empInfo['u_sex']=="2"?"selected='selected'":null; ?>>女</option>
+							<option value="1" <?php echo $userInfo['u_sex']=="男"?"selected='selected'":null; ?>>男</option>
+							<option value="2" <?php echo $userInfo['u_sex']=="女"?"selected='selected'":null; ?>>女</option>
 						</select>
 					</td>
 				</tr>

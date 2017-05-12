@@ -151,7 +151,9 @@ myFocus.set({
 			</div>
 		</div>
 		<div class="content_right" name="content_right">
-			
+			<div class="load_img">
+				<img src="images/loading2.gif"/>
+			</div>
 		</div><!--content_right结束-->
 		<iframe class="content_right2" src="c_environment.php" frameborder="0" width="" height=""></iframe>
 	</div><!--content结束-->
