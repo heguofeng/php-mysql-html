@@ -68,3 +68,23 @@
 /*错误提示*/
 label.error {margin-bottom: 10px;margin-left: 5px;color: red;font-size: 14px; font-weight: bold; clear: both;  display: inline-block; border: 1px solid red;background-color: #DDDDDD;background:url(../images/no.png) no-repeat 1px 1px; padding-left: 16px;}
 input.error {border: 1px solid red;}
+
+/*dialog提示框的样式*/
+.save_success,.save_failed,.save_start{
+	height: 32px;
+	line-height: 32px;
+	padding-left: 35px;
+	background-size: contain;
+	display: block;
+}
+.save_success{
+	background: url(../images/success32.png) no-repeat 0 0;	
+}
+.save_failed{
+	background: url(../images/failed.png) no-repeat 0 0;
+}
+.save_start{
+	background: url(../images/loading2.gif) no-repeat 0 0;	
+	line-height: 37px;
+	padding-left: 40px;
+}

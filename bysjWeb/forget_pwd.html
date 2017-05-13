@@ -130,6 +130,7 @@ $().ready(function() {
 				dataType:"json",
 				success:function(data){
 					if(data.success){
+						$(".re_login").css("color","#FF6347");
 						d1.close().remove();//关闭中间过度动画
 						var d= dialog({
 							content:'<span class=\'save_success\'>'+data.msg+'</span>'
@@ -174,6 +175,7 @@ $().ready(function() {
 			dataType:"json",
 			success:function(data){
 				if(data.success){
+					$(".re_login").css("color","#FF6347");
 				d1.close().remove();//关闭中间过度动画
 				var d= dialog({
 					content:'<span class=\'save_success\'>'+data.msg+'</span>'
