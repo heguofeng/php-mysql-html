@@ -16,4 +16,5 @@ require_once 'department.inc.php';
 require_once 'employee.inc.php';
 require_once 'user.inc.php';
 require_once 'article.inc.php';
+require_once('Ucpaas.class.php');
 connect();

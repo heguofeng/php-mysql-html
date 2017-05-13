@@ -20,13 +20,11 @@
         	<div class="bj_left">
             <h3>欢迎注册</h3>
        	  	  <form  id="formZ" name="formZ" action="#" method="post">
-                <input type="text" id="username" name="username" class="kuang_txt phone" placeholder="手机号">
-                	<!--<input type="text" id="email" name="email" class="kuang_txt email" placeholder="邮箱">-->
+                <input type="text" id="username" name="username" class="kuang_txt phone" placeholder="账号">
+                <input type="text" id="email" name="email" class="kuang_txt email" placeholder="邮箱">
                 <input type="password" id="password" name="password" class="kuang_txt possword" placeholder="密码">
                 <input type="password" id="confirm_password" name="confirm_password" class="kuang_txt possword" placeholder="确认密码">
-               <div class="">
-               		<input name="security_code" id="security_code" type="text" class="kuang_txt yanzm" placeholder="请输入验证码" style="width: 100px;margin-top: 0;"> <input name="btn_code" type="button" id="btn_code" class="btn_zhuce" value="获取验证码" style="width: 130px;margin-top: 0; margin-left: 5px;">
-               </div> 
+                <!--<input name="" type="text" class="kuang_txt yanzm" placeholder="验证码">-->
                 <div>
                		<input name="autoFlag" id="autoFlag" type="checkbox" checked="checked" value=""><span>已阅读并同意<a href="#" target="_blank"><span class="lan">《XXXXX使用协议》</span></a></span>
                 </div>
@@ -87,8 +85,7 @@ $().ready(function() {
 				url:"doUserAction.php?act=reg",
 				data:{
 					username:$("#username").val(),
-//					email:$("#email").val(),
-					security_code:$("#security_code").val(),
+					email:$("#email").val(),
 					password:$("#password").val(),
 					confirm_password:$("#confirm_password").val(),
 					autoFlag:$("#autoFlag").is(':checked')
@@ -124,36 +121,17 @@ $().ready(function() {
 			});
 		}
 	});
-	//获取验证码
-	$("#btn_code").click(function(){
-		var flag = $('#formZ').valid();
-    	if(flag){
-		$.ajax({
-				type:"POST",
-				url:"doUserAction.php?act=code",
-				data:{
-					username:$("#username").val(),
-					},
-				dataType:"json",
-				success:function(data){
-					alert(data);
-				},
-				error:function(jqXHR){
-					alert("发生错误:"+jqXHR.status);
-				},
-		});
-		}
-	});
-	
 	$("#formZ").validate({	 	
 	        rules: {
 			    username: {
                     required: true,
                     minlength: 2,
-                    maxlength: 11,
-                    minlength:11,
-                    digits:true 
+                    maxlength: 10
                 },
+				email: {
+				    required: true,
+				    email: true
+			   },
 			   password: {
 				    required: true,
 				    minlength: 2
@@ -167,11 +145,15 @@ $().ready(function() {
 	        messages: 
 	        {
 			      username: {
-                    required: '请输入正确的手机号码',
-                    minlength: '请输入正确的手机号码',
-                    maxlength: '请输入正确的手机号码',
+                    required: '请输入用户名',
+                    minlength: '账号不能小于2个字符',
+                    maxlength: '账号不能超过10个字符',
                     remote: '账号不存在'
                 },
+			   email: {
+				    required: "请输入Email地址",
+				    email: "请输入正确的Email地址"
+			   },
 			   password: {
 				    required: "请输入密码",
 				    minlength: jQuery.format("密码不能小于{0}个字 符")

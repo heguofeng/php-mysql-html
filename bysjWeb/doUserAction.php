@@ -25,6 +25,8 @@ if($act=="save"){
 }
 elseif($act=="check"){
 	checkUsername();
+}elseif($act=="code"){
+	code();
 }
 
 /*保存用户信息*/
@@ -222,27 +224,34 @@ function reg(){
 			return;
 		}
 		$username=$_POST['username'];
-		$email=$_POST['email'];
+//		$email=$_POST['email'];
 		$password=md5($_POST['password']);
 		$autoFlag=$_POST['autoFlag'];
+		$security_code=$_POST['security_code'];
 		$result='{"success":false,"msg":"注册失败。"}';
 		if($autoFlag=="true"){
-			//检测是否有重复ID
-			$sql="select id from users where u_username='{$username}'";
-			$row=fetchOne($sql);
-			if(!$row){
-				//执行注册操作
-				$sql="INSERT INTO users( `u_username`, `u_email`, `u_pwd`) VALUES ('$username','$email','$password')";
-				if(mysql_query($sql)){
-						$result='{"success":true,"msg":"注册成功！3秒后跳至登录页面..."}';
-				}
-				else{
-						$result='{"success":false,"msg":"注册失败!"}';
+			//检测验证码是否正确
+			if($security_code==$_SESSION['param']){
+				//检测是否有重复ID
+				$sql="select id from users where u_username='{$username}'";
+				$row=fetchOne($sql);
+				if(!$row){
+					//执行注册操作
+					$sql="INSERT INTO users( `u_username`, `u_email`, `u_pwd`) VALUES ('$username','$email','$password')";
+					if(mysql_query($sql)){
+							$result='{"success":true,"msg":"注册成功！3秒后跳至登录页面..."}';
+					}
+					else{
+							$result='{"success":false,"msg":"注册失败!"}';
+					}
+				}else{
+					$result='{"success":false,"msg":"该账户已被注册，请注册其他账号"}';
 				}
 			}else{
-				$result='{"success":false,"msg":"该账户已被注册，请注册其他账号"}';
+				$result='{"success":false,"msg":"验证码错误!"}';
 			}
-			}
+			
+		}
 		else{
 			$result='{"success":false,"msg":"请勾选同意协议！"}';
 		}
@@ -276,4 +285,27 @@ function checkUsername(){
 		$res='{"d":2}';
 	}
 	echo $res;
+}
+
+function code(){//初始化必填
+		$username=$_POST['username'];
+		$options['accountsid']='4d34aed70a30405c8aba9a0d89330798';
+		$options['token']='471416c20b89d075cdc90a30e0a74d9b';
+		
+		//初始化 $options必填
+		$ucpass = new Ucpaas($options);
+		//短信验证码（模板短信）,默认以65个汉字（同65个英文）为一条（可容纳字数受您应用名称占用字符影响），超过长度短信平台将会自动分割为多条发送。分割后的多条短信将按照具体占用条数计费。
+		$appId = "82376abb35ee46e3938f84477ec06e9d";
+		$to = $username;
+		$templateId = "48675";
+		$param=rand(1000,9999);
+		$ucpass->templateSMS($appId,$to,$templateId,$param);
+		$_SESSION['param']=$param;
+//		$sql="update users set security_code={$param} where u_username={$username}";
+//		if(mysql_query($sql)){
+//			$result='{"success":true,"msg":"验证码已写入数据库"}';
+//		}else{
+//			$result='{"success":false,"msg":"写入数据库失败！"}';
+//		}
+	echo $param;
 }
