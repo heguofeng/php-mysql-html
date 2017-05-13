@@ -20,11 +20,11 @@
         	<div class="bj_left">
             <h3>欢迎注册</h3>
        	  	  <form  id="formZ" name="formZ" action="#" method="post">
-                <input type="text" id="username" name="username" class="kuang_txt phone" placeholder="手机号">
-                	<!--<input type="text" id="email" name="email" class="kuang_txt email" placeholder="邮箱">-->
-                <input type="password" id="password" name="password" class="kuang_txt possword" placeholder="密码">
-                <input type="password" id="confirm_password" name="confirm_password" class="kuang_txt possword" placeholder="确认密码">
-               <div class="">
+                <input type="text" id="username" name="username" class="kuang_txt phone" placeholder="请输入常用手机号">
+                <input type="text" id="email" name="email" class="kuang_txt email" placeholder="请输入常用邮箱">
+                <input type="password" id="password" name="password" class="kuang_txt password" placeholder="请输入密码">
+                <input type="password" id="confirm_password" name="confirm_password" class="kuang_txt password" placeholder="请再确认一次密码">
+               <div>
                		<input name="security_code" id="security_code" type="text" class="kuang_txt yanzm" placeholder="请输入验证码" style="width: 100px;margin-top: 0;"> <input name="btn_code" type="button" id="btn_code" class="btn_zhuce" value="获取验证码" style="width: 130px;margin-top: 0; margin-left: 5px;">
                </div> 
                 <div>
@@ -87,7 +87,7 @@ $().ready(function() {
 				url:"doUserAction.php?act=reg",
 				data:{
 					username:$("#username").val(),
-//					email:$("#email").val(),
+					email:$("#email").val(),
 					security_code:$("#security_code").val(),
 					password:$("#password").val(),
 					confirm_password:$("#confirm_password").val(),
@@ -136,7 +136,23 @@ $().ready(function() {
 					},
 				dataType:"json",
 				success:function(data){
-					alert(data);
+					if(data.success){
+						var i=60;//60s
+						var time2=setInterval(function(){
+							i--;
+							$("#btn_code").attr("value",i+"秒");
+						},1000);
+						var time1=setTimeout(function(){
+							$("#btn_code").removeAttr("disabled");
+							$("#btn_code").attr("value","获取验证码");
+							$("#btn_code").css("cursor","pointer");
+							clearInterval(time2);
+						},60000);
+						$("#btn_code").attr("disabled","disabled");
+						$("#btn_code").css("cursor","not-allowed");
+					}else{
+						
+					}
 				},
 				error:function(jqXHR){
 					alert("发生错误:"+jqXHR.status);
@@ -149,7 +165,6 @@ $().ready(function() {
 	        rules: {
 			    username: {
                     required: true,
-                    minlength: 2,
                     maxlength: 11,
                     minlength:11,
                     digits:true 
@@ -183,7 +198,6 @@ $().ready(function() {
 			   }
 	  		}	
 	   	 });
-
 });
 
 </script>

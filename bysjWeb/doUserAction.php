@@ -27,7 +27,12 @@ elseif($act=="check"){
 	checkUsername();
 }elseif($act=="code"){
 	code();
+}elseif($act=="update_pwd"){
+	update_pwd();
+}elseif($act=="mail_pwd"){
+	mail_pwd();
 }
+
 
 /*保存用户信息*/
 function save($id){
@@ -287,6 +292,7 @@ function checkUsername(){
 	echo $res;
 }
 
+//获取手机验证码
 function code(){//初始化必填
 		$username=$_POST['username'];
 		$options['accountsid']='4d34aed70a30405c8aba9a0d89330798';
@@ -301,11 +307,53 @@ function code(){//初始化必填
 		$param=rand(1000,9999);
 		$ucpass->templateSMS($appId,$to,$templateId,$param);
 		$_SESSION['param']=$param;
-//		$sql="update users set security_code={$param} where u_username={$username}";
-//		if(mysql_query($sql)){
-//			$result='{"success":true,"msg":"验证码已写入数据库"}';
-//		}else{
-//			$result='{"success":false,"msg":"写入数据库失败！"}';
-//		}
-	echo $param;
+		$sql="update users set security_code='{$param}' where u_username='{$username}'";
+		if(mysql_query($sql)){
+			$result='{"success":true}';
+		}else{
+			$result='{"success":false}';
+		}
+	echo $result;
+}
+
+//通过手机修改密码
+function update_pwd(){
+	$username=$_POST['username'];
+	$password=md5($_POST['password']);
+	$security_code=$_POST['security_code'];
+	$result='{"success":false,"msg":"还没判断。"}';
+	//检测验证码是否正确
+	if($security_code==$_SESSION['param']){
+			//执行注册操作
+			$sql="update users set u_pwd='{$password}' where u_username='{$username}'";
+			if(mysql_query($sql)){
+					$result='{"success":true,"msg":"密码已修改，赶快去登陆吧！"}';
+			}
+			else{
+					$result='{"success":false,"msg":"修改失败!"}';
+			}
+
+	}else{
+		$result='{"success":false,"msg":"验证码错误!"}';
+	}
+	echo $result;
+}
+//邮件找回密码
+function mail_pwd(){
+	$email=$_POST['email'];
+	$rander=rand(100000,999999);
+	$md5_rander=md5($rander);
+	$sql="update users set u_pwd='{$md5_rander}' where u_email='{$email}'";
+	if(mysql_query($sql)){
+		$flag = sendMail($email,'温医养老院-找回密码','已为您重置密码，新密码为'.$rander);
+		if($flag){
+		    $result='{"success":true,"msg":"发送邮件成功！"}';
+		}else{
+		    $result='{"success":false,"msg":"发送邮件失败！"}';
+		}
+	}else{
+		$result='{"success":false,"msg":"未找到该用户"}';
+	}
+	echo $result;
+	
 }

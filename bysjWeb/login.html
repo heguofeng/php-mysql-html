@@ -20,10 +20,10 @@
         	<div class="bj_left"><!--左边输入框-->
 	            <h3>登录</h3>
 	       	  	  <form id="formD" name="formD" method="get" action="#">
-		                <input type="text" id="username" name="username" class="kuang_txt" placeholder="账号" onkeypress="dologin(event)">
-		                <input type="password" id="password" name="password" class="kuang_txt" placeholder="密码" onkeypress="dologin(event)">
+		                <input type="text" id="username" name="username" class="kuang_txt" placeholder="请输入已验手机" onkeypress="dologin(event)">
+		                <input type="password" id="password" name="password" class="kuang_txt" placeholder="请输入密码" onkeypress="dologin(event)">
 		                <div>
-		               		<a href="javascript:;" title="忘记密码">忘记密码？</a><input id="autoFlag" name="autoFlag" type="checkbox" value=""><span>记住我</span> 
+		               		<a href="forget_pwd.html" title="忘记密码">忘记密码？</a><input id="autoFlag" name="autoFlag" type="checkbox" value=""><span>记住我</span> 
 		                </div>
 		                <input name="btn_denglu" type="button" id="btn_denglu" class="btn_denglu" value="登录">
 		                <p id="createResult"></p>
@@ -114,11 +114,11 @@ $().ready(function() {
 	 
 });
 	function dologin(evt){
-	evt=(evt)?evt:((window.event)?window.event:"");
-	var key=evt.keyCode?evt.keyCode:evt.which;
-	if(key==13){
-		$("#btn_denglu").click();
-	}
+		evt=(evt)?evt:((window.event)?window.event:"");
+		var key=evt.keyCode?evt.keyCode:evt.which;
+		if(key==13){
+			$("#btn_denglu").click();
+		}
 	}
 
 </script>

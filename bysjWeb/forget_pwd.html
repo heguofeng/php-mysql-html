@@ -1,0 +1,206 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>温医养老院</title>
+	<link rel="shortcut icon" href="images/favicon.ico"/><!--加图标-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="css/forget_pwd.css"/>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="plugins/dialog.js"></script>
+</head>
+<body>
+<div id="background"><img src="images/bg_login2.jpg" width="100%" height="100%"/></div><!--背景层-->
+<div class="zhuce_body">
+	<div class="logo"><a href="index.php"><img src="images/logo1.png" width="350" height="100" border="0" title="温医养老院"></a></div>
+    <div class="zhuce_kong">
+    	<div class="zc">
+        	<div class="bj_left bj_mail">
+            <h3>找回密码</h3><a href="login.html" class="re_login">返回登录&nbsp;&nbsp;|&nbsp;&nbsp;</a><span class="change" id="to_mail">通过邮箱找回</span>
+       	  	 	<form  id="formP" name="formZ" action="#" method="post">
+	                <input type="text" id="username" name="username" class="kuang_txt phone" placeholder="请输入注册时的手机号">
+		        	<div class="">
+		               	<input name="security_code" id="security_code" type="text" class="kuang_txt yanzm" placeholder="请输入验证码" style="width: 100px;margin-top: 0; margin-bottom: 10px;"> <input name="btn_code" type="button" id="btn_code" class="btn_zhuce" value="获取验证码" style="width: 130px;margin-top: 0; margin-left: 5px;">
+		            </div> 
+	                <input type="password" id="password" name="password" class="kuang_txt password" placeholder="请输入新密码">
+	                <input name="btn_phone" type="button" id="btn_phone" class="btn_zhuce" value="找回密码">
+	                <p id="createResult"></p>
+                </form>
+            </div><!--bj_left左框-->
+            <div class="bj_left bj_phone" style="display: none;">
+	            <h3>找回密码</h3><a href="login.html" class="re_login" style="right: 106px;">返回登录&nbsp;&nbsp;|&nbsp;&nbsp;</a><span class="change" id="to_phone">通过手机号找回</span>
+	       	  	 	<form  id="formM" name="formZ" action="#" method="post">
+		                <input type="text" id="email" name="email" class="kuang_txt email" placeholder="请输入常用邮箱">
+		                <input name="btn_mail" type="button" id="btn_mail" class="btn_zhuce" value="找回密码">
+		                <p id="createResult"></p>
+	               	</form>
+            </div><!--bj_left左框-->
+        </div><!--zc注册框-->
+    </div><!--zhuce_kong-->
+</div><!--zhuce_body-->
+<script type="text/javascript"> 
+$().ready(function() {
+	$("#username").focus();
+	//转换两个框
+	$("#to_mail").click(function(){
+		$(".bj_mail").css("display","none");
+		$(".bj_phone").css("display","block");
+	});
+	$("#to_phone").click(function(){
+		$(".bj_mail").css("display","block");
+		$(".bj_phone").css("display","none");
+	});
+		//获取验证码
+	$("#btn_code").click(function(){
+		var flag = $('#formP').valid();
+    	if(flag){
+		$.ajax({
+				type:"POST",
+				url:"doUserAction.php?act=code",
+				data:{
+					username:$("#username").val(),
+					},
+				dataType:"json",
+				success:function(data){
+					if(data.success){
+						var i=60;//60s
+						var time2=setInterval(function(){
+							i--;
+							$("#btn_code").attr("value","已发送，"+i+"秒");
+						},1000);
+						var time1=setTimeout(function(){
+							$("#btn_code").removeAttr("disabled");
+							$("#btn_code").attr("value","获取验证码");
+							$("#btn_code").css("cursor","pointer");
+							clearInterval(time2);
+						},60000);
+						$("#btn_code").attr("disabled","disabled");
+						$("#btn_code").css("cursor","not-allowed");
+					}else{
+						
+					}
+				},
+				error:function(jqXHR){
+					alert("发生错误:"+jqXHR.status);
+				},
+		});
+		}
+	});
+	//验证输入框
+	$("#formP").validate({	 	
+	        rules: {
+			    username: {
+                    required: true,
+                    maxlength: 11,
+                    minlength:11,
+                    digits:true 
+               },
+	 		},
+	        messages: 
+	        {
+		      username: {
+                required: '请输入正确的手机号码',
+                minlength: '请输入正确的手机号码',
+                maxlength: '请输入正确的手机号码',
+                remote: '账号不存在'
+               },
+	  		}	
+	   	 });
+	//通过手机找回密码
+	$("#btn_phone").click(function(){
+		//先通过button验证表单有效性
+		var flag = $('#formP').valid();
+    	if(flag){
+    		var d1= dialog({
+				content:'<span class=\'save_start\'>正在修改密码。</span>'
+			});
+			$(document).ajaxStart(function(){
+				d1.show();					 
+			});
+			$.ajax({
+				type:"POST",
+				url:"doUserAction.php?act=update_pwd",
+				data:{
+					username:$("#username").val(),
+					security_code:$("#security_code").val(),
+					password:$("#password").val(),
+					},
+				dataType:"json",
+				success:function(data){
+					if(data.success){
+						d1.close().remove();//关闭中间过度动画
+						var d= dialog({
+							content:'<span class=\'save_success\'>'+data.msg+'</span>'
+						});
+						d.show();
+						setTimeout(function(){
+							d.close().remove();
+						},2500);	
+					}
+					else{
+						d1.close().remove();//关闭中间过度动画
+						var d= dialog({
+							content:'<span class=\'save_failed\'>'+data.msg+'</span>',
+							quickClose:true,//点击空白出快速关闭
+						});
+						d.show();
+						setTimeout(function(){
+							d.close().remove();
+						},3000);
+					}
+				},
+				error:function(jqXHR){
+					alert("发生错误:"+jqXHR.status);
+				},
+			});
+		}
+	});
+	//通过邮箱修改密码
+	$("#btn_mail").click(function(){
+		var d1= dialog({
+				content:'<span class=\'save_start\'>正在修改密码。</span>'
+			});
+			$(document).ajaxStart(function(){
+				d1.show();					 
+			});
+		$.ajax({
+			type:"post",
+			url:"doUserAction.php?act=mail_pwd",
+			data:{
+				email:$("#email").val(),
+			},
+			dataType:"json",
+			success:function(data){
+				if(data.success){
+				d1.close().remove();//关闭中间过度动画
+				var d= dialog({
+					content:'<span class=\'save_success\'>'+data.msg+'</span>'
+				});
+				d.show();
+				setTimeout(function(){
+					d.close().remove();
+				},2500);	
+			}
+			else{
+				d1.close().remove();//关闭中间过度动画
+				var d= dialog({
+					content:'<span class=\'save_failed\'>'+data.msg+'</span>',
+					quickClose:true,//点击空白出快速关闭
+				});
+				d.show();
+				setTimeout(function(){
+					d.close().remove();
+				},3000);
+			}
+			},
+			error:function(jqXHR){
+				alert("发生错误:"+jqXHR.status);
+			},
+		});
+	});
+});
+</script>
+</body>
+</html>
