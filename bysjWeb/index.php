@@ -35,6 +35,7 @@ $yyss=fetchOne($sql);
 <head>
 <meta name="keywords" content="养老院网站模板,毕业设计网站,管理系统,前后台开发,养老院网站的设计与实现,温医养老院,温州医科大学" />
 <meta name="description" content="本网站为毕业设计网站，主题养老院"/>
+<meta name="baidu-site-verification" content="SU2RQnG68g" />
 <meta charset="UTF-8"/>
 <title>温医养老院</title>
 <link rel="shortcut icon" href="images/favicon.ico"/><!--加图标-->
@@ -334,7 +335,7 @@ myFocus.set({
 	</div>
 	<!--wrap结束-->
 	<!--乐佰年入口-->
-	<a class="lbn" href="LBN/index.html" title="乐佰年"><p>乐佰年</p></a>
+	<a class="lbn" href="LBN/index.html" target="_blank" title="乐佰年"><p>乐佰年</p></a>
 	<!--to_top-->
 	<a id="to_top" class="clearfix" href="javascript:;" title="回到顶部"></a>
 	<div class="footer">

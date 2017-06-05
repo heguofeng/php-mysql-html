@@ -56,10 +56,10 @@ layui.use(['jquery', 'layer', 'form','element','laydate'], function(){//只调�
  		 console.log(data.value);
   	});
   		 //保存 
-	form.on('submit(save1)',function(data){
+	form.on('submit(btn_save)',function(data){
 		form.render(); //更新全部
 	  console.log(data.field); //当前容器的全部表单字段，名值对形式：{name: value}
-	  //return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+	  return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
 	});
 });
 
@@ -73,7 +73,7 @@ function loadProvince() {
     $form.find('select[name=province]').append(proHtml);
     form.render();//重新渲染数据
     form.on('select(province)', function(data) {
-        $form.find('select[name=area]').html('<option value="">请选择县/区</option>').parent().hide();
+      //  $form.find('select[name=area]').html('<option value="">请选择县/区</option>').parent().hide();//隐藏县
         var value = data.value;
         var d = value.split('_');
         var code = d[0];
@@ -120,3 +120,49 @@ function loadArea(areas) {
     });
 }
 
+$(document).ready(function(){
+	$("#btn_save").on("click",function(){
+		$.ajax({
+			type:"post",
+			url:"doUserAction.php?act=save_pi&id=1",
+			data:{
+				realname:$("#realname").val(),
+				birth:$("#birth").val(),
+				province:$("#province").val(),
+				city:$("#city").val(),
+				area:$("#area").val(),
+				address:$("#address").val(),
+				sex:$("input[name='sex']:checked").val(),
+				educational_level:$("#educational_level").val(),
+				work:$("#work").val(),
+				care_form:$("#care_form").val(),
+				id_card:$("#id_card").val(),
+				phone_num:$("#phone_num").val(),
+				tel_num:$("#tel_num").val(),
+				height:$("#height").val(),
+				weight:$("#weight").val(),
+				bmi:$("#bmi").val(),
+				is_hospital:$("#is_hospital").val(),
+				hospital_num:$("#hospital_num").val(),
+				hospital_department:$("#hospital_department").val(),
+				hospital_bed:$("#hospital_bed").val(),
+				patient_num:$("#patient_num").val(),
+				is_smoke:$("#is_smoke").val(),
+				smoke_count:$("#smoke_count").val(),
+				smoke_time:$("#smoke_time").val(),
+				nosmoke_time:$("#nosmoke_time").val(),
+				is_drink:$("#is_drink").val(),
+				drink_count:$("#drink_count").val(),
+				drink_time:$("#drink_time").val(),
+				nodrink_time:$("#nodrink_time").val(),
+			},
+			dataType:"json",
+			success:function(date){
+				alert("成功！");
+			},
+			error:function(jqXHR){
+				alert("发生错误"+jqXHR.status);
+			}
+		});
+	});
+});
