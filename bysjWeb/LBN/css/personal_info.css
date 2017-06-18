@@ -15,6 +15,15 @@ body{
 }
 .top_header_l img{
 	margin: 2px auto;
+	border-radius: 50%;
+}
+@keyframes xuanzhuan{
+	0%{transform: rotate(0deg);}
+	/*50%{transform: rotate(180deg);}*/
+	100%{transform: rotate(360deg);}
+}
+.top_header_l img:hover{
+	animation: xuanzhuan 1s linear infinite;
 }
 .logo_txt{
     font: 25px/60px "微软雅黑";

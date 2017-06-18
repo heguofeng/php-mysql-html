@@ -12,6 +12,15 @@
 }
 .top_header_l img{
 	margin: 2px auto;
+	border-radius: 50%;
+}
+@keyframes xuanzhuan{
+	0%{transform: rotate(0deg);}
+	/*50%{transform: rotate(180deg);}*/
+	100%{transform: rotate(360deg);}
+}
+.top_header_l img:hover{
+	animation: xuanzhuan 1s linear infinite;
 }
 .logo_txt{
     font: 25px/60px "微软雅黑";
@@ -41,7 +50,7 @@
 .main{
 	position: relative;
 	overflow: hidden;
-	height: 500px;
+	height: 440px;
 	text-align: center;
 }
 .pic{
@@ -144,7 +153,7 @@
 }
 .nav{
 	background-color: #fff;
-	padding: 0em 1em 2em;
+	padding: 0em 1em 0em;
 	position: relative;
 	/*overflow: hidden;*/
 	
@@ -203,31 +212,6 @@ nav{
 	color: #333;
 	font-size: 1.2em;
 }
-/*footer{
-	width: 100%;
-	background-color: #081623;
-	text-align: center;
-}
-.footer{
-	width: 1140px;
-	height: 80px;
-	margin: 0 auto;
-	vertical-align: middle;	
-}
-.footer p{
-	color: #c2c2c2;
-	font-style: normal;
-}
-.copyright{
-	line-height: 60px;
-}
-.design{
-	line-height: 0px;
-}
-.design i{
-	font-style: normal;
-	color: #FFFAFA;
-}*/
 footer{
 	margin: 30px 0 0;
 	padding: 30px 0 60px;

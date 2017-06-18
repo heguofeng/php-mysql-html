@@ -15,18 +15,24 @@ layui.use(['jquery', 'layer', 'form','element','laydate'], function(){//只调�
   	form.on('switch(work)',function(data){	
  		 if(data.elem.checked){
  		 	data.value="1";
+ 		 	$("#work").val("1");
  		 }else{
  		 	data.value="0";
+ 		 	$("#work").val("0");
  		 }
+ 		 console.log(data.value);
+  	 console.log(data.field); 
   	});
 	//住院开关控制器
   	form.on('switch(is_hospital)',function(data){	
  		 if(data.elem.checked){
  		 	data.value="1";
+ 		 	$("#is_hospital").val("1");
  		 	$(".hospital_detial").css("display","block");
  		 	$(".hospital_detial").find("input").removeAttr("disabled");
  		 }else{
  		 	data.value="0";
+ 		 	$("#is_hospital").val("0");
  		 	$(".hospital_detial").css("display","none");
  		 	$(".hospital_detial").find("input").attr("disabled","disabled");
  		 }
@@ -34,32 +40,36 @@ layui.use(['jquery', 'layer', 'form','element','laydate'], function(){//只调�
   	form.on('switch(is_smoke)',function(data){	
  		 if(data.elem.checked){
  		 	data.value="1";
+ 		 	$("#is_smoke").val("1");
  		 	$(".smoke_detial").css("display","block");
  		 	$(".smoke_detial").find("input").removeAttr("disabled");
  		 }else{
  		 	data.value="0";
+ 		 	$("#is_smoke").val("0");
  		 	$(".smoke_detial").css("display","none");
  		 	$(".smoke_detial").find("input").attr("disabled","disabled");
  		 }
- 		 console.log(data.value);
+// 		 console.log(data.value);
   	});
   	form.on('switch(is_drink)',function(data){	
  		 if(data.elem.checked){
  		 	data.value="1";
+ 		 	$("#is_drink").val("1");
  		 	$(".drink_detial").css("display","block");
  		 	$(".drink_detial").find("input").removeAttr("disabled");
  		 }else{
  		 	data.value="0";
+ 		 	$("#is_drink").val("0");
  		 	$(".drink_detial").css("display","none");
  		 	$(".drink_detial").find("input").attr("disabled","disabled");
  		 }
- 		 console.log(data.value);
+// 		 console.log(data.value);
   	});
   		 //保存 
 	form.on('submit(btn_save)',function(data){
 		form.render(); //更新全部
-	  console.log(data.field); //当前容器的全部表单字段，名值对形式：{name: value}
-	  return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+//	    console.log(data.field); //当前容器的全部表单字段，名值对形式：{name: value}
+	    return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
 	});
 });
 
@@ -120,17 +130,39 @@ function loadArea(areas) {
     });
 }
 
+
 $(document).ready(function(){
 	$("#btn_save").on("click",function(){
+		/*以下是将json里的地址代码转换成中文名*/
+		var province=$("#province").val().substr(0,6),
+			city=$("#city").val().substr(0,6),
+			area=$("#area").val(),
+			new_province,new_city,new_area;
+		for(var i=0;i<Area.length;i++){
+			if(Area[i].provinceCode==province){
+				new_province=Area[i].provinceName;
+				for(var j=0;j<Area[i].mallCityList.length;j++){
+					if(Area[i].mallCityList[j].cityCode==city){
+						new_city=Area[i].mallCityList[j].cityName;
+						for(var k=0;k<Area[i].mallCityList[j].mallAreaList.length;k++){
+							if(Area[i].mallCityList[j].mallAreaList[k].areaCode==area){
+								new_area=Area[i].mallCityList[j].mallAreaList[k].areaName;
+							}
+						}
+					}
+				}
+			}
+		}
+//		console.log(new_province+new_city+new_area);
 		$.ajax({
 			type:"post",
 			url:"doUserAction.php?act=save_pi&id=1",
 			data:{
 				realname:$("#realname").val(),
 				birth:$("#birth").val(),
-				province:$("#province").val(),
-				city:$("#city").val(),
-				area:$("#area").val(),
+				province:new_province,
+				city:new_city,
+				area:new_area,
 				address:$("#address").val(),
 				sex:$("input[name='sex']:checked").val(),
 				educational_level:$("#educational_level").val(),
@@ -158,7 +190,12 @@ $(document).ready(function(){
 			},
 			dataType:"json",
 			success:function(date){
-				alert("成功！");
+				if(date.success){
+					alert(date.msg);
+				}
+				else{
+					alert(date.msg);
+				}
 			},
 			error:function(jqXHR){
 				alert("发生错误"+jqXHR.status);

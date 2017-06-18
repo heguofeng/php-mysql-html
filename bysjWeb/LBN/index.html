@@ -4,14 +4,15 @@
 		<meta name="keywords" content="乐佰年智慧评估,老年人" />
 		<meta name="description" content="乐佰年智慧评估"/>
 		<meta http-equiv="Pragma" content="no-cache" /><!--不缓存-->
+		<link rel="shortcut icon" href="images/logo.png"/>
 		<meta charset="UTF-8"/>
 		<title>乐佰年智慧评估</title>
 		<link rel="stylesheet" type="text/css" href="plugins/layui/css/layui.css" />
 		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
-		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="css/public.css"/>
 		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="plugins/layui/layui.js" type="text/javascript" charset="utf-8"></script>
-		
 	</head>
 	<body>
 		<div class="top">
@@ -38,7 +39,7 @@
 				<span>对老年人躯体功能、精神心理、社会经济、生活环境和生存质量等方面的评估</span>
 			</div><!--main_title-->
 			<div class="main_start">
-				<a href="#" class="start">开始测试</a>
+				<a href="personal_info.html" target="_self" class="start">开始测试</a>
 			</div><!--main_start-->
 		</div><!--main-->
 		<div class="nav">
@@ -97,26 +98,26 @@
 			<form class="layui-form layui-form-pane" action="#" method="post">
 				<div class="loginiBOX">
 					<div class="layui-form-item">
-						<label class="layui-form-label">手机号</label>
-						<div class="layui-input-block">
-							<input type="text" name="username" id="username" value="" lay-verify="phone" class="layui-input" autocomplete="off" placeholder="手机号"/>
+						<label class="layui-form-label" style="line-height: 28px;height: 44px;">手机号</label>
+						<div class="layui-input-block" style="margin-bottom: 24px;">
+							<input type="text" name="username" id="reg_username" value="" lay-verify="phone" class="layui-input" style="height: 44px;line-height: 44px;" autocomplete="off" placeholder="手机号"/>
 						</div>
 					</div>
 					<div class="layui-form-item">
-						<label class="layui-form-label">设置密码</label>
-						<div class="layui-input-block">
-							<input type="password" name="password" id="password" value="" class="layui-input" autocomplete="off" placeholder="密码"/>
+						<label class="layui-form-label" style="line-height: 28px;height: 44px;">设置密码</label>
+						<div class="layui-input-block" style="margin-bottom: 24px;">
+							<input type="password" name="password" id="reg_password" value="" class="layui-input" style="height: 44px;line-height: 44px;" autocomplete="off" placeholder="密码"/>
 						</div>
 					</div>
 					<div class="layui-form-item">
-						<label class="layui-form-label">手机验证码</label>
-						<div class="layui-input-block">
-							<input type="text" name="security_code" id="security_code" value="" class="layui-input" autocomplete="off" placeholder="短信验证码"/>
+						<label class="layui-form-label blue-hover" id="btn_code" style="line-height: 28px;height: 44px; background-color: #1E9FFF;border-radius: 5px;cursor: pointer;color: #fff;"onmouseover="this.style.backgroundColor='#0065d0';" onmouseout="this.style.backgroundColor='#1E9FFF'">获取验证码</label>
+						<div class="layui-input-block" style="margin-bottom: 24px;padding-left: 10px;">
+							<input type="text" name="security_code" id="security_code" value="" class="layui-input" style="height: 44px;line-height: 44px;border-radius: 5px;" autocomplete="off" placeholder="短信验证码"/>
 						</div>
 					</div>
 					<div class="layui-form-item">
-						<div class="layui-input-block" style="margin-left: 0; text-align: center;">
-							<button id="login_btn" class="layui-btn layui-btn-normal" lay-submit="" lay-filter="login_btn" style="width: 100%;height: 44px;line-height: 44px;font-size: 18px;border-radius: 4px;">注册</button>
+						<div class="layui-input-block" style="margin-left: 0; text-align: center;margin-bottom: 24px;">
+							<button id="reg_btn" class="layui-btn layui-btn-normal blue-hover" lay-submit="" lay-filter="login_btn" style="width: 100%;height: 44px;line-height: 44px;font-size: 18px;border-radius: 4px;">注册</button>
 						</div>
 					</div>
 				</div>
@@ -130,30 +131,30 @@
 					<a href="javascript:;" id="box_btn_reg">注册</a>
 				</div>
 			</div>
-			<form class="layui-form layui-form-pane" action="#" method="post">
+			<form class="layui-form layui-form-pane" id="form_login" action="#" method="post">
 				<div class="loginiBOX">
 					<div class="layui-form-item">
-						<label class="layui-form-label">账号</label>
-						<div class="layui-input-block">
-							<input type="text" name="username" id="username" value="" lay-verify="phone" class="layui-input" autocomplete="off" placeholder="手机号"/>
+						<label class="layui-form-label" style="line-height: 28px;height: 44px;">账号</label>
+						<div class="layui-input-block" style="margin-bottom: 24px;">
+							<input type="text" name="username" id="username" value="" lay-verify="phone" class="layui-input" style="height: 44px;line-height: 44px;" autocomplete="off" placeholder="手机号"/>
 						</div>
 					</div>
 					<div class="layui-form-item">
-						<label class="layui-form-label">密码</label>
-						<div class="layui-input-block">
-							<input type="password" name="password" id="password" value="" class="layui-input" autocomplete="off" placeholder="密码"/>
+						<label class="layui-form-label" style="line-height: 28px;height: 44px;">密码</label>
+						<div class="layui-input-block" style="margin-bottom: 24px;">
+							<input type="password" name="password" id="password" value="" class="layui-input" style="height: 44px;line-height: 44px;" autocomplete="off" placeholder="密码"/>
 						</div>
 					</div>
 					<div class="layui-form-item" style="position: relative;">
 						<label class=" fl rmb_pwd">记住密码</label>
 						<div class="layui-input-inline">
-							<input type="checkbox" name="autoFlag" id="autoFlag" lay-skin="switch" lay-filter="autoFlag" lay-text="是|否" value="" />
+							<input type="checkbox" name="autoFlag" id="autoFlag" lay-skin="switch" lay-filter="autoFlag" lay-text="是|否" />
 						</div>
 						<a href="#" class="forget_pwd">忘记密码</a>
 					</div>
 					<div class="layui-form-item">
-						<div class="layui-input-block" style="margin-left: 0; text-align: center;">
-							<button id="login_btn" class="layui-btn layui-btn-normal" lay-submit="" lay-filter="login_btn" style="width: 100%;height: 44px;line-height: 44px;font-size: 18px;border-radius: 4px;">登录</button>
+						<div class="layui-input-block" style="margin-left: 0; text-align: center;margin-bottom: 24px;">
+							<button id="login_btn" class="layui-btn layui-btn-normal blue-hover" lay-submit="" lay-filter="login_btn" style="width: 100%;height: 44px;line-height: 44px;font-size: 18px;border-radius: 4px;">登录</button>
 						</div>
 					</div>
 				</div>
@@ -161,159 +162,10 @@
 		</div>
 	</body>
 	<style type="text/css">
-		/*页面样式*/
-		.layui-input{
-			line-height: 44px;
-			height: 44px;
-		}
-		.layui-form-pane .layui-form-label {
-			line-height: 28px;
-			height: 44px;
-		}
-		.layui-input-block{
-			margin-bottom: 24px;
-		}
-		
-		
-		.loginBg{
-			width: 100%;
-			height: 100%;
-			position: absolute;
-			top: 0;
-			left: 0;
-			background: #000000;
-			opacity: 0.5;
-			filter: alpha(opacity=50); /*兼容IE*/
-			z-index: 1000;
-			display: none;
-		}
-		.loginBox{
-			position: fixed;
-			width: 400px;
-			min-height: 330px;
-			left: 50%;
-			top: 50%;
-			margin-left: -200px;
-			margin-top: -190px;
-			z-index: 1001;
-			background-color: #fff;
-			border-radius: 5px;
-			display: none;
-		}
-		@keyframes bigBox{
-			0% {
-			    transform: scale(0.7);
-			}
-			45% {
-			    transform: scale(1.05);
-			}
-			80% {
-			    transform: scale(0.95);
-			}
-			100% {
-			    transform: scale(1);
-			}
-		}
-		.frameBox{
-			animation: 0.4s ease 0s normal ;
-			animation-name: bigBox;
-		}
-		.loginiBOX{
-			margin: 0 auto;
-			width: 85%;
-			height: auto;
-			/*text-align: center;*/
-		}
-		.login_title{
-			height: 60px;
-			vertical-align: middle;
-			position: relative;
 
-		}
-		.loginBox h3{
-			font: 18px "微软雅黑";
-			padding: 15px 0 0 30px;
-			color: #3d3d3d;
-		}
-		.yzc{
-			position: absolute;
-			top: 15px;
-			right: 30px;
-			color: #6d6d6d;
-		}
-		.rmb_pwd{
-			display: block;
-			height: 30px;
-			line-height: 36px;
-			width: 70px;
-			text-align: center;
-		}
-		.forget_pwd{
-			position: absolute;
-			top: 5px;
-			right: 5px;
-			display: block;
-			
-		}
-		.login_title a{
-			color: #35a9ff;
-		}
-		.login_title a:hover{
-			color: blue;
-		}
 	</style>
-	<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/login.js" type="text/javascript" charset="UTF-8"></script>
 	<script type="text/javascript">
-		function openLogin(){
-			//获取整个页面的高度与宽度
-			var sWidth=document.body.scrollWidth;
-			var sHeight=document.body.scrollHeight;
-			//获取页面的可视区域高度和宽度
-			var cHeight=document.documentElement.clientHeight;
-			var cWidth=document.documentElement.clientWidth;
-			//设置透明背景层的高宽
-			var ologinBg=document.getElementById("loginBg");
-			loginBg.style.width=sWidth+"px";
-			ologinBg.style.height=sHeight+'px';
-//			$(".loginBg").css("height",sHeight+"px");
-//			console.log(loginBg.style.height);
-		}
-		window.onload=function(){
-			openLogin();
-			/*点击注册*/
-			$("#btn_reg").on("click",function(){
-				$(".loginBg").css("display","block");
-		 		$("#regBox").css("display","block");
-			});
-			/*点击登录*/
-			$("#btn_login").click(function(){
-				$(".loginBg").css("display","block");
-		 		$("#loginBox").css("display","block");
-			});
-			/*点击遮挡层*/
-			$("#loginBg").click(function(){
-				$(".loginBg").css("display","none");
-		 		$("#loginBox").css("display","none");
-		 		$("#regBox").css("display","none");
-			});
-			/*点击登录框里的注册*/
-			$("#box_btn_reg").click(function(){
-		 		$("#loginBox").css("display","none");
-		 		$("#regBox").css("display","block");
-			});
-			/*点击注册框里的登录*/
-			$("#box_btn_login").click(function(){
-		 		$("#loginBox").css("display","block");
-		 		$("#regBox").css("display","none");
-			});
-			
-		}
-		layui.use(['jquery', 'layer', 'form','element','laydate'], function(){//只调用需要的layui模块
-		  var layer = layui.layer,
-		  laydate=layui.laydate,
-		  element=layui.element();
-		 });
-
-		 
+		
 	</script>
 </html>

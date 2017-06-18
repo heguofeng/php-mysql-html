@@ -24,6 +24,19 @@
 				text-indent: 4em;
 				font-size: 16px;
 			}
+			div img {
+				filter: grayscale(100%);
+				-webkit-filter: grayscale(100%);/*变成灰色*/
+				filter: blur(3px);/*高斯模糊*/
+				transition: all 0.25s;
+			}
+			a{
+				pointer-events: none;/*禁止鼠标点击*/
+			}
+			div img:hover{
+				filter: none;
+				
+			}
 		</style>
 	<body>
 		<p class="p1">本网站设计者：何国锋</p><br />

@@ -25,3 +25,6 @@ header, section, footer, aside, nav, article, figure/*HTML5*/
 
 /*应付bootstarp的CSS冲突*/
 *{box-sizing: content-box;}/*采用css原先的边框模式,在宽度和高度之外绘制元素的内边距和边框*/
+
+
+
