@@ -19,8 +19,8 @@
     	<div class="zc">
         	<div class="bj_left bj_mail">
             <h3>找回密码</h3><a href="login.html" class="re_login">返回登录&nbsp;&nbsp;|&nbsp;&nbsp;</a><span class="change" id="to_mail">通过邮箱找回</span>
-       	  	 	<form  id="formP" name="formZ" action="#" method="post">
-	                <input type="text" id="username" name="username" class="kuang_txt phone" placeholder="请输入注册时的手机号">
+       	  	 	<form  id="formP" name="formZ" action="#" method="post" autocomplete="off">
+	                <input type="text" id="username" name="username" class="kuang_txt phone" autocomplete="off" placeholder="请输入注册时的手机号">
 		        	<div class="">
 		               	<input name="security_code" id="security_code" type="text" class="kuang_txt yanzm" autocomplete="off" placeholder="请输入验证码" style="width: 100px;margin-top: 0; margin-bottom: 10px;"> <input name="btn_code" type="button" id="btn_code" class="btn_zhuce" value="获取验证码" style="width: 130px;margin-top: 0; margin-left: 5px;">
 		            </div> 
@@ -32,7 +32,7 @@
             <div class="bj_left bj_phone" style="display: none;">
 	            <h3>找回密码</h3><a href="login.html" class="re_login" style="right: 106px;">返回登录&nbsp;&nbsp;|&nbsp;&nbsp;</a><span class="change" id="to_phone">通过手机号找回</span>
 	       	  	 	<form  id="formM" name="formZ" action="#" method="post">
-		                <input type="text" id="email" name="email" class="kuang_txt email" placeholder="请输入常用邮箱">
+		                <input type="text" id="email" name="email" class="kuang_txt email" autocomplete="off" placeholder="请输入常用邮箱">
 		                <input name="btn_mail" type="button" id="btn_mail" class="btn_zhuce" value="找回密码">
 		                <p id="createResult"></p>
 	               	</form>
