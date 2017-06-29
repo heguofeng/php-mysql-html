@@ -2,6 +2,11 @@
 body{
 	background-color:#F5F5F5 ;
 }
+/*消除在chrome下表单自动填充背景为黄色*/
+/*input:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px white inset;
+	border: 1px solid #CCC!important;
+}*/
 .bor{border: 1px solid #ddd;}
 #createResult_red,#createResult_green{
 	
@@ -40,6 +45,10 @@ body{
 .zhuce_kong > p{font:16px/70px "微软雅黑", "黑体"; text-align:center; color:#fff;}
 .zhuce_body .zhuce_kong .zc .bj_left .kuang_txt{ width:236px; height:32px; border:1px solid #dddddd; line-height:32px; padding-left:32px; color:#b1a9a9;  margin-bottom:10px; }
 .zhuce_body .zhuce_kong .zc .bj_left .kuang_txt:hover{border-color: #F06F11;border-radius: 3px;}
+.zhuce_body .zhuce_kong .zc .bj_left .kuang_txt:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px white inset;
+	border: 1px solid #CCC!important;
+}
 .zhuce_body .zhuce_kong .zc .bj_left .kuang_txt:focus{border-color: #0065D0;border-radius: 3px;}
 .zhuce_body .zhuce_kong .zc .bj_left .btn_zhuce{ width:270px; height:33px; background:#37b5f9; font-size:14px; line-height:33px; text-align:center; border:0px; color:#fff; border-radius:3px; cursor:pointer;}
 .zhuce_body .zhuce_kong .zc .bj_left .btn_zhuce:hover{ background:#0065d0;}
@@ -71,7 +80,11 @@ body{
 .zhuce_body .login_kuang .zc .bj_left h3{ font:16px/60px "微软雅黑", "黑体"; color:#37b5f9; width:270px; text-align:left;}/*字体大小/行高*/
 .zhuce_body .login_kuang .zc .bj_right{ float:left;width:173px; padding-left:37px; }/*QQ微信微博框*/
 .zhuce_body .login_kuang .zc .bj_left,.zhuce_body .login_kuang .zc .bj_right{height: auto;min-height: 270px;}
-.zhuce_body .login_kuang .zc .bj_left .kuang_txt{ width:220px; height:32px; border:1px solid #dddddd; background:#faffbd; line-height:32px; padding-left:4px; color:#b1a9a9;margin-right: 35px; }/*输入框*/
+.zhuce_body .login_kuang .zc .bj_left .kuang_txt{ width:220px; height:32px; border:1px solid #dddddd;line-height:32px; padding-left:4px; color:#b1a9a9;margin-right: 35px; }/*输入框*/
+.zhuce_body .login_kuang .zc .bj_left .kuang_txt:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px white inset;
+	border: 1px solid #CCC!important;
+}
 .zhuce_body .login_kuang .zc .bj_left a{ color:#37b5f9; float:right; margin-right:35px;}/*忘记密码？*/
 /*按钮设置:边框圆角,鼠标移入形状颜色改变*/
 .zhuce_body .login_kuang .zc .bj_left .btn_denglu{ width:227px; height:33px; background:#37b5f9; font-size:14px; line-height:33px; text-align:center; border:0px; color:#fff; border-radius:3px; cursor:pointer;}
