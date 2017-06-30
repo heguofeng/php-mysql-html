@@ -130,8 +130,36 @@ function loadArea(areas) {
     });
 }
 
-
+//左侧导航宽度变换
+function resize_l(){
+	$("#p_main_left").height(($(window).height()-80)*0.87);
+}
 $(document).ready(function(){
+	//更新左右框位置
+	resize_l();
+	$(window).resize(resize_l);
+	$(".p_main").height($("#p_main_right").height()+20);
+	$(window).scroll(function(){
+		var top=$(document).scrollTop();
+		if(top>=60){
+			$("#p_main_left").removeClass("p_main_left");
+			$("#p_main_left").addClass("p_main_left_fixed");
+		}else{
+			$("#p_main_left").removeClass("p_main_left_fixed");
+			$("#p_main_left").addClass("p_main_left");
+		}
+	});
+	//点击导航跳转至锚点
+	function navTo(name){
+		var aa=document.getElementById(name);
+		$("html,body").animate({scrollTop:aa.offsetTop},500);
+	}
+	$("#p_main_left ul li a").click(function(){
+		var now=$(this).attr("anchor");
+		navTo(now);
+	});
+	
+	//保存事件
 	$("#btn_save").on("click",function(){
 		/*以下是将json里的地址代码转换成中文名*/
 		var province=$("#province").val().substr(0,6),

@@ -77,8 +77,8 @@ body{
 }
 .p_main{
 	background-color: #f1f1f1;
-	
 	width: 1085px;
+	min-height: 1000px;
 	overflow: hidden;
 	margin: 0 auto;
 	position: relative;
@@ -90,14 +90,26 @@ body{
 	position: absolute;
     left: 0;
     top: 0;
-    height: 100%;
+    /*height: 100%;*/
+   clear: both;
+}
+.p_main_left_fixed{
+	width: 200px;
+	position: fixed;
+    left: 50%;
+    margin-left: -542px;
+    top: 15px;
+    clear: both;
+    z-index: 999;
 }
 .p_main_right{
+	position: absolute;
 	background-color: #FFFFFF;
-	width: 860px;
+	width: 830px;
 	min-height: 900px;
 	padding: 10px 20px 10px;
-	margin: 0 0 0 215px;
+	left: 215px;
+	top: 0;
 }
 .main_right_title{
 	width: 100%;
@@ -130,6 +142,7 @@ footer{
 	line-height: 30px;
 	text-align: center;
 	color: #737573;
+	z-index: 1000;
 }
 footer a{
 	padding: 0 6px;

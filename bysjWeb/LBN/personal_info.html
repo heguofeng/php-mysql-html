@@ -43,22 +43,23 @@
 		</div>-->
 		<!--p_picbox-->
 		<div class="p_main">
-			<div class="p_main_left fl">
+			<div class="p_main_left" id="p_main_left">
 				<ul class="layui-nav layui-nav-tree" lay-filter="test" style="height: 100%;">
 					<li class="layui-nav-item">
-						<a href="">基本资料</a>
+						<a href="javascript:;"anchor="jbxx">基本资料</a>
 					</li>
 					<li class="layui-nav-item">
-						<a href="">家庭情况与用药</a>
+						<a href="javascript:;" anchor="jtyy">家庭情况与用药</a>
 					</li>
 					<li class="layui-nav-item">
-						<a href="">疾病情况</a>
+						<a href="javascript:;" anchor="jbqk">疾病情况</a>
 					</li>
 				</ul>
 			</div>
-			<div class="p_main_right">
+			<div class="p_main_right" id="p_main_right">
 				<div class="main_right_title">
-					<h1>基本信息</h1></div>
+					<h1 id="jbxx">基本信息</h1>
+				</div>
 				<hr style="width: 80%;margin: 10px 0;">
 				<div class="main_content">
 					<form class="layui-form" id="basicdata" action="doUserAction.php?act=save_pi&id=1" method="post" enctype="multipart/form-data">
@@ -282,8 +283,285 @@
 								</div>
 							</div>
 						</div>
-						<div class="layui-form-item" style="margin-top: 30px;margin-bottom: 0;">
-							<div class="layui-input-block" style="margin-left: 0;text-align: center;">
+						<div class="main_right_title">
+							<h1 id="jtyy">家庭情况与用药</h1>
+						</div>
+						<hr style="width: 80%;margin: 10px 0;">
+						<div class="layui-form-item">
+							<label class="layui-form-label">婚烟状况</label>
+							<div class="layui-input-inline">
+								<select name="" id="" lay-filter="">
+									<option value=""></option>
+									<option value="0">未婚</option>
+									<option value="1">已婚</option>
+									<option value="2">离异</option>
+									<option value="3">丧偶</option>
+								</select>
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<label class="layui-form-label">长期住所</label>
+							<div class="layui-input-inline">
+								<select name="" id="" lay-filter="">
+									<option value=""></option>
+									<option value="0">家里</option>
+									<option value="1">医院</option>
+									<option value="2">养老院</option>
+									<option value="3">子女家</option>
+								</select>
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<label class="layui-form-label">是否空巢</label>
+							<div class="layui-input-inline">
+								<select name="" id="" lay-filter="">
+									<option value=""></option>
+									<option value="0">否</option>
+									<option value="1">是</option>
+								</select>
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<label class="layui-form-label">宗教信仰</label>
+							<div class="layui-input-inline">
+								<select name="" id="" lay-filter="">
+									<option value=""></option>
+									<option value="0">无</option>
+									<option value="1">有</option>
+								</select>
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<label class="layui-form-label">育有子女</label>
+							<div class="layui-input-inline">
+								<select name="" id="" lay-filter="">
+									<option value=""></option>
+									<option value="0">无</option>
+									<option value="1">有</option>
+								</select>
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<label class="layui-form-label">照料者</label>
+							<div class="layui-input-block">
+								<input type="checkbox" name="" title="自己" id="" value="" />
+								<input type="checkbox" name="" title="配偶" id="" value="" />
+								<input type="checkbox" name="" title="子女" id="" value="" />
+								<input type="checkbox" name="" title="保姆" id="" value="" />
+								<input type="checkbox" name="" title="其他" id="" value="" />
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<label class="layui-form-label">是否多重用药（≥5种）</label>
+							<div class="layui-input-inline">
+								<select name="" id="" lay-filter="">
+									<option value=""></option>
+									<option value="0">无</option>
+									<option value="1">有</option>
+								</select>
+							</div>
+						</div>
+						<div class="main_right_title">
+							<h1 id="jbqk">疾病情况</h1>
+						</div>
+						<hr style="width: 80%;margin: 10px 0;">
+						<div class="layui-form-item">
+							<div class="layui-inline">
+								<label class="layui-form-label">听力（左）</label>
+								<div class="layui-input-inline" style="width: 70px; margin-right: 0;">
+									<input type="text" name="hospital_num" id="hospital_num" placeholder="" autocomplete="off" class="layui-input">
+								</div>
+							</div>
+							<div class="layui-inline">
+								<label class="layui-form-label"">听力（右）</label>
+								<div class="layui-input-inline" style="width: 70px; margin-right: 0;">
+									<input type="text" name="hospital_department" id="hospital_department" autocomplete="off" class="layui-input">
+								</div>
+							</div>
+							<label class="layui-form-label">主诉听力</label>
+							<div class="layui-input-inline">
+								<select name="" id="" lay-filter="">
+									<option value=""></option>
+									<option value="0">不正常</option>
+									<option value="1">正常</option>
+								</select>
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<div class="layui-inline">
+								<label class="layui-form-label">视力（左）</label>
+								<div class="layui-input-inline" style="width: 70px; margin-right: 0;">
+									<input type="text" name="hospital_num" id="hospital_num" placeholder="" autocomplete="off" class="layui-input">
+								</div>
+							</div>
+							<div class="layui-inline">
+								<label class="layui-form-label"">视力（右）</label>
+								<div class="layui-input-inline" style="width: 70px; margin-right: 0;">
+									<input type="text" name="hospital_department" id="hospital_department" autocomplete="off" class="layui-input">
+								</div>
+							</div>
+							<label class="layui-form-label">主诉视力</label>
+							<div class="layui-input-inline">
+								<select name="" id="" lay-filter="">
+									<option value=""></option>
+									<option value="0">不正常</option>
+									<option value="1">正常</option>
+								</select>
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<label class="layui-form-label">配镜</label>
+							<div class="layui-input-block">
+								<input type="checkbox" name="" title="近视镜" id="" value="" />
+								<input type="checkbox" name="" title="老花镜" id="" value="" />
+								<input type="checkbox" name="" title="散光镜" id="" value="" />
+								<input type="checkbox" name="" title="放大镜" id="" value="" />
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<label class="layui-form-label">假牙</label>
+							<div class="layui-input-inline">
+								<select name="" id="" lay-filter="">
+									<option value=""></option>
+									<option value="0">否</option>
+									<option value="1">是</option>
+								</select>
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<label class="layui-form-label">进食</label>
+							<div class="layui-input-inline">
+								<select name="" id="" lay-filter="">
+									<option value=""></option>
+									<option value="0">无影响</option>
+									<option value="1">有影响</option>
+								</select>
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<label class="layui-form-label">睡眠情况</label>
+							<div class="layui-input-inline">
+								<select name="" id="" lay-filter="">
+									<option value=""></option>
+									<option value="0">差</option>
+									<option value="1">一般</option>
+									<option value="2">好</option>
+								</select>
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<label class="layui-form-label">高血压</label>
+							<div class="layui-input-inline" style="width: 100px;">
+								<input type="checkbox" name="is_HBP" id="is_HBP" lay-skin="switch" lay-filter="is_HBP" lay-text="是|否" value="1" checked>
+							</div>
+						</div>	
+						<div class="HBP_detial">
+							<div class="layui-form-item">
+								<label class="layui-form-label">高血压病程</label>
+								<div class="layui-input-inline">
+									<input type="text" name="id_card" id="id_card"  placeholder="" autocomplete="off" class="layui-input">
+								</div>
+								<p class="unit fl">年&nbsp;</p>
+								<label class="layui-form-label">最高血压</label>
+								<div class="layui-input-inline" style="width: 70px;">
+									<input type="text" name="" id="" autocomplete="off" class="layui-input">
+								</div>
+								<p class="unit fl">/&nbsp;</p>
+								<div class="layui-input-inline" style="width: 70px;">
+									<input type="text" name="" id="" autocomplete="off" class="layui-input">
+								</div>
+								<p class="unit fl">mmHg</p>
+							</div>
+							<div class="layui-form-item">
+								<label class="layui-form-label">目前血压</label>
+								<div class="layui-input-inline" style="width: 70px;">
+									<input type="text" name="" id="" autocomplete="off" class="layui-input">
+								</div>
+								<p class="unit fl">/&nbsp;</p>
+								<div class="layui-input-inline" style="width: 70px;">
+									<input type="text" name="" id="" autocomplete="off" class="layui-input">
+								</div>
+								<p class="unit fl">mmHg</p>
+								<label class="layui-form-label">卧位血压</label>
+								<div class="layui-input-inline" style="width: 70px;">
+									<input type="text" name="" id="" autocomplete="off" class="layui-input">
+								</div>
+								<p class="unit fl">/&nbsp;</p>
+								<div class="layui-input-inline" style="width: 70px;">
+									<input type="text" name="" id="" autocomplete="off" class="layui-input">
+								</div>
+								<p class="unit fl">mmHg</p>
+							</div>
+							<div class="layui-form-item">
+								<label class="layui-form-label">直立即刻</label>
+								<div class="layui-input-inline" style="width: 70px;">
+									<input type="text" name="" id="" autocomplete="off" class="layui-input">
+								</div>
+								<p class="unit fl">/&nbsp;</p>
+								<div class="layui-input-inline" style="width: 70px;">
+									<input type="text" name="" id="" autocomplete="off" class="layui-input">
+								</div>
+								<p class="unit fl">mmHg</p>
+								<label class="layui-form-label">直立1分钟</label>
+								<div class="layui-input-inline" style="width: 70px;">
+									<input type="text" name="" id="" autocomplete="off" class="layui-input">
+								</div>
+								<p class="unit fl">/&nbsp;</p>
+								<div class="layui-input-inline" style="width: 70px;">
+									<input type="text" name="" id="" autocomplete="off" class="layui-input">
+								</div>
+								<p class="unit fl">mmHg</p>
+							</div>
+							<div class="layui-form-item">
+								<label class="layui-form-label">直立3分钟</label>
+								<div class="layui-input-inline" style="width: 70px;">
+									<input type="text" name="" id="" autocomplete="off" class="layui-input">
+								</div>
+								<p class="unit fl">/&nbsp;</p>
+								<div class="layui-input-inline" style="width: 70px;">
+									<input type="text" name="" id="" autocomplete="off" class="layui-input">
+								</div>
+								<p class="unit fl">mmHg</p>
+								<label class="layui-form-label">直立5分钟</label>
+								<div class="layui-input-inline" style="width: 70px;">
+									<input type="text" name="" id="" autocomplete="off" class="layui-input">
+								</div>
+								<p class="unit fl">/&nbsp;</p>
+								<div class="layui-input-inline" style="width: 70px;">
+									<input type="text" name="" id="" autocomplete="off" class="layui-input">
+								</div>
+								<p class="unit fl">mmHg</p>
+							</div>
+							<div class="layui-form-item">
+								<label class="layui-form-label">体位性低血压</label>
+								<div class="layui-input-inline">
+									<select name="" id="" lay-filter="">
+										<option value=""></option>
+										<option value="0">否</option>
+										<option value="1">是</option>
+									</select>
+								</div>
+								<label class="layui-form-label">体位性高血压</label>
+								<div class="layui-input-inline">
+									<select name="" id="" lay-filter="">
+										<option value=""></option>
+										<option value="0">否</option>
+										<option value="1">是</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<label class="layui-form-label">目前疾病诊断</label>
+							<div class="layui-input-block">
+								 <textarea name="desc" placeholder="请输入内容" class="layui-textarea"></textarea>
+							</div>
+						</div>
+						
+						
+						
+						<div class="layui-form-item" style="margin-top: 30px;margin-bottom: 20px;">
+							<div class="layui-input-block" >
 								<button id="btn_save" class="layui-btn layui-btn-normal" lay-submit="" lay-filter="btn_save" style="width: 200px;">保存</button>
 								<button type="reset" class="layui-btn layui-btn-danger" style="padding:0 8px ;height: 30px;line-height: 30px;">重置</button>
 							</div>
