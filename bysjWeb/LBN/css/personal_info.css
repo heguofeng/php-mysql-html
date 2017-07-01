@@ -78,8 +78,8 @@ body{
 .p_main{
 	background-color: #f1f1f1;
 	width: 1085px;
-	min-height: 1000px;
-	overflow: hidden;
+	min-height: 2265px;
+	/*overflow: hidden;*/
 	margin: 0 auto;
 	position: relative;
 	margin-top: 15px;
@@ -151,4 +151,51 @@ footer a{
 }
 footer i{
 	font-style: normal;
+}
+#to_top{
+	display: block;
+	background:url(../images/ico-top2.png) no-repeat left top; 
+	width: 46px;
+	height: 64px;
+	position: fixed;
+	left: 50%;
+	margin-left: 560px;
+	/*bottom: -50px;*/
+	transition: all 0.5s;
+	/*display: none;*/
+}
+#to_top:hover{
+	transform: scale(0.9);
+}
+@keyframes btmToTop{
+	0%{bottom: -64px;}
+	100%{bottom: 175px;}
+}
+@keyframes topToBtm{
+	0%{bottom: 175px;transform: rotate(180deg);}
+	100%{bottom: -64px;transform: rotate(180deg);}
+}
+.btmToTop{
+	animation: btmToTop 1s;
+	bottom: 175px;
+}
+.topToBtm{
+	animation: topToBtm 1s;
+}
+.save_btn{
+	display: block;
+	width: 45px;
+	height: 45px;
+	text-align: center;
+	position: fixed;
+	left: 50%;
+	margin-left: 560px;
+	bottom: 250px;
+	color: #fff;
+	background:url(../images/save.png) no-repeat left top ;
+	background-size: 45px 45px;
+	transition: all 0.5s;
+}
+.save_btn:hover{
+	transform: scale(0.9);
 }

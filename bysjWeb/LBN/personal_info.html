@@ -45,7 +45,7 @@
 		<div class="p_main">
 			<div class="p_main_left" id="p_main_left">
 				<ul class="layui-nav layui-nav-tree" lay-filter="test" style="height: 100%;">
-					<li class="layui-nav-item">
+					<li class="layui-nav-item layui-this">
 						<a href="javascript:;"anchor="jbxx">基本资料</a>
 					</li>
 					<li class="layui-nav-item">
@@ -557,11 +557,8 @@
 								 <textarea name="desc" placeholder="请输入内容" class="layui-textarea"></textarea>
 							</div>
 						</div>
-						
-						
-						
 						<div class="layui-form-item" style="margin-top: 30px;margin-bottom: 20px;">
-							<div class="layui-input-block" >
+							<div style="margin: 0 auto;width: 300px;">
 								<button id="btn_save" class="layui-btn layui-btn-normal" lay-submit="" lay-filter="btn_save" style="width: 200px;">保存</button>
 								<button type="reset" class="layui-btn layui-btn-danger" style="padding:0 8px ;height: 30px;line-height: 30px;">重置</button>
 							</div>
@@ -578,7 +575,8 @@
 			<p>乐佰年智慧评估有限公司&nbsp;&nbsp;2017 ©<a href="http://www.wmuoldstar.cn" target="_blank">wmuoldstar.cn</a></p>
 			<p> Design by <i>HeGuoFeng</i></p>
 		</footer>
-		
+		<a href="javascript:;" id="to_top" title="top"></a><!--to_top-->
+		<a href="javascript:;" class="save_btn" title="保存一下"></a>
 	</body>
 
 </html>

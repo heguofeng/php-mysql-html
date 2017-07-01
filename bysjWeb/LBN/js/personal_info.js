@@ -134,29 +134,25 @@ function loadArea(areas) {
 function resize_l(){
 	$("#p_main_left").height(($(window).height()-80)*0.87);
 }
+//点击导航跳转至锚点
+function navTo(name){
+	var aa=document.getElementById(name);
+	$("html,body").animate({scrollTop:aa.offsetTop},500);
+}
+
 $(document).ready(function(){
 	//更新左右框位置
 	resize_l();
 	$(window).resize(resize_l);
 	$(".p_main").height($("#p_main_right").height()+20);
-	$(window).scroll(function(){
-		var top=$(document).scrollTop();
-		if(top>=60){
-			$("#p_main_left").removeClass("p_main_left");
-			$("#p_main_left").addClass("p_main_left_fixed");
-		}else{
-			$("#p_main_left").removeClass("p_main_left_fixed");
-			$("#p_main_left").addClass("p_main_left");
-		}
-	});
-	//点击导航跳转至锚点
-	function navTo(name){
-		var aa=document.getElementById(name);
-		$("html,body").animate({scrollTop:aa.offsetTop},500);
-	}
+
 	$("#p_main_left ul li a").click(function(){
 		var now=$(this).attr("anchor");
 		navTo(now);
+	});
+	
+	$("#to_top").click(function(){
+		$("html,body").animate({scrollTop:0},500);
 	});
 	
 	//保存事件
@@ -230,4 +226,52 @@ $(document).ready(function(){
 			}
 		});
 	});
+});
+
+
+
+//滚动事件
+$(window).scroll(function(){
+	var top=$(document).scrollTop();
+	if(top>=60){
+		$("#p_main_left").removeClass("p_main_left");
+		$("#p_main_left").addClass("p_main_left_fixed");
+	}else{
+		$("#p_main_left").removeClass("p_main_left_fixed");
+		$("#p_main_left").addClass("p_main_left");
+	}
+//	console.log(top);
+	//to_top的出现
+	var bottom=$("#to_top").css("bottom");
+	if(top>890){
+//		$("#to_top").fadeIn("slow");
+		$("#to_top").addClass("btmToTop");
+		$("#to_top").removeClass("topToBtm");
+	}else{
+//		$("#to_top").fadeOut("slow");
+		$("#to_top").removeClass("btmToTop");
+		//添加一个条件，防止第一次下拉就出现图标向下而去，10px只是大于0的随意值
+		if(bottom>'10px'){
+			$("#to_top").addClass("topToBtm");
+		}
+	}
+	//根据滚动的距离跳转至相应的导航框
+	var titles=$(".main_right_title").find("h1");
+	var currentId="";
+	titles.each(function(){
+		var titleTop=$(this).offset().top;
+		if(top>titleTop-100){//更人性化+100
+			currentId=$(this).attr("id");
+		}else{
+			return false;
+		}
+		
+	});
+//	console.log(currentId);
+	var currentNav=$("#p_main_left .layui-this a");
+	if(currentId&&currentNav.attr("anchor")!=currentId){
+		currentNav.parent().removeClass("layui-this");
+		$("#p_main_left").find("[anchor="+currentId+"]").parent().addClass("layui-this");
+	}
+	
 });
