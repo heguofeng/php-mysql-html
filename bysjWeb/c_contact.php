@@ -24,16 +24,16 @@
 				text-indent: 4em;
 				font-size: 16px;
 			}
-			div img {
+			.school {
 				filter: grayscale(100%);
 				-webkit-filter: grayscale(100%);/*变成灰色*/
 				filter: blur(3px);/*高斯模糊*/
 				transition: all 0.25s;
 			}
 			a{
-				pointer-events: none;/*禁止鼠标点击*/
+				/*pointer-events: none;/*禁止鼠标点击*/
 			}
-			div img:hover{
+			.school:hover{
 				filter: none;
 				
 			}
@@ -44,5 +44,5 @@
 		<p class="p3">手机：15888274549</p><br />
 		<p class="p4">Q&nbsp;&nbsp;Q: 32927202</p><br />
 		<a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=bV5fVF9aX11fLRwcQw4CAA" style="text-decoration:none;margin-left: 64px;"><img src="http://rescdn.qqmail.com/zh_CN/htmledition/images/function/qm_open/ico_mailme_22.png"/></a>
-		<div><img src="images/aboutme.jpg"/></div>
+		<div><img class="school" src="images/aboutme.jpg"/></div>
 	</body>
