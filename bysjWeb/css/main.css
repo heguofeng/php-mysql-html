@@ -33,6 +33,7 @@ body{
 		right: 0;
 		z-index: -1;
 		overflow: hidden;/*自适应整个屏幕*/
+		background: url(../images/bg_login2.jpg) no-repeat;
 	}
 /*.login_bj{ background:url(../images/bg_login2.jpg) no-repeat top center; background-size: cover;}*/
 .zhuce_body{ float:left; width:100%; height:auto;}
@@ -50,14 +51,14 @@ body{
 	border: 1px solid #CCC!important;
 }
 .zhuce_body .zhuce_kong .zc .bj_left .kuang_txt:focus{border-color: #0065D0;border-radius: 3px;}
-.zhuce_body .zhuce_kong .zc .bj_left .btn_zhuce{ width:270px; height:33px; background:#37b5f9; font-size:14px; line-height:33px; text-align:center; border:0px; color:#fff; border-radius:3px; cursor:pointer;}
+.zhuce_body .zhuce_kong .zc .bj_left .btn_zhuce{ height:33px; background:#37b5f9; font-size:14px; line-height:33px; text-align:center; border:0px; color:#fff; border-radius:3px; cursor:pointer;width: 130px;margin-top: 0; margin-left: 5px;}
 .zhuce_body .zhuce_kong .zc .bj_left .btn_zhuce:hover{ background:#0065d0;}
 .zhuce_body .zhuce_kong .zc .bj_left #createResult{margin-top:10px ;font-size: 15px; color: red;display: block;text-align: center;width: 220px; }
 
 .zhuce_body .zhuce_kong .zc .bj_left .phone{background:url(../images/zc_06.jpg) no-repeat 10px 10px;}
 .zhuce_body .zhuce_kong .zc .bj_left .email{background:url(../images/zc_12.jpg) no-repeat 10px 10px;}
 .zhuce_body .zhuce_kong .zc .bj_left .password{background:url(../images/zc_16.jpg) no-repeat 10px 10px;}
-.zhuce_body .zhuce_kong .zc .bj_left .yanzm{background:url(../images/zc_19.jpg) no-repeat 10px 10px; margin-bottom:0px;}
+.zhuce_body .zhuce_kong .zc .bj_left .yanzm{background:url(../images/zc_19.jpg) no-repeat 10px 10px; margin-bottom:0px;width: 100px;margin-top: 0;}
 
 .zhuce_body .zhuce_kong .zc .bj_left div{ float:left; width:100%; line-height:43px;}
 .zhuce_body .zhuce_kong .zc .bj_left div input{ float:left; margin-top:15px;}
@@ -84,6 +85,9 @@ body{
 .zhuce_body .login_kuang .zc .bj_left .kuang_txt:-webkit-autofill {
 	-webkit-box-shadow: 0 0 0px 1000px white inset;
 	border: 1px solid #CCC!important;
+}
+.toggle_btn{
+	display: none;
 }
 .zhuce_body .login_kuang .zc .bj_left a{ color:#37b5f9; float:right; margin-right:35px;}/*忘记密码？*/
 /*按钮设置:边框圆角,鼠标移入形状颜色改变*/

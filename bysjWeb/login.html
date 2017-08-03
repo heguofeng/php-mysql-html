@@ -5,27 +5,31 @@
 	<title>养老院网站登录</title>
 	<link rel="shortcut icon" href="images/favicon.ico"/><!--加图标-->
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
     <link rel="stylesheet" type="text/css" href="css/reset.css"/>
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+   	<link rel="stylesheet" type="text/css" href="css/main.css"/ media="screen and (min-width:481px)">
+	<link rel="stylesheet" type="text/css" href="css/main480.css" media="screen and (max-width:480px)"/>
+
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery.validate.min.js"></script>
     <script type="text/javascript" src="plugins/dialog.js"></script>
 </head>
 <body>
-<div id="background"><img src="images/bg_login2.jpg" width="100%" height="100%"/></div><!--背景层-->
+<div id="background"></div><!--背景层-->
 <div class="zhuce_body">
-	<div class="logo"><a href="index.php"><img src="images/logo1.png" alt="logo" width="350" height="100" border="0"></a></div>
+	<div class="logo"><a href="index.php"><img src="images/logo1.png" alt="logo" border="0"></a></div>
     <div class="zhuce_kong login_kuang">
     	<div class="zc">
         	<div class="bj_left"><!--左边输入框-->
 	            <h3>登录</h3>
 	       	  	  <form id="formD" name="formD" method="get" action="#" autocomplete="off">
-		                <input type="text" id="username" name="username" class="kuang_txt" placeholder="请输入已验手机" autocomplete="off" onkeypress="dologin(event)">
-		                <input type="password" id="password" name="password" class="kuang_txt" placeholder="请输入密码" autocomplete="off" onkeypress="dologin(event)">
-		                <div>
+		                <input type="text" id="username" name="username" class="kuang_txt phone" placeholder="请输入已验手机" autocomplete="off" onkeypress="dologin(event)">
+		                <input type="password" id="password" name="password" class="kuang_txt password" placeholder="请输入密码" autocomplete="off" onkeypress="dologin(event)">
+		                <div class="wjmm">
 		               		<a href="forget_pwd.html" title="忘记密码">忘记密码？</a><input id="autoFlag" name="autoFlag" type="checkbox" value=""><span>记住我</span> 
 		                </div>
 		                <input name="btn_denglu" type="button" id="btn_denglu" class="btn_denglu" value="登录">
+		                <a class="toggle_btn" href="reg.html" title="点此进行注册">立即注册&gt;&gt;</a>
 		                <p id="createResult"></p>
 		                <span class="save_start" style="display: none;margin-left: 50px;"> 正在登录 </span>
 	              </form>

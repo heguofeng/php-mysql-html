@@ -42,24 +42,15 @@ $yyss=fetchOne($sql);
 <link rel="shortcut icon" href="images/favicon.ico"/><!--加图标-->
 <link rel="stylesheet" type="text/css" href="css/reset.css"/>
 <link rel="stylesheet" type="text/css" href="plugins/jquery.bxslider/jquery.bxslider.css"/>
-<link rel="stylesheet" type="text/css" href="css/main.css"/ media="screen and (min-device-width:481px)">
-<link rel="stylesheet" type="text/css" href="css/main480.css" media="screen and (max-device-width:480px)"/>
+<link rel="stylesheet" type="text/css" href="css/main.css"/ media="screen and (min-width:481px)">
+<link rel="stylesheet" type="text/css" href="css/main480.css" media="screen and (max-width:480px)"/>
 
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="plugins/jquery.bxslider/jquery.bxslider.js"></script>
 <script src="plugins/myFocus/myfocus-2.0.4.min.js" type="text/javascript" charset="utf-8"></script><!--引入myFocus库-->
 <script type="text/javascript">
-//myFocus.set({
-//	id:'boxID',//焦点图盒子ID
-//	pattern:'mF_kdui',//风格应用的名称
-//	time:3,//切换时间间隔(秒)
-//	trigger:'click',//触发切换模式:'click'(点击)/'mouseover'(悬停)
-//	width:1000,//设置图片区域宽度(像素)
-//	height:340,//设置图片区域高度(像素)
-//	txtHeight:'default',//文字层高度设置(像素),'default'为默认高度，0为隐藏
-//	loadIMGTimeout:1 //loading时间
-//});
 	$().ready(function(){
+		//轮播图
 		$('.bxslider').bxSlider({
 			auto:true,
 			mode:"fade",//设置滚动模式
@@ -67,13 +58,34 @@ $yyss=fetchOne($sql);
 			autoHover:false
 		});
 		//在移动端添加菜单Menu
-		$("#nav").prepend('<button id="menutoggle">Menu</button>');
-		
+		$(".logo").prepend('<button id="menutoggle">Menu</button>');
+		//上方图片点击回主页
+		$(".logo_left img").click(function(){
+			location.href="index.php";
+		})
+		//显示侧面菜单
+		$("#menutoggle").click(function(){
+			var nav_mid=$("#nav_mid");
+			if(nav_mid.css("opacity")==1){
+				nav_mid.addClass("fadeInLeft");
+				nav_mid.removeClass("fadeOutLeft");
+				$(".masklayer").css("display","none");
+				$("body").css("overflow","auto");
+			}else{
+				nav_mid.addClass("fadeOutLeft");
+				nav_mid.removeClass("fadeInLeft");
+				$(".masklayer").css("display","block");//弹出遮罩层
+				$("body").css("overflow","hidden");//禁止遮罩层下面滚动
+				$(".masklayer").click(function(){
+					nav_mid.addClass("fadeInLeft");
+					nav_mid.removeClass("fadeOutLeft");
+					$(".masklayer").css("display","none");
+					$("body").css("overflow","auto");
+				});
+			}
+		});
 	});
-	
-	
-	
-	
+
 </script>
 </head>
 <body>
@@ -109,28 +121,27 @@ $yyss=fetchOne($sql);
 	<!--页面顶部top结束-->
 	<div class="wrap_logo">
 		<div class="logo">
-				<div class="logo_left"><a href="index.php"><img src="images/logo.gif"/></a> </div>
+				<div class="logo_left"><img src="images/logo.gif"/></div>
 				<div class="logo_right"><img src="images/tel.jpg" width="28" height="28" />24小时服务热线：<span class="tel">158-8827-4549</span></div>
 		</div>
-		<div class="nav" id="nav">
-			<div class="nav_mid">
-					<ul>
-						<li><a href="index.php">首页</a></li>
-						<li><a href="nav_about.php?id=3">关于养老院</a></li>
-						<li><a href="nav_about.php?id=4">服务特色</a></li>
-						<li><a href="nav_about.php?id=2">保健常识</a></li>
-						<li><a href="nav_about.php?id=12">环境设施</a></li>
-						<li><a href="nav_about.php?id=13">收费标准</a></li>
-						<li><a href="nav_about.php?id=5">人才招聘</a></li>
-						<li><a href="personal_info.php">个人中心</a></li>
-					</ul>
-			</div>
-			<!--nav_mid结束-->
-		</div>
-		  <!--nav结束-->
 	</div>
-	<!--logo结束-->
-
+	<!--wrap_logo结束-->
+	<div class="nav">
+		<div class="nav_mid" id="nav_mid">
+				<ul>
+					<li><a href="index.php">首页</a></li>
+					<li><a href="nav_about.php?id=3">关于养老院</a></li>
+					<li><a href="nav_about.php?id=4">服务特色</a></li>
+					<li><a href="nav_about.php?id=2">保健常识</a></li>
+					<li><a href="nav_about.php?id=12">环境设施</a></li>
+					<li><a href="nav_about.php?id=13">收费标准</a></li>
+					<li><a href="nav_about.php?id=5">人才招聘</a></li>
+					<li><a href="personal_info.php">个人中心</a></li>
+				</ul>
+		</div>
+		<!--nav_mid结束-->
+	</div>
+	<!--nav结束-->
 	 <div class="wrap clearfix">
 	  	<ul class="bxslider">
 			<li><img src="images/pic4.jpg" alt="美丽风貌" title="美丽的山庄景色，适合养生"/></li>
@@ -187,7 +198,7 @@ $yyss=fetchOne($sql);
 				<div class="CHlist">
 					<dl>
 						<dt>
-							<a href="article.php?id=<?php echo $last_bjcs['id']; ?>" title="<?php echo $last_bjcs['title']; ?>"><img src="images/201701120924527862.jpg" width="30%" alt="<?php echo $last_bjcs['title']; ?>"></a>
+							<a href="article.php?id=<?php echo $last_bjcs['id']; ?>" title="<?php echo $last_bjcs['title']; ?>"><img src="images/201701120924527862.jpg" width="27%" alt="<?php echo $last_bjcs['title']; ?>"></a>
 							<h2><a href="article.php?id=<?php echo $last_bjcs['id']; ?>"><?php echo $last_bjcs['title']; ?></a></h2>
 							<div id="description">
 								<p><?php echo $last_bjcs['description']; ?></p>
@@ -359,6 +370,7 @@ $yyss=fetchOne($sql);
 	 		<a class="zgwba fl" target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33078302100239" ><img src="images/备案图标.png" class="fl"/><p class="fl">浙公网安备 33078302100239号</p></a>
 		</div>
 	</div>
+	<div class="masklayer">  </div><!--遮罩层-->
 </body>
 <script type="text/javascript" src="js/main.js"></script><!--自己写的js文件要放在最后面-->
 
