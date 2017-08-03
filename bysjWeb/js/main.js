@@ -1,14 +1,14 @@
 
 /*首页脚本程序*/
-myFocus.set({
-	id:'boxID2',//焦点图盒子ID
-	pattern:'mF_expo2010',//风格应用的名称
-	time:5,//切换时间间隔(秒)
-	trigger:'mouseover',//触发切换模式:'click'(点击)/'mouseover'(悬停)
-	width:260,//设置图片区域宽度(像素)
-	height:230,//设置图片区域高度(像素)
-	txtHeight:'default'//文字层高度设置(像素),'default'为默认高度，0为隐藏
-});
+//myFocus.set({
+//	id:'boxID2',//焦点图盒子ID
+//	pattern:'mF_expo2010',//风格应用的名称
+//	time:5,//切换时间间隔(秒)
+//	trigger:'mouseover',//触发切换模式:'click'(点击)/'mouseover'(悬停)
+//	width:260,//设置图片区域宽度(像素)
+//	height:230,//设置图片区域高度(像素)
+//	txtHeight:'default'//文字层高度设置(像素),'default'为默认高度，0为隐藏
+//});
 
 window.onload=function(){
 //var clientHeight=document.documentElement.clientHeight;//获取页面可视区域高度	
@@ -73,14 +73,7 @@ scrollPic.onmouseout = function(){
 /*导航条设置fixed效果*/
 $(window).scroll(function(){
 	var top=$(document).scrollTop();
-	var nav=$('.nav');
-	if(top>120){
-		nav.addClass("wrap_logo_fixed");
-		nav.removeClass("wrap_logo");
-	}else{
-		nav.addClass("wrap_logo");
-		nav.removeClass("wrap_logo_fixed");
-	}
+	
 	//设置回到顶部按钮效果
 	if(top>=400){
 		//$('#to_top').css("display","block");

@@ -96,6 +96,7 @@ input.error {border: 1px solid red;}
 
 /*——————————————————————————————————————index首页页面————————————————————————————————*/
 .top{
+	display: none;
 	width: 100%;
 	height: 30px;
 	/*background:url(../images/top_bg.jpg) round ;*/
@@ -201,73 +202,63 @@ input.error {border: 1px solid red;}
 	text-decoration: none;
 }
 
-/*wrap大的包裹层*/
-.wrap{
-	width: 1000px;
-	margin: 0 auto;
-	background-color: #fff;
-	box-shadow: 0 0 10px #999;
-}
 /*logo栏目*/
 .wrap_logo{
-	background-color:#FFFAFA;/*雪白*/
+	background-color:#fafafa;/*雪白*/
 	width: 100%;
-	margin-top: 30px;
-/*	margin-bottom: 5px;*/
-}
-.wrap_logo_fixed{
-	background-color:#FFFAFA;/*雪白*/
-	width: 100%;
+	/*display: block;*/
 	position: fixed;
-	top: 30px;
+	top: 0;
 	left: 0;
-	z-index: 900;
+	z-index: 10000;
+	box-shadow: 0 1px 1px rgba(0,0,0,.2);
+	overflow: hidden;
+	height: 50px;
 }
 .logo{
-	width: 1000px;
-	height: 100px;
-	margin: 0 auto;}
-.logo_left{
-	width: 350px;
-	float: left;
-	display: inline;
-	padding-left: 10px;
-	margin-top: 10px;
+	width: 100%;
+	}
+.logo_left img{
+	width: 40%;
+	margin: 4px auto;
+	display: block;
+	z-index: 10000;
 }
 .logo_right{
-	width: 390px;
-	height: 28px;
-	margin-top: 39px;
-	float: right;
-	display: inline;
-	color: #8e8e8e;
-	font-size: 17px;
-}
-.logo_right img{
-	vertical-align: middle;
-	margin-right: 10px;
-}
-/*电话号码*/
-.tel{font-family: "微软雅黑"; font-size: 24px;color: #c00;}
-.tel:hover{
-	color: green;
-	cursor: pointer;
-}
-/*nav导航条*/
-#menutoggle{
 	display: none;
 }
-.nav{
-	width: 100%;
-	margin: 0 auto;
-	height: 51px;
-	background-color: #FF6347;/*番茄红*/
-	}
+
+/*nav导航条*/
+
+/*移动端menu*/
+#menutoggle{
+	display: block;
+	width: 40px;
+	height: 40px;
+	border: none;
+	background: none;
+	text-indent: -9999em;
+	border-radius: 3px;
+	position: relative;
+	top: -49px;
+	left: 6px;
+	z-index: 10000;
+	box-sizing: border-box;
+}
+#menutoggle::after{
+	content: '';
+	width: 22px;
+	position: absolute;
+	left: 9px;
+	top: 0px;
+	box-shadow: 0 10px 0 2px #FF6347,0 20px 0 2px #FF6347,0 30px 0 2px #FF6347;
+}
 .nav_mid{
-	margin: 0 auto;
+	display: none;
+	/*margin: 0 auto;
 	height: 51px;
-	width: 1000px;
-	line-height: 51px;
+	width: 100%;
+	line-height: 51px;*/
 }
 /*导航条文字列*/
 .nav_mid li{
@@ -291,53 +282,60 @@ input.error {border: 1px solid red;}
 	text-decoration: none;
 	transition: font-size 0.3s linear 0s;
 }
-/*首页滚动图*/
-.ad{
-	height: 340px;
-	margin-top: 2px; 
-	overflow: hidden;	
+
+/*wrap大的包裹层*/
+.wrap{
+	width: 100%;
+	margin: 0 auto;
+	background-color: #fff;
+	/*box-shadow: 0 0 10px #999;*/
+	position: relative;
+	margin-top: 50px;
+	
+}
+.hengxian{
+	display: none;
 }
 /*蔬菜动态图*/
 .bd{
-	height: 230px;
+	display: none;
+	/*height: 230px;
 	width: 260px;
-	overflow: hidden;	
+	overflow: hidden;	*/
 }
 /*中间五个items*/
 .itemBg{
-	border-bottom: 1px solid #E5E5E5;
+	overflow: hidden;
+	width: 100%;
+	margin: 0 auto;
 	margin-bottom: 20px;
 }
-.item{
-	height:100px
-}
-.item li{
-	float: left;
-	height: 100px;
-	position: relative;
-	width: 199px;
-	border-left: 1px solid #e5e5e5;
-}
-.item li i{
-	animation: 0.4s ease 0s normal none 1 running orangOut;
-	background: #fff;
-	height: 100%;
-	position:absolute;
-	width: 100%;
-}
+
 .item li a{
-	height: 76px;
-	padding-left: 25px;
-	padding-top: 24px;
-	position: absolute;
-	width: 174px;
+    float: left;
+    height: 80px;
+    position: relative;
+    width: 50%;
+    border-bottom: 1px solid #E5E5E5;
+    border-right: 1px solid #E5E5E5;
+    box-sizing: border-box;
+    padding-left: 5%;
+    padding-top: 5%;
+}
+.item li:nth-child(odd) a{
+	border-left: 1px solid #E5E5E5;
+}
+.item li:nth-child(1) a,.item li:nth-child(2) a{
+	border-top: 1px solid #E5E5E5;
 }
 .item li a:hover{
 	color: 	#FF6347;
 	text-decoration: none;
 }
+/*图片*/
 .item li a em{
-	background-image: url(../images/icon.png);
+	background-image:url(../images/icon.png);
+	background-repeat: no-repeat;
 	display: block;
 	float: left;
 	height: 46px;
@@ -351,7 +349,7 @@ input.error {border: 1px solid red;}
 }
 .item li a span strong{
 	display: block;
-	font: 18px/28px "微软雅黑";
+	font: 5vw/7vw "微软雅黑";
 }
 .special01 a em{background-position: 0 -100px;}
 .special01 a:hover em{background-position: 0 -146px;}
@@ -363,16 +361,21 @@ input.error {border: 1px solid red;}
 .special04 a:hover em {background-position: -138px -146px;}
 .special05 a em {background-position: -184px -100px;}
 .special05 a:hover em {background-position: -184px -146px;}
-.item .special05{
-	border-right: 1px solid #e5e5e5;
-	overflow: hidden;
-	width: 198px;
+.item .special05 a{
+	width: 100%;
 }
+.item .special05 a div{
+	margin: 0 auto;
+	width: 50%;
+	height: 100%;
+}
+
 /*new栏目的样式*/
 .new{
-	height: 280px;
+	/*height: 280px;*/
 	border-bottom: 1px solid #e5e5e5;
 	margin-bottom: 20px;
+	overflow: hidden;
 }
 .title{
 	color: #c5c5c5;
@@ -382,36 +385,24 @@ input.error {border: 1px solid red;}
 }
 .title span{
 	color: 	#228B22;
-	font: 22px/22px "微软雅黑";
+	font: 6vw/6vw "微软雅黑";
 }
 .title a:hover,.title a:active{
 	color: 	#FF6347;
 	text-decoration: none;
 }
-.new_left{
+.new_left,.new_right,.new_mid{
 	float: left;
-	height: 260px;
-	width: 260px;
-	margin-right: 30px;
-	overflow: hidden;	
+	width: 100%;
+	margin-bottom: 20px;
 }
-.new_mid{
-	float: left;
-	height: 260px;
-	overflow: hidden;
-	width: 420px;
-}
-.new_right{
-	float: right;
-    overflow: hidden;
-    width: 260px;
-    padding-right: 5px;
-}
+
+/*专业护理文章标题*/
 .HLlist dd{
 	border-bottom: 1px solid #e5e5e5 ;
 	height: 43px;
 	line-height: 43px;
-	padding-left: 5px;
+	padding-left: 2%;
 }
 
 .titleBox{
@@ -428,13 +419,18 @@ input.error {border: 1px solid red;}
 .CHlist dt h2{
 	height: 28px;
 	line-height: 28px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	width: 60%;
 }
 #description p{
 	font-size: 12px;
 	line-height: 22px;
+	width: 60%;
 	word-break: break-all;
     text-overflow: ellipsis;
-    display: -webkit-box; /** 将对象作为伸缩盒子模型显示 **/
+    display: -webkit-box !important; /** 将对象作为伸缩盒子模型显示 **/
     -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
     -webkit-line-clamp: 2; /** 显示的行数 **/
     overflow: hidden;  /** 隐藏超出的内容 **/
@@ -446,25 +442,32 @@ input.error {border: 1px solid red;}
 	}
 .CHlist dt img{
 	float: left;
-	margin-right: 12px;
+	margin-right: 3%;
+	margin-left: 2%;
 }
 .CHlist #scrollBox{
 	height: 120px;
 	line-height: 30px;
 	overflow: hidden; 
+	padding-left: 3%;
 }
 .CHlist #scrollBox ul li{
 	list-style-image: url(../images/pointer.png);
 	list-style-position: inside;
 	height: 30px;
+	width: 80%;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
 }
 .new #scrollBox{
 	font-size: 15px;
 }
+
 /*长者风采*/
 .zzfc{
 	height: 240px;
-	margin-bottom: 20px;
+	/*margin-bottom: 20px;*/
 	border-bottom: 1px solid #e5e5e5;
 }
 .zzfc .zzfc_box{
@@ -513,164 +516,115 @@ input.error {border: 1px solid red;}
 .environment{
 	border-bottom: 1px solid #E5E5E5;
 	height: 320px;
-	margin-bottom: 20px;
+	/*margin-bottom: 20px;*/
+	width: 100%;
 }
-.environment ul{
-	height: 300px;
-	position: relative;
-}
-.environment ul li{
-	position: absolute;
-	overflow: hidden;
-}
-/*阴影层*/
-.img_cover{
-	box-shadow: 0 -70px 123px #000 inset;
-    height: 100%;
-    filter:alpha(Opacity=70);-moz-opacity:0.7;opacity: 0.7;/*兼容所有浏览器的透明度*/
-    position: absolute;
-    top: 0;
-    transition: all 0.2s ease-in-out 0s;
-    width: 100%;
-    z-index: 1;
-}
-.environment ul li:hover .img_cover{
-	box-shadow: none;
-}
+
 .environment ul li img{
 	transition: all 0.2s ease-in-out 0s;
 }
 .environment ul li:hover img{
 	transform: translateZ(0px) scale(1.05,1.05);
 }
+
+.environment03,.environment04,.environment05,.environment06{
+	display: none;
+}
+.environment01,.environment02,.environment07,.environment08{
+	float: left;
+	box-sizing: border-box;
+	width: 50%;
+	height: 150px;
+	display: block;
+	overflow: hidden;
+}
 .environment01{
 	background-color: #228B22;
-	padding-left: 20px;
-	padding-top: 15px;
-	line-height: 20px;
+	position: relative;
+	text-align: center;
 }
 .environment01 a{
-	display: block;
-	width: 232px;
-	height: 55px;
 	color: #fff;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
 }
 .environment01 a:hover{
 	text-decoration: none;
 }
 .environment01 span{
-	display: block;
 	color: #fff;
-	font-size: 22px;
+	font-size: 6vw;
 	line-height: 22px;
-}
-.environment02{
-	width: 252px;
-	height: 228px;
-	left: 0;
-	bottom: 0;
-}
-.environment03{
-	width: 185px;
-	height: 125px;
-	top: 0;
-	left: 254px;
-}
-.environment04{
-	width: 185px;
-	height: 125px;
-	top: 0;
-	left: 441px;
-}
-.environment05{
-	width: 372px;
-	height: 173px;
-	bottom: 0;
-	left: 254px;
-}
-.environment06{
-	width: 185px;
-	height: 300px;
-	top: 0;
-	right: 187px;
-}
-.environment07{
-	width: 185px;
-	height: 242px;
-	top: 0;
-	right: 0;
 }
 .environment08{
 	background-color: #999;
-	right: 0;
-	bottom: 0;
 	text-align: center;
-	line-height: 56px;
+	position: relative;
 }
 .environment08 a{
-	display: block;
+	position: absolute;
 	color: #fff;
-	width: 185px;
-	height: 56px;
-	font-size: 18px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+	font-size: 6vw;
+	line-height: 22px;
 }
 .environment08 a:hover{
 	background-color: #FF6347;
 	 text-decoration: none;
 }
+.environment02 img,.environment07 img{
+	width: 100%;
+	height: 100%;
+}
+
 .environment ul li p a {
-    background: #FF6347 none repeat scroll 0 0;
-    bottom: -42px;
-    color: #fff;
-    height: 42px;
-    left: 0;
-    line-height: 42px;
-    filter:alpha(Opacity=80);-moz-opacity:0.8;opacity: 0.8;/*兼容所有浏览器的透明度*/
-    position: absolute;
-    text-align: center;
-    width: 100%;
-    font-size: 16px;
-    
+	display: none;
 }
 /*展示图片详细信息*/
 .environment li:hover .henfan{
-    bottom: 0;
-    text-decoration: none;
-    transition: all 0.3s linear 0s;
+	display: none;
 }
+
 /*历史信息*/
 .history{
 	width: 100%;
 	overflow: hidden;
 	background-color: #E5E5E5;
-	margin-bottom: 30px;
+	/*margin-bottom: 30px;*/
 }
 .history h4{
-	height: 60px;
-	font-size: 35px;
-	line-height: 60px;
+	font-size: 6vw;
+	line-height: 3rem;
+	/*transform: scale(1.5);*/
 	text-align: center;
 	color: #228B22;
-	margin-bottom: 15px;
+	/*margin-bottom: 3%;*/
 }
 .history .history_pic {
-	height: 60px;
+	/*height: 60px;*/
 	margin-bottom: 5px;
 }
 .history .history_pic li{
 	display: block;
 	height: 60px;
-	width: 225px;
+	width: 48%;
 	float: left;
-	margin-left: 25px;
+	margin: 1%;
+	box-sizing: border-box;
 }
 .history .history_pic li span{
-	display: inline-block;
+	display:block;
 	float: left;
 	background-image: url(../images/icon.png);
 	width: 60px;
 	height: 60px;
-	margin-right: 15px;
+	margin-right: 5%;
 }
 .history .history_pic01 span{
 	background-position: 0 -352px;
@@ -689,11 +643,12 @@ input.error {border: 1px solid red;}
 	float: left;
 	padding-top: 4px;
 	font-style: normal;
-	font-size: 20px;
-	line-height: 26px;
+	font-size: 4vw;
+	line-height: 1.5rem;
 	color: #666;
 }
 .history .history_text{
+	display: none;
 	text-indent: 2em;
 	font-size: 18px;
 	color: #228B22;
@@ -701,7 +656,7 @@ input.error {border: 1px solid red;}
 	padding: 10px;
 }
 #to_top{
-	display: block;
+	display: none;
 	background: url(../images/top_bg.png) no-repeat left top;
 	width: 40px;
 	height: 40px;
@@ -718,18 +673,17 @@ input.error {border: 1px solid red;}
 	width: 100%;
 	background-color: #30393A;
 	display: block;
-	padding-top: 20px;
+	padding: 20px 0;
 	overflow: hidden;
+	text-align: center;
+	font-size: 1vw;
 }
-.footer_text{
-	width: 900px;
-	height: 40px;
+.footer a,.footer span{
+	display: block;
 	margin: 0 auto;
+	width: 99%;
 }
 .copyright,.icp,.zgwba{
-	border-left: 1px solid 	#C0C0C0;
-	margin-left: 10px;
-	padding-left: 10px;
 	color: 	#C0C0C0;
 }
 .copyright i{
@@ -739,10 +693,14 @@ input.error {border: 1px solid red;}
 .github{
 	color: #C0C0C0;
 }
-.zgwba{
-	line-height: 20px;
+.zgwba img{
+	float: none;
+	position: relative;
+	top: 3px;
 }
 .zgwba p{
+	display: inline-block;
+	float: none;
 	margin-left: 5px;
 }
 .footer_text a:hover{
@@ -1139,7 +1097,7 @@ input.error {border: 1px solid red;}
 
 .lbn{
 	background: url(../images/lbn.png) no-repeat;
-	display: block;
+	display: none;
 	height: 100px;
 	width: 100px;
 	position: fixed;

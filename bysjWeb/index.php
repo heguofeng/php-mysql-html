@@ -36,24 +36,44 @@ $yyss=fetchOne($sql);
 <meta name="keywords" content="养老院网站模板,毕业设计网站,管理系统,前后台开发,养老院网站的设计与实现,温医养老院,温州医科大学" />
 <meta name="description" content="本网站为毕业设计网站，主题养老院"/>
 <meta name="baidu-site-verification" content="SU2RQnG68g" />
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 <meta charset="UTF-8"/>
 <title>温医养老院</title>
 <link rel="shortcut icon" href="images/favicon.ico"/><!--加图标-->
 <link rel="stylesheet" type="text/css" href="css/reset.css"/>
-<link rel="stylesheet" type="text/css" href="css/main.css"/>
+<link rel="stylesheet" type="text/css" href="plugins/jquery.bxslider/jquery.bxslider.css"/>
+<link rel="stylesheet" type="text/css" href="css/main.css"/ media="screen and (min-device-width:481px)">
+<link rel="stylesheet" type="text/css" href="css/main480.css" media="screen and (max-device-width:480px)"/>
+
 <script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="plugins/jquery.bxslider/jquery.bxslider.js"></script>
 <script src="plugins/myFocus/myfocus-2.0.4.min.js" type="text/javascript" charset="utf-8"></script><!--引入myFocus库-->
 <script type="text/javascript">
-myFocus.set({
-	id:'boxID',//焦点图盒子ID
-	pattern:'mF_kdui',//风格应用的名称
-	time:3,//切换时间间隔(秒)
-	trigger:'click',//触发切换模式:'click'(点击)/'mouseover'(悬停)
-	width:1000,//设置图片区域宽度(像素)
-	height:340,//设置图片区域高度(像素)
-	txtHeight:'default',//文字层高度设置(像素),'default'为默认高度，0为隐藏
-	loadIMGTimeout:1 //loading时间
-});
+//myFocus.set({
+//	id:'boxID',//焦点图盒子ID
+//	pattern:'mF_kdui',//风格应用的名称
+//	time:3,//切换时间间隔(秒)
+//	trigger:'click',//触发切换模式:'click'(点击)/'mouseover'(悬停)
+//	width:1000,//设置图片区域宽度(像素)
+//	height:340,//设置图片区域高度(像素)
+//	txtHeight:'default',//文字层高度设置(像素),'default'为默认高度，0为隐藏
+//	loadIMGTimeout:1 //loading时间
+//});
+	$().ready(function(){
+		$('.bxslider').bxSlider({
+			auto:true,
+			mode:"fade",//设置滚动模式
+			captions:true,
+			autoHover:false
+		});
+		//在移动端添加菜单Menu
+		$("#nav").prepend('<button id="menutoggle">Menu</button>');
+		
+	});
+	
+	
+	
+	
 </script>
 </head>
 <body>
@@ -88,44 +108,37 @@ myFocus.set({
 	</div>	
 	<!--页面顶部top结束-->
 	<div class="wrap_logo">
-	<div class="logo">
-			<div class="logo_left"><a href="index.php"><img src="images/logo.gif"/></a> </div>
-			<div class="logo_right"><img src="images/tel.jpg" width="28" height="28" />24小时服务热线：<span class="tel">158-8827-4549</span></div>
-	</div>
+		<div class="logo">
+				<div class="logo_left"><a href="index.php"><img src="images/logo.gif"/></a> </div>
+				<div class="logo_right"><img src="images/tel.jpg" width="28" height="28" />24小时服务热线：<span class="tel">158-8827-4549</span></div>
+		</div>
+		<div class="nav" id="nav">
+			<div class="nav_mid">
+					<ul>
+						<li><a href="index.php">首页</a></li>
+						<li><a href="nav_about.php?id=3">关于养老院</a></li>
+						<li><a href="nav_about.php?id=4">服务特色</a></li>
+						<li><a href="nav_about.php?id=2">保健常识</a></li>
+						<li><a href="nav_about.php?id=12">环境设施</a></li>
+						<li><a href="nav_about.php?id=13">收费标准</a></li>
+						<li><a href="nav_about.php?id=5">人才招聘</a></li>
+						<li><a href="personal_info.php">个人中心</a></li>
+					</ul>
+			</div>
+			<!--nav_mid结束-->
+		</div>
+		  <!--nav结束-->
 	</div>
 	<!--logo结束-->
-	<div class="nav">
-		<div class="nav_mid">
-				<ul>
-					<li><a href="index.php">首页</a></li>
-					<li><a href="nav_about.php?id=3">关于养老院</a></li>
-					<li><a href="nav_about.php?id=4">服务特色</a></li>
-					<li><a href="nav_about.php?id=2">保健常识</a></li>
-					<li><a href="nav_about.php?id=12">环境设施</a></li>
-					<li><a href="nav_about.php?id=13">收费标准</a></li>
-					<li><a href="nav_about.php?id=5">人才招聘</a></li>
-					<li><a href="personal_info.php">个人中心</a></li>
-				</ul>
-		</div>
-		<!--nav_mid结束-->
-	</div>
-	  <!--nav结束-->
+
 	 <div class="wrap clearfix">
-	<div class="ad">
-		<div id="boxID"> <!--焦点图盒子-->
-			<div class="loading"></div><!--载入画面-->
-			<div class="pic">
-				<ul>
-					<li><a href="#"><img src="images/pic4.jpg" alt="美丽风貌" text="美丽的山庄景色，适合养生"/></a></li>
-					<li><a href="#"><img src="images/pic3.jpg" alt="养生食物" text="空心泡，草莓，车厘子"/></a></li>
-					<li><a href="#"><img src="images/pic2.jpg" alt="来一杯" text="不如坐下喝一杯"/></a></li>
-					<li><a href="#"><img src="images/pic1.png" alt="空闲生活" text="去海边看看"/></a></li>
-				</ul>
-			</div>
-		</div>
-	</div>  
-	<!--ad结束-->
-	<div><img src="images/diying.jpg" width="100%" height="20px"></div><!--中间小横线-->
+	  	<ul class="bxslider">
+			<li><img src="images/pic4.jpg" alt="美丽风貌" title="美丽的山庄景色，适合养生"/></li>
+			<li><img src="images/pic3.jpg" alt="养生食物" title="空心泡，草莓，车厘子"/></li>
+			<li><img src="images/pic2.jpg" alt="来一杯" title="不如坐下喝一杯"/></li>
+			<li><img src="images/pic1.png" alt="空闲生活" title="去海边看看"/></li>
+		</ul>
+		<div class="hengxian"><img src="images/diying.jpg" width="100%" height="20px"></div><!--中间小横线-->
 		<div class="itemBg">
 			<div class="item">
 				<ul>
@@ -147,7 +160,7 @@ myFocus.set({
 					</li>
 					<li class="special05">
 						<i></i>
-						<a href="article.php?id=<?php echo $yyss['id']; ?>" title="营养膳食"><em></em><span><strong>营养膳食</strong>Dietary</span></a>
+						<a href="article.php?id=<?php echo $yyss['id']; ?>" title="营养膳食"><div><em></em><span><strong>营养膳食</strong>Dietary</span></div></a>
 					</li>
 				</ul>
 			</div>
@@ -159,7 +172,7 @@ myFocus.set({
 				<div class="HLlist">
 					<dl>
 						<dt>
-							<a href="#" title="【糖尿病】老人糖尿病如何护理"><img src="images/img01.jpg" width="260" height="100" alt="【糖尿病】老人糖尿病如何护理"></a>
+							<a href="#" title="【糖尿病】老人糖尿病如何护理"><img src="images/img01.jpg" width="100%" alt="【糖尿病】老人糖尿病如何护理"></a>
 						</dt>
 						<?php foreach ($zyhls as $zyhl): ?>
 							<dd><a href="article.php?id=<?php echo $zyhl['id']; ?>" title="<?php echo $zyhl['title']; ?>"><?php echo $zyhl['title']; ?></a></dd>
@@ -174,7 +187,7 @@ myFocus.set({
 				<div class="CHlist">
 					<dl>
 						<dt>
-							<a href="article.php?id=<?php echo $last_bjcs['id']; ?>" title="<?php echo $last_bjcs['title']; ?>"><img src="images/201701120924527862.jpg" width="100" height="80" alt="<?php echo $last_bjcs['title']; ?>"></a>
+							<a href="article.php?id=<?php echo $last_bjcs['id']; ?>" title="<?php echo $last_bjcs['title']; ?>"><img src="images/201701120924527862.jpg" width="30%" alt="<?php echo $last_bjcs['title']; ?>"></a>
 							<h2><a href="article.php?id=<?php echo $last_bjcs['id']; ?>"><?php echo $last_bjcs['title']; ?></a></h2>
 							<div id="description">
 								<p><?php echo $last_bjcs['description']; ?></p>
@@ -281,7 +294,7 @@ myFocus.set({
 				</li>
 				<li class="environment07">
 					<a href="#">
-						<img src="images/environment06.jpg" alt="养老院院景" />
+						<img src="images/environment06.jpg" width="100%" alt="养老院院景" />
 						<div class="img_cover"></div>
 						
 					</a>

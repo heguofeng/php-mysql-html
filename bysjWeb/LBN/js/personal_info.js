@@ -230,7 +230,7 @@ $(document).ready(function(){
 
 
 
-//滚动事件
+//滚动监听事件
 $(window).scroll(function(){
 	var top=$(document).scrollTop();
 	if(top>=60){
@@ -265,7 +265,6 @@ $(window).scroll(function(){
 		}else{
 			return false;
 		}
-		
 	});
 //	console.log(currentId);
 	var currentNav=$("#p_main_left .layui-this a");
