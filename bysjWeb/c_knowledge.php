@@ -17,11 +17,13 @@ if(!$rows){
 				<h1 class="page_title">
 					<a href="article.php?id=<?php echo $row['id']; ?>" class="fl"><?php echo $row['title']; ?></a>
 					<span class="fr"><?php echo $row['dateline']; ?></span>	
+					<div class="clearfix"></div>
 				</h1>
 				<p class="fl">
 					<!--文章简述放这里-->
 					<?php echo $row['description']; ?>		
 				</p>
+				<!--<div class="clearfix"></div>-->
 			</li>
 			<?php endforeach; ?>
 		</ul>

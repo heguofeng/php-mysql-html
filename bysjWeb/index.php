@@ -41,9 +41,10 @@ $yyss=fetchOne($sql);
 <title>温医养老院</title>
 <link rel="shortcut icon" href="images/favicon.ico"/><!--加图标-->
 <link rel="stylesheet" type="text/css" href="css/reset.css"/>
-<link rel="stylesheet" type="text/css" href="plugins/jquery.bxslider/jquery.bxslider.css"/>
+
 <link rel="stylesheet" type="text/css" href="css/main.css"/ media="screen and (min-width:481px)">
 <link rel="stylesheet" type="text/css" href="css/main480.css" media="screen and (max-width:480px)"/>
+<link rel="stylesheet" type="text/css" href="plugins/jquery.bxslider/jquery.bxslider.css"/>
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="plugins/jquery.bxslider/jquery.bxslider.js"></script>
 <script type="text/javascript">
@@ -51,9 +52,10 @@ $yyss=fetchOne($sql);
 		//轮播图
 		$('.bxslider').bxSlider({
 			auto:true,
-			mode:"fade",//设置滚动模式
+			mode:"horizontal",//设置滚动模式
 			captions:true,
-			autoHover:false
+			autoHover:false,
+			controls:false
 		});
 		//在移动端添加菜单Menu
 		$(".logo").prepend('<button id="menutoggle">Menu</button>');
@@ -104,7 +106,6 @@ $yyss=fetchOne($sql);
 			}
 		});
 	});
-
 </script>
 </head>
 <body>
@@ -199,7 +200,9 @@ $yyss=fetchOne($sql);
 		<!--itemBgj结束-->
 		<div class="new">
 			<div class="new_left">
-				<h3 class="title"><a href="#" title="专业护理"><span>专业护理</span>/Professional Care</a></h3>
+				<div class="titleBox">
+					<h3 class="title"><a href="#" title="专业护理"><span>专业护理</span>/Professional Care</a></h3>
+				</div>
 				<div class="HLlist">
 					<dl>
 						<dt>
@@ -218,7 +221,7 @@ $yyss=fetchOne($sql);
 				<div class="CHlist">
 					<dl>
 						<dt>
-							<a href="article.php?id=<?php echo $last_bjcs['id']; ?>" title="<?php echo $last_bjcs['title']; ?>"><img src="images/201701120924527862.jpg" width="27%" alt="<?php echo $last_bjcs['title']; ?>"></a>
+							<a href="article.php?id=<?php echo $last_bjcs['id']; ?>" title="<?php echo $last_bjcs['title']; ?>"><img src="images/201701120924527862.jpg" width="27%" height="100%" alt="<?php echo $last_bjcs['title']; ?>"></a>
 							<h2><a href="article.php?id=<?php echo $last_bjcs['id']; ?>"><?php echo $last_bjcs['title']; ?></a></h2>
 							<div id="description">
 								<p><?php echo $last_bjcs['description']; ?></p>
@@ -240,16 +243,18 @@ $yyss=fetchOne($sql);
 					<h3 class="title"><a href="#" title="营养膳食"><span>营养膳食</span>/Dietary</a></h3>
 				</div>
 				<ul class="bxslider">
-					<li><img src="images/yyss01.jpg" alt="蔬菜搭配" title="蔬菜搭配" /></li>
-					<li><img src="images/yyss02.jpg" alt="五谷杂粮" title="五谷杂粮" /></li>
-					<li><img src="images/yyss03.jpg" alt="早餐学问" title="早餐学问" /></li>
-					<li><img src="images/yyss04.jpg" alt="必要蛋白质补充" title="必要蛋白质补充"/></li>
+					<li><img src="images/yyss01.jpg" alt="蔬菜搭配" title="蔬菜搭配" height="100%" width="100%" /></li>
+					<li><img src="images/yyss02.jpg" alt="五谷杂粮" title="五谷杂粮" height="100%" width="100%" /></li>
+					<li><img src="images/yyss03.jpg" alt="早餐学问" title="早餐学问" height="100%" width="100%" /></li>
+					<li><img src="images/yyss04.jpg" alt="必要蛋白质补充" title="必要蛋白质补充" height="100%" width="100%"/></li>
 				</ul>
 			</div>
 		</div>
 		<!--new结束-->
 		<div class="zzfc">
-			<h3 class="title"><a href="#" title="长者风采"><span>长者风采</span>/Old style</a></h3>
+			<div class="titleBox">
+				<h3 class="title"><a href="#" title="长者风采"><span>长者风采</span>/Old style</a></h3>
+			</div>
 			<div class="zzfc_box">
 				<div id="scrollPic">
 					<ul>

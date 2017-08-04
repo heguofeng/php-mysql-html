@@ -800,8 +800,8 @@ input.error {
 
 .new {
 	/*height: 280px;*/
-	border-bottom: 1px solid #e5e5e5;
-	margin-bottom: 20px;
+	/*border-bottom: 1px solid #e5e5e5;*/
+	/*margin-bottom: 20px;*/
 	overflow: hidden;
 }
 
@@ -833,12 +833,12 @@ input.error {
 	overflow: hidden;
 }
 .new_right{
-	height: 280px;
-	
+	height: 250px;
 }
 /*蔬菜动态图*/
 .bxslider li img{
 	width: 100%;
+	height: 70%;
 }
 
 /*专业护理文章标题*/
@@ -857,7 +857,7 @@ input.error {
 }
 
 .CHlist dt {
-	height: 80px;
+	height: 90px;
 	border-bottom: 1px solid #E5E5E5;
 	margin-bottom: 4px;
 	padding-bottom: 16px;
@@ -918,7 +918,7 @@ input.error {
 }
 
 .new #scrollBox {
-	font-size: 15px;
+	font-size: 4vw;
 }
 
 
@@ -926,7 +926,7 @@ input.error {
 
 .zzfc {
 	height: 240px;
-	/*margin-bottom: 20px;*/
+	margin-bottom: 10px;
 	border-bottom: 1px solid #e5e5e5;
 }
 
@@ -1087,6 +1087,7 @@ input.error {
 	width: 100%;
 	overflow: hidden;
 	background-color: #E5E5E5;
+	padding-bottom: 10px;
 	/*margin-bottom: 30px;*/
 }
 
@@ -1238,11 +1239,14 @@ input.error {
 
 
 /*——————————————————————————————————————————下面是content页面内容————————————————————————————————————————————————*/
-
+.ad{
+	display: none;
+}
 
 /*五张图片pages*/
 
 .pages {
+	display: none;
 	height: 100px;
 	margin-bottom: 20px;
 	overflow: hidden;
@@ -1268,8 +1272,8 @@ input.error {
 
 .content {
 	background-color: #fff;
-	width: 980px;
-	min-height: 600px;
+	width: 100%;
+	/*min-height: 600px;*/
 	margin: 0 auto;
 	/*overflow: hidden;*/
 }
@@ -1278,6 +1282,7 @@ input.error {
 /*左边导航框*/
 
 .content_l {
+	display: none;
 	float: left;
 	width: 220px;
 	height: 600px;
@@ -1320,10 +1325,12 @@ input.error {
 
 .content_right {
 	overflow: hidden;
-	min-height: 655px;
-	padding-bottom: 30px;
-	padding-left: 20px;
-	max-width: 740px;
+	min-height: 475px;
+	/*padding-left: 20px;*/
+	width: 96%;
+	margin: 0 1%;
+	font-size: 4vw;
+	padding: 30px 2% 15px;
 }
 
 .content_right .load_img {
@@ -1337,11 +1344,12 @@ input.error {
 
 .content_right2 {
 	overflow: hidden;
-	height: 655px;
-	padding-bottom: 30px;
-	padding-left: 20px;
-	width: 740px;
+	height: 450px;
+	/*padding-bottom: 30px;*/
+	/*padding-left: 20px;*/
+	width: 98%;
 	display: none;
+	margin: 0 1%;
 }
 
 
@@ -1383,8 +1391,8 @@ input.error {
 }
 
 .basicinfo_table .txtinput {
-	height: 18px;
-	line-height: 18px;
+	height: 25px;
+	line-height: 25px;
 	width: 150px;
 	border: 1px solid #dadada;
 	padding: 2px;
@@ -1428,7 +1436,7 @@ input.error {
 }
 
 .basicinfo_title {
-	width: 78px;
+	width: 30%;
 	line-height: 21px;
 	padding-bottom: 15px;
 	vertical-align: top;
@@ -1443,13 +1451,14 @@ input.error {
 }
 
 .btn_save {
+	display: block; 
 	width: 92px;
 	height: 26px;
 	padding: 0 7px;
 	background-color: #7b8c9e;
 	border: 1px solid #6d7c8c;
 	color: #ffffff;
-	margin: 10px 0 0 78px;
+	margin: 0 auto;
 	cursor: pointer;
 }
 
@@ -1459,6 +1468,20 @@ input.error {
 
 
 /*dialog提示框的样式*/
+.login_start{
+	height: 32px;
+	line-height: 32px;
+	background-size: contain;
+	display: block;
+	text-align: center;
+	width: 80%;
+	margin: 0 auto;
+	display: none;	
+	background: url(../images/loading2.gif) no-repeat 0 0;
+	line-height: 37px;
+	background-position-x: 30%;
+	margin: 0 auto;
+}
 
 .save_success,
 .save_failed,
@@ -1471,23 +1494,25 @@ input.error {
 	width: 80%;
 	margin: 0 auto;
 	display: none;
-}
-.save_start{
-	/*float: left;*/
-	margin: 0 auto;
+
 }
 .save_success {
 	background: url(../images/success32.png) no-repeat 0 0;
+	background-size: contain;
 }
 
 .save_failed {
 	background: url(../images/failed.png) no-repeat 0 0;
+	background-size: contain;
 }
 
 .save_start {
-	background: url(../images/loading2.gif) no-repeat 0 0;
+	background: url(../images/loading2.gif) no-repeat 0 0;	
 	line-height: 37px;
-	background-position-x: 30%;
+	padding-left: 40px;
+    width: 150px;
+    margin: 0 auto;
+    background-size: contain;
 }
 
 
@@ -1498,20 +1523,25 @@ input.error {
 }
 
 .info_val {
-	width: 500px;
+	width: 60%;
 	display: block;
 }
-
+.info_list{
+	width: 100%;
+	display: block;
+	min-height: 300px;
+}
 .info_list li {
 	margin-bottom: 10px;
 	font-size: 16px;
 	display: block;
 	float: left;
+	width: 100%;
 }
 
 .info_list li label {
 	padding-left: 20px;
-	width: 138px;
+	width: 40%;
 	height: 25px;
 	line-height: 25px;
 	display: block;
@@ -1590,7 +1620,7 @@ input.error {
 /*——————————————————————————————————————————下面是article.php个人页面内容————————————————————————————————————————————————*/
 
 .a_title {
-	font: 30px/1 "微软雅黑";
+	font: 20px/20px "微软雅黑";
 	text-align: center;
 	border-bottom: 10px solid #808080;
 	margin-bottom: 20px;
@@ -1600,15 +1630,17 @@ input.error {
 
 .a_title span {
 	color: #A9A9A9;
-	font-size: 14px;
+	font-size: 4vw;
+	display: block;
 }
 
 .a_title2 {
-	padding-left: 50px;
+	/*padding-left: 50px;*/
+	display: block;
 }
 
-.a_content P {
-	font-size: 15.5px;
+.a_content p {
+	font-size: 5vw;
 }
 
 
@@ -1697,17 +1729,17 @@ input.error {
 /*—————————————————————————————————————下面是c_bjcs.php保健常识页面的样式*————————————————————————————————————————————————*/
 
 .page_li {
-	display: inline-block;
-	width: 734px;
-	margin: 0 3px 5px 3px;
-	padding: 5px 0;
+	width: 100%;
 	border-bottom: 1px solid #CCCCCC;
+	padding: 5px 2px;
+	height: 142px;
 }
 
 .page_title a {
-	font-size: 24px;
+	font-size: 18px;
 	line-height: 30px;
 	color: #228B22;
+	height: 30px;
 }
 
 .page_title a:hover {
@@ -1718,15 +1750,15 @@ input.error {
 .page_title span {
 	color: #FF6347;
 	font-size: 12px;
-	line-height: 30px;
+	line-height: 12px;
+	height: 12px;
 }
 
 .page_li p {
-	display: inline-block;
-	width: 734px;
-	padding: 5px 0;
+	width: 100%;
 	text-indent: 2em;
 	color: #8c8c8c;
+	height: 100px;
 }
 
 .lbn {

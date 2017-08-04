@@ -1,23 +1,36 @@
 
 window.onload=function(){	
-	/*导航条固定位置*/
-	$(window).scroll(function(){
-		var top=$(this).scrollTop();
-		var nav=$('.nav');
-		var navTop=nav.offset().top;
-		if(top>110){
-			nav.addClass("wrap_logo_fixed");
-			nav.removeClass("wrap_logo");
-		}else{
-			nav.addClass("wrap_logo");
-			nav.removeClass("wrap_logo_fixed");
-		}
-		if(top>=400){
-			$('#to_top').css("display","block");
-		}else{
-			$('#to_top').css("display","none");
-		}
-	});	
+/*导航条固定位置*/
+//在窗口大小变化时更新
+	$(window).resize(function(){
+		scroll();
+	});
+	function scroll(){//滚动事件合集
+	/*导航条设置fixed效果*/
+	var winWidth=$(window).width();
+		$(window).scroll(function(){
+			var top=$(document).scrollTop();
+			var nav=$('.nav');
+			if(winWidth>480){
+			 	if(top>120){
+			 		nav.addClass("wrap_logo_fixed");
+			 		nav.removeClass("wrap_logo");
+			 	}else{
+			 		nav.addClass("wrap_logo");
+			 		nav.removeClass("wrap_logo_fixed");
+				}
+				//设置回到顶部按钮效果
+				if(top>=400){
+					//$('#to_top').css("display","block");
+					$("#to_top").fadeIn("slow");
+				}else{
+					//$('#to_top').css("display","none");
+					$("#to_top").fadeOut("slow");
+				}
+			}
+		});
+	}
+	scroll();//执行滚动事件
 	//给左侧菜单做个当前页面效果
 		$(".content_l_list").find("li").click(function(){
 				$(".content_l_list").find("li").each(function(){

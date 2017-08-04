@@ -435,14 +435,14 @@ input.error {border: 1px solid red;}
 }
 .new_left{
 	float: left;
-	height: 260px;
+	min-height: 260px;
 	width: 260px;
 	margin-right: 30px;
 	overflow: hidden;	
 }
 .new_mid{
 	float: left;
-	height: 260px;
+	min-height: 260px;
 	overflow: hidden;
 	width: 420px;
 }
@@ -975,16 +975,19 @@ input.error {border: 1px solid red;}
 	line-height: 32px;
 	padding-left: 35px;
 	background-size: contain;
-	display: none;
+	/*display: none;*/
 }
 .save_success{
 	background: url(../images/success32.png) no-repeat 0 0;	
+	background-size: contain;
 }
 .save_failed{
 	background: url(../images/failed.png) no-repeat 0 0;
+	background-size: contain;
 }
 .save_start{
 	background: url(../images/loading2.gif) no-repeat 0 0;	
+	background-size: contain;
 	line-height: 37px;
 	padding-left: 40px;
     width: 150px;
