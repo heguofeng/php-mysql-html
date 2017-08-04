@@ -6,7 +6,7 @@ body {
 .bor {
 	border: 1px solid #ddd;
 }
-
+*{box-sizing: border-box;}
 #createResult_red,
 #createResult_green {
 	color: #fff;
@@ -195,6 +195,7 @@ body {
 	border-radius: 5px;
 	cursor: pointer;
 	margin-bottom: 10px;
+	box-sizing: border-box;
 }
 
 .zhuce_body .zhuce_kong .zc .bj_left .btn_zhuce:hover {
