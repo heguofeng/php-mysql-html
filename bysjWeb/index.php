@@ -44,10 +44,8 @@ $yyss=fetchOne($sql);
 <link rel="stylesheet" type="text/css" href="plugins/jquery.bxslider/jquery.bxslider.css"/>
 <link rel="stylesheet" type="text/css" href="css/main.css"/ media="screen and (min-width:481px)">
 <link rel="stylesheet" type="text/css" href="css/main480.css" media="screen and (max-width:480px)"/>
-
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="plugins/jquery.bxslider/jquery.bxslider.js"></script>
-<script src="plugins/myFocus/myfocus-2.0.4.min.js" type="text/javascript" charset="utf-8"></script><!--引入myFocus库-->
 <script type="text/javascript">
 	$().ready(function(){
 		//轮播图
@@ -84,12 +82,33 @@ $yyss=fetchOne($sql);
 				});
 			}
 		});
+		//个人中心
+		$(".user_mobile").click(function(){
+			var top_menu=$("#top");
+			if(top_menu.css("opacity")==1){
+				top_menu.addClass("fadeInRight");
+				top_menu.removeClass("fadeOutRight");
+				$(".masklayer").css("display","none");
+				$("body").css("overflow","auto");
+			}else{
+				top_menu.addClass("fadeOutRight");
+				top_menu.removeClass("fadeInRight");
+				$(".masklayer").css("display","block");//弹出遮罩层
+				$("body").css("overflow","hidden");//禁止遮罩层下面滚动
+				$(".masklayer").click(function(){
+					top_menu.addClass("fadeInRight");
+					top_menu.removeClass("fadeOutRight");
+					$(".masklayer").css("display","none");
+					$("body").css("overflow","auto");
+				});
+			}
+		});
 	});
 
 </script>
 </head>
 <body>
-	<div class="top">
+	<div class="top" id="top">
 		<div class="top_content">
 			<div class="top_content_l">
 				<a href="admin/index.php" target="_blank" title="进入后台管理系统" class="backstage">进入后台管理系统</a>
@@ -123,6 +142,7 @@ $yyss=fetchOne($sql);
 		<div class="logo">
 				<div class="logo_left"><img src="images/logo.gif"/></div>
 				<div class="logo_right"><img src="images/tel.jpg" width="28" height="28" />24小时服务热线：<span class="tel">158-8827-4549</span></div>
+				<div class="user_mobile"><img src="images/user_green.png"/></div>
 		</div>
 	</div>
 	<!--wrap_logo结束-->
@@ -219,20 +239,12 @@ $yyss=fetchOne($sql);
 				<div class="titleBox">
 					<h3 class="title"><a href="#" title="营养膳食"><span>营养膳食</span>/Dietary</a></h3>
 				</div>
-					<div class="bd">
-					<div id="boxID2"> <!--焦点图盒子-->
-						<!--<div class="loading"><img src="images/loading.gif" alt="请稍等..."/></div>--><!--载入画面-->
-						<div class="pic">
-							<ul>
-								<li><a href="#"><img src="images/yyss01.jpg" alt="蔬菜搭配" /></a></li>
-								<li><a href="#"><img src="images/yyss02.jpg" alt="五谷杂粮" /></a></li>
-								<li><a href="#"><img src="images/yyss03.jpg" alt="早餐学问" /></a></li>
-								<li><a href="#"><img src="images/yyss04.jpg" alt="必要蛋白质补充" /></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-		
+				<ul class="bxslider">
+					<li><img src="images/yyss01.jpg" alt="蔬菜搭配" title="蔬菜搭配" /></li>
+					<li><img src="images/yyss02.jpg" alt="五谷杂粮" title="五谷杂粮" /></li>
+					<li><img src="images/yyss03.jpg" alt="早餐学问" title="早餐学问" /></li>
+					<li><img src="images/yyss04.jpg" alt="必要蛋白质补充" title="必要蛋白质补充"/></li>
+				</ul>
 			</div>
 		</div>
 		<!--new结束-->

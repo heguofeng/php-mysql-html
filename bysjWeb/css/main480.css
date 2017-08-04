@@ -65,12 +65,12 @@ body {
 	transform: translateY(-55%);
 }
 
-.logo {
+.logo_login {
 	width: 60%;
 	margin: 0 auto;
 }
 
-.logo img {
+.logo_login img {
 	width: 100%;
 }
 
@@ -318,79 +318,150 @@ input.error {
 }
 
 /*——————————————————————————————————————index首页页面————————————————————————————————*/
+@-webkit-keyframes fadeInRight{
+	0%{opacity:1;-webkit-transform:translate(0,0);}
+	100%{opacity:0;-webkit-transform:translate(100%,0);}
+	}
+
+@keyframes fadeInRight {
+	0% {
+		opacity: 1;
+		transform: translate(0,0);
+	}
+	100% {
+		opacity: 0;
+		transform: translate(100%,0);
+	}
+}
+
+@keyframes fadeOutRight {
+	0% {
+		opacity: 0;
+		transform: translate(100%,0);
+	}
+	100% {
+		opacity: 1;
+		transform: translate(0,0);
+	}
+}
+
+@-webkit-keyframes fadeOutRight{
+	0%{opacity: 0;-webkit-transform: translate(100%,0);}
+	100%{opacity: 1;-webkit-transform: translate(0,0);}
+}
+
+.fadeInRight {
+	animation-name: fadeInRight;
+	-webkit-animation-name: fadeInRight;
+}
+
+.fadeOutRight {
+	animation-name: fadeOutRight;
+	-webkit-animation-name: fadeOutRight;
+}
+
+.fadeInRight,
+.fadeOutRight {
+	-webkit-animation-duration: .3s;
+	animation-duration: .3s;
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+}
+.user_mobile{
+	display: block;
+	width: 40px;
+	height: 40px;
+	border: none;
+	position: fixed;
+	top: 5px;
+	right: 6px;
+	z-index: 10000;
+	box-sizing: border-box;
+	cursor: pointer;
+}
+.user_mobile img{
+	width: 90%;
+	height: 90%;
+}
 
 .top {
-	display: none;
-	width: 100%;
-	height: 30px;
-	/*background:url(../images/top_bg.jpg) round ;*/
-	background-color: #30393A;
+	width: 190px;
+	height: 100%;
+	background-color: #fff;
 	position: fixed;
-	left: 0;
+	right: 0;
 	top: 0;
-	z-index: 3000;
+	z-index: 1000;
+	padding-top: 50px;
+	box-shadow: 3px 0 3px rgba(0, 0, 0, .4);
+	transform: translate(100%, 0);
+	opacity: 0;
 }
 
-.top_content {
-	width: 1200px;
-	margin: 0 auto;
-}
-
-.top_content .top_content_r,
-.top_content_user {
-	float: right;
-}
-
-.top_content .top_content_r li,
-.top_content_user li {
+.top_content_l,.top_content .top_content_r,.top_content_user {
 	float: left;
-	position: relative;
-	height: 30px;
+	width: 100%;
+}
+/*进入后台管理系统*/
+.top_content_l{
+	background-color: #228b22;
+	height: 40px;
+	line-height: 40px;
+	font-size: 5vw;
+	padding-left: 2%;
+}
+.top_content_l a{
+	color: #fff;
+}
+
+.top_content .top_content_r li,.top_content_user li {
+	width: 100%;
+	height: 43px;
+    border-bottom: 1px solid #ececec;
+    line-height: 43px;
+    text-indent: 1em;
 }
 
 #pic_tx {
+	display: block;
 	float: left;
-	margin-right: 3px;
-	margin-top: 5px;
+	/*margin-right: 5px;*/
+	/*margin-top: 5px;*/
+	width: 43px;
+	height: 43px;
+	background-color:#ececec ;
 }
 
 #pic_tx img {
 	border-radius: 50%;
-}
-
-.top_content_user li span,
-.top_content_user li a,
-.backstage {
-	color: #c4c3c3;
-	float: left;
-	line-height: 30px;
+	width: 100%;
+	height: 100%;
 }
 
 .top_content_user li span {
+	/*display: none;*/
 	margin-right: 10px;
 }
 
 .user {
+	text-indent: 1em;
+	display:block;
+	/*float: left;*/
 	font-size: 16px;
-	padding-left: 3px;
-	height: 30px;
+	height: 43px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	width: 147px;
+	background-color: #ECECEC;
 }
 
 
 /*箭头图标*/
 
-.user_ico {
-	background: url(../images/down.png) no-repeat center;
-	display: inline-block;
-	height: 30px;
-	background-size: 16px;
-	vertical-align: middle;
-	width: 16px;
-}
 
-.top_content_nav a:hover .user_ico {
-	background: url(../images/up.png) no-repeat center;
-	background-size: 16px;
+.user_ico {
+	display: none;
 }
 
 .top_content_nav a:hover,
@@ -403,26 +474,20 @@ input.error {
 /*用户信息卡*/
 
 .top_content_user .userCard {
-	display: none;
-	position: absolute;
-	right: 0;
-	top: 100%;
-	width: 80px;
-	background-color: white;
-	z-index: 1000;
-	border: 1px solid #DDD;
-	border-top: 0;
+	width: 100%;
+	background-color: #fff;
+	float: left;
 }
 
 .top_content_user .userCard a {
 	display: block;
 	color: #000;
-	width: 80px;
-	height: 30px;
-	line-height: 30px;
-	margin: 0;
-	text-align: center;
+	width: 100%;
+	height: 43px;
+	line-height: 43px;
+	/*text-align: center;*/
 	white-space: nowrap;
+	border-bottom: 1px solid #ececec;
 	/*禁止文字自动换行*/
 }
 
@@ -431,41 +496,28 @@ input.error {
 	color: #FFFFFF;
 }
 
-.top_content_nav:hover .userCard {
-	display: block;
-}
-
-.top_content_nav:hover .user {
-	color: #eb4f38;
-	text-decoration: none;
-}
-
-.top_content_nav:hover .user_ico {
-	background: url(../images/up.png) no-repeat center;
-	background-size: 16px;
-}
 
 
 /*登录注册*/
-
+.top_content .top_content_r li{
+	width: 100%;
+	height: 43px;
+    border-bottom: 1px solid #ececec;
+}
 .top_content .top_content_r li a {
-	color: #c4c3c3;
-	float: left;
-	line-height: 15px;
-	margin: 7px 0 0;
-	padding: 0 12px;
+    text-indent: 1em;
+    display: block;
+    line-height: 43px;
+    font-size: 16px;
+    color: #525252;
 }
-
-.top_content .top_content_r li .top_zc {
-	border-left: 1px solid #495664;
-}
-
 .top_content_r li a:hover,
 .top_content_r li a:active,
 .top_content_l a:hover,
 .top_content_l a:active {
-	color: #fff;
-	text-decoration: none;
+    color: #000;
+    text-decoration: none;
+    background: #fbfbfb;
 }
 
 
@@ -488,7 +540,7 @@ input.error {
 	box-sizing: border-box;
 }
 
-.logo_left img {
+.logo .logo_left img {
 	width: 40%;
 	margin: 0 auto;
 	display: block;
@@ -498,9 +550,6 @@ input.error {
 .logo_right {
 	display: none;
 }
-
-
-/*nav导航条*/
 
 
 /*移动端menu*/
@@ -571,7 +620,6 @@ input.error {
 	}
 }
 
-
 @-webkit-keyframes fadeOutLeft{
 	0%{opacity: 0;-webkit-transform: translate3d(-100%,0,0);}
 	100%{opacity: 1;-webkit-transform: translate3d(0,0,0);}
@@ -636,17 +684,6 @@ input.error {
 .hengxian {
 	display: none;
 }
-
-
-/*蔬菜动态图*/
-
-.bd {
-	display: none;
-	/*height: 230px;
-	width: 260px;
-	overflow: hidden;	*/
-}
-
 
 /*中间五个items*/
 
@@ -792,8 +829,17 @@ input.error {
 	float: left;
 	width: 100%;
 	margin-bottom: 20px;
+	min-height: 200px;
+	overflow: hidden;
 }
-
+.new_right{
+	height: 280px;
+	
+}
+/*蔬菜动态图*/
+.bxslider li img{
+	width: 100%;
+}
 
 /*专业护理文章标题*/
 
