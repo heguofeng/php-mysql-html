@@ -205,6 +205,7 @@ input.error {border: 1px solid red;}
 	color: #eb4f38;
 	text-decoration: none;
 }
+.user_mobile{display: none;}/*移动端的头像*/
 /*用户信息卡*/
 .top_content_user .userCard{
 	display: none;
