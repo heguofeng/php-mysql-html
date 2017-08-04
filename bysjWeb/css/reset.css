@@ -21,3 +21,6 @@ button::-moz-focus-inner,input::-moz-focus-inner{padding:0; border:0;}
 
 /*应付bootstarp的CSS冲突*/
 *{box-sizing: content-box;}/*采用css原先的边框模式,在宽度和高度之外绘制元素的内边距和边框*/
+@media only screen and (max-width: 480px) {
+	*{box-sizing: border-box;}
+}

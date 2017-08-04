@@ -6,7 +6,6 @@ body {
 .bor {
 	border: 1px solid #ddd;
 }
-*{box-sizing: border-box;}
 #createResult_red,
 #createResult_green {
 	color: #fff;
