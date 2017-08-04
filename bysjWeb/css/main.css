@@ -50,9 +50,10 @@ body{
 	-webkit-box-shadow: 0 0 0px 1000px white inset;
 	border: 1px solid #CCC!important;
 }
+.zhuce_body .zhuce_kong .zc .bj_left .btn_code{ height:33px; background:#37b5f9; font-size:14px; line-height:33px; text-align:center; border:0px; color:#fff; border-radius:3px; cursor:pointer;width: 130px;margin-top: 0; margin-left: 5px;}
 .zhuce_body .zhuce_kong .zc .bj_left .kuang_txt:focus{border-color: #0065D0;border-radius: 3px;}
-.zhuce_body .zhuce_kong .zc .bj_left .btn_zhuce{ height:33px; background:#37b5f9; font-size:14px; line-height:33px; text-align:center; border:0px; color:#fff; border-radius:3px; cursor:pointer;width: 130px;margin-top: 0; margin-left: 5px;}
-.zhuce_body .zhuce_kong .zc .bj_left .btn_zhuce:hover{ background:#0065d0;}
+.zhuce_body .zhuce_kong .zc .bj_left .btn_zhuce{ height:33px; background:#37b5f9; font-size:14px; line-height:33px; text-align:center; border:0px; color:#fff; border-radius:3px; cursor:pointer;width: 261px;margin-top: 0; margin-left: 5px;}
+.zhuce_body .zhuce_kong .zc .bj_left .btn_zhuce:hover,.btn_code:hover{ background:#0065d0;}
 .zhuce_body .zhuce_kong .zc .bj_left #createResult{margin-top:10px ;font-size: 15px; color: red;display: block;text-align: center;width: 220px; }
 
 .zhuce_body .zhuce_kong .zc .bj_left .phone{background:url(../images/zc_06.jpg) no-repeat 10px 10px;}
@@ -81,7 +82,7 @@ body{
 .zhuce_body .login_kuang .zc .bj_left h3{ font:16px/60px "微软雅黑", "黑体"; color:#37b5f9; width:270px; text-align:left;}/*字体大小/行高*/
 .zhuce_body .login_kuang .zc .bj_right{ float:left;width:173px; padding-left:37px; }/*QQ微信微博框*/
 .zhuce_body .login_kuang .zc .bj_left,.zhuce_body .login_kuang .zc .bj_right{height: auto;min-height: 270px;}
-.zhuce_body .login_kuang .zc .bj_left .kuang_txt{ width:220px; height:32px; border:1px solid #dddddd;line-height:32px; padding-left:4px; color:#b1a9a9;margin-right: 35px; }/*输入框*/
+.zhuce_body .login_kuang .zc .bj_left .kuang_txt{ width:220px; height:32px; border:1px solid #dddddd;line-height:32px;color:#b1a9a9;margin-right: 35px; }/*输入框*/
 .zhuce_body .login_kuang .zc .bj_left .kuang_txt:-webkit-autofill {
 	-webkit-box-shadow: 0 0 0px 1000px white inset;
 	border: 1px solid #CCC!important;
@@ -97,6 +98,57 @@ body{
 /*错误提示*/
 label.error {margin-bottom: 10px;margin-left: 5px;color: red;font-size: 14px; font-weight: bold; clear: both;  display: inline-block; border: 1px solid red;background-color: #DDDDDD;background:url(../images/no.png) no-repeat 1px 1px; padding-left: 16px;}
 input.error {border: 1px solid red;}
+
+/*忘记密码界面*/
+.bj_kuang {
+	width: 314px;
+	min-height: 300px;
+	/*padding-left: 50px;*/
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	background: #FFF;
+	/*position: relative;*/
+}
+
+.bj_kuang h3 {
+	font: 16px/70px "微软雅黑", "黑体";
+	color: #333333;
+	width: 270px;
+	text-align: center;
+	margin-top: 15px;
+}
+.code_box{
+	margin-bottom: 10px;
+}
+.bj_kuang .yanzm{
+	width: 100px;margin-top: 0; margin-bottom: 10px;
+}
+
+.change {
+	position: absolute;
+	top: 5px;
+	right: 10px;
+	cursor: pointer;
+	/*border: 1px solid #333;*/
+}
+
+.change:hover {
+	color: #FF6347;
+}
+
+.re_login {
+	position: absolute;
+	top: 5px;
+	right: 93px;
+	cursor: pointer;
+}
+
+.re_login:hover {
+	text-decoration: none;
+	color: #000;
+}
 
 /*——————————————————————————————————————index首页页面————————————————————————————————*/
 .top{
@@ -933,7 +985,7 @@ input.error {border: 1px solid red;}
 	line-height: 32px;
 	padding-left: 35px;
 	background-size: contain;
-	display: block;
+	display: none;
 }
 .save_success{
 	background: url(../images/success32.png) no-repeat 0 0;	
@@ -945,6 +997,8 @@ input.error {border: 1px solid red;}
 	background: url(../images/loading2.gif) no-repeat 0 0;	
 	line-height: 37px;
 	padding-left: 40px;
+    width: 150px;
+    margin: 0 auto;
 }
 
 /*以下是预览信息页面*/

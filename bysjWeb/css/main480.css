@@ -41,7 +41,8 @@ body {
 	z-index: -1;
 	overflow: hidden;
 	/*自适应整个屏幕*/
-	background: url(../images/bg_login2.jpg) no-repeat;
+	background: url(../images/bg_login480.jpg) no-repeat;
+	background-size: 100% 100%;
 }
 
 
@@ -76,7 +77,9 @@ body {
 
 .bj_left {
 	width: 100%;
-	padding: 10%;
+	padding: 4%;
+	box-sizing: border-box;
+	text-align: center;
 }
 
 .bj_left h3 {
@@ -84,6 +87,8 @@ body {
 	color: #37b5f9;
 	font-weight: normal;
 	margin-bottom: 15px;
+    text-align: left;
+    text-indent: 9%;
 }
 
 .kuang_txt {
@@ -91,18 +96,19 @@ body {
 	height: 40px;
 	border: 1px solid #dddddd;
 	line-height: 40px;
-	padding-left: 40px;
+	padding-left: 30px;
 	color: #b1a9a9;
 	margin-bottom: 10px;
 	box-sizing: border-box;
-	float: left;
+	/*float: left;*/
 	background-color: #fff !important;
 }
 
 .zhuce_body .zhuce_kong .zc .bj_left div {
-	float: left;
 	width: 80%;
-	line-height: 43px;
+	line-height: 40px;
+	margin: 0 auto;
+    text-align: left;
 }
 
 .bj_right {
@@ -112,10 +118,11 @@ body {
 .toggle_btn {
 	color: #fff;
 	display: block;
-	float: left;
+	/*float: left;*/
 	width: 80%;
 	margin-top: 15px;
 	text-align: center;
+	margin: 0 auto;
 }
 
 .toggle_btn:hover,
@@ -146,6 +153,7 @@ body {
     color: #fff;
     border-radius: 3px;
     cursor: pointer;
+    margin-bottom: 10px;
 }
 
 .zhuce_body .login_kuang .zc .bj_left .btn_denglu:hover {
@@ -171,8 +179,8 @@ body {
 	color: #fff;
 	border-radius: 3px;
 	cursor: pointer;
-	float: left;
-	margin-left: 5%;
+	/*float: left;*/
+	margin-left: 3%;
 }
 
 .zhuce_body .zhuce_kong .zc .bj_left .btn_zhuce {
@@ -186,6 +194,7 @@ body {
 	color: #fff;
 	border-radius: 5px;
 	cursor: pointer;
+	margin-bottom: 10px;
 }
 
 .zhuce_body .zhuce_kong .zc .bj_left .btn_zhuce:hover {
@@ -193,12 +202,14 @@ body {
 }
 
 .zhuce_body .zhuce_kong .zc .bj_left #createResult {
-	margin-top: 10px;
-	font-size: 15px;
-	color: red;
-	display: block;
-	text-align: center;
-	width: 220px;
+    margin-top: 10px;
+    font-size: 5vw;
+    color: red;
+    display: block;
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    /*float: left;*/
 }
 
 .phone {
@@ -226,6 +237,7 @@ body {
 
 .zhuce_body .zhuce_kong .zc .bj_left div span {
 	padding-left: 5px;
+	/*float: left;*/
 }
 
 .zhuce_body .zhuce_kong .zc .bj_left div .lan {
@@ -253,7 +265,57 @@ label.error {
 input.error {
 	border: 1px solid red;
 }
+/*忘记密码页面*/
+.bj_kuang {
+	width: 100%;
+	position: relative;
+	height: 100%;
 
+}
+
+.bj_kuang h3 {
+	font: 8vw/20vw "微软雅黑", "黑体";
+	color: #fff;
+	width: 80%;
+	text-align: center;
+	/*margin-top: 15px;*/
+}
+.code_box{
+	margin-bottom: 10px;
+}
+.bj_kuang .yanzm{
+	width: 50%;
+	margin-top: 0; 
+	margin-bottom: 10px;
+}
+
+.change:hover {
+	color: #FF6347;
+}
+
+.re_login:hover {
+	text-decoration: none;
+	color: #000;
+}
+.zhmm_box{
+	display: block;
+	position: absolute;
+	bottom: -10%;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 80%;
+	text-align: center;
+}
+
+.change:hover {
+	color: #FF6347;
+}
+
+
+.re_login:hover {
+	text-decoration: none;
+	color: #000;
+}
 
 /*——————————————————————————————————————index首页页面————————————————————————————————*/
 
@@ -1357,11 +1419,17 @@ input.error {
 .save_start {
 	height: 32px;
 	line-height: 32px;
-	padding-left: 35px;
 	background-size: contain;
 	display: block;
+	text-align: center;
+	width: 80%;
+	margin: 0 auto;
+	display: none;
 }
-
+.save_start{
+	/*float: left;*/
+	margin: 0 auto;
+}
 .save_success {
 	background: url(../images/success32.png) no-repeat 0 0;
 }
@@ -1373,7 +1441,7 @@ input.error {
 .save_start {
 	background: url(../images/loading2.gif) no-repeat 0 0;
 	line-height: 37px;
-	padding-left: 40px;
+	background-position-x: 30%;
 }
 
 

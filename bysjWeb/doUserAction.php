@@ -307,6 +307,7 @@ function code(){//初始化必填
 		$param=rand(1000,9999);
 		$ucpass->templateSMS($appId,$to,$templateId,$param);
 		$_SESSION['param']=$param;
+		//这个地方用于找回密码，注册不需要，只需要一个验证码
 		$sql="update users set security_code='{$param}' where u_username='{$username}'";
 		if(mysql_query($sql)){
 			$result='{"success":true}';

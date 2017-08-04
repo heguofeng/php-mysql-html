@@ -5,32 +5,35 @@
 	<title>温医养老院</title>
 	<link rel="shortcut icon" href="images/favicon.ico"/><!--加图标-->
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+
     <link rel="stylesheet" type="text/css" href="css/reset.css"/>
-    <link rel="stylesheet" type="text/css" href="css/forget_pwd.css"/>
+  	<link rel="stylesheet" type="text/css" href="css/main.css"/ media="screen and (min-width:481px)">
+	<link rel="stylesheet" type="text/css" href="css/main480.css" media="screen and (max-width:480px)"/>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery.validate.min.js"></script>
     <script type="text/javascript" src="plugins/dialog.js"></script>
 </head>
 <body>
-<div id="background"><img src="images/bg_login2.jpg" width="100%" height="100%"/></div><!--背景层-->
+<div id="background"></div><!--背景层-->
 <div class="zhuce_body">
-	<div class="logo"><a href="index.php"><img src="images/logo1.png" width="350" height="100" border="0" title="温医养老院"></a></div>
+	<div class="logo"><a href="index.php"><img src="images/logo1.png" border="0" title="温医养老院"></a></div>
     <div class="zhuce_kong">
     	<div class="zc">
-        	<div class="bj_left bj_mail">
-            <h3>找回密码</h3><a href="login.html" class="re_login">返回登录&nbsp;&nbsp;|&nbsp;&nbsp;</a><span class="change" id="to_mail">通过邮箱找回</span>
+        	<div class="bj_left bj_mail bj_kuang">
+            <h3>找回密码</h3><p class="zhmm_box"><a href="login.html" class="re_login">返回登录&nbsp;&nbsp;|&nbsp;&nbsp;</a><span class="change to_mail">通过邮箱找回</span></p>
        	  	 	<form  id="formP" name="formZ" action="#" method="post" autocomplete="off">
 	                <input type="text" id="username" name="username" class="kuang_txt phone" autocomplete="off" placeholder="请输入注册时的手机号">
-		        	<div class="">
-		               	<input name="security_code" id="security_code" type="text" class="kuang_txt yanzm" autocomplete="off" placeholder="请输入验证码" style="width: 100px;margin-top: 0; margin-bottom: 10px;"> <input name="btn_code" type="button" id="btn_code" class="btn_zhuce" value="获取验证码" style="width: 130px;margin-top: 0; margin-left: 5px;">
+		        	<div class="code_box">
+		               	<input name="security_code" id="security_code" type="text" class="kuang_txt yanzm" autocomplete="off" placeholder="请输入验证码"> <input name="btn_code" type="button" id="btn_code" class="btn_code" value="获取验证码" >
 		            </div> 
 	                <input type="password" id="password" name="password" class="kuang_txt password" autocomplete="off" placeholder="请输入新密码">
 	                <input name="btn_phone" type="button" id="btn_phone" class="btn_zhuce" value="找回密码">
 	                <p id="createResult"></p>
                 </form>
             </div><!--bj_left左框-->
-            <div class="bj_left bj_phone" style="display: none;">
-	            <h3>找回密码</h3><a href="login.html" class="re_login" style="right: 106px;">返回登录&nbsp;&nbsp;|&nbsp;&nbsp;</a><span class="change" id="to_phone">通过手机号找回</span>
+            <div class="bj_left bj_phone bj_kuang" style="display: none;">
+	            <h3>找回密码</h3><p class="zhmm_box"><a href="login.html" class="re_login" style="right: 106px;">返回登录&nbsp;&nbsp;|&nbsp;&nbsp;</a><span class="change to_phone">通过手机号找回</span></p>
 	       	  	 	<form  id="formM" name="formZ" action="#" method="post" autocomplete="off">
 		                <input type="text" id="email" name="email" class="kuang_txt email" autocomplete="off" placeholder="请输入常用邮箱">
 		                <input name="btn_mail" type="button" id="btn_mail" class="btn_zhuce" value="找回密码">
@@ -44,11 +47,11 @@
 $().ready(function() {
 	$("#username").focus();
 	//转换两个框
-	$("#to_mail").click(function(){
+	$(".to_mail").click(function(){
 		$(".bj_mail").css("display","none");
 		$(".bj_phone").css("display","block");
 	});
-	$("#to_phone").click(function(){
+	$(".to_phone").click(function(){
 		$(".bj_mail").css("display","block");
 		$(".bj_phone").css("display","none");
 	});
