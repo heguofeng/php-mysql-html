@@ -5,6 +5,7 @@
 
 本网站域名<b>[www.wmuoldstar.cn](http://www.wmuoldstar.cn)</b></br>
 数据库系统用MySQL，建立在本人自己的服务器上，可以完全使用系统功能</br>
+拉取到本地后需修改config配置文件</br>
 ## 主要用到技术：
 1. 前台页面：HTML、CSS、JavaScript
 2. 用到框架：jQuery、bootstrap
@@ -13,8 +14,8 @@
 5. 后台数据库：MySQL
 6. 开发工具：HBuilder  
 ## 1. 系统整体结构
-![系统整体结构图](http://123.206.100.251/images/visio/%e6%80%bb%e7%b3%bb%e7%bb%9f%e7%bb%93%e6%9e%84%e5%9b%be.jpg)  
+![系统整体结构图](https://github.com/heguofeng/my-bysj/blob/master/bysjWeb/images/%E7%B3%BB%E7%BB%9F%E5%8A%9F%E8%83%BD%E6%A8%A1%E5%9D%97%E5%9B%BE.png)  
 ## 2. 前台系统流程图  
-![前台系统流程图](http://123.206.100.251/images/visio/%e5%89%8d%e5%8f%b0%e7%b3%bb%e7%bb%9f%e6%b5%81%e7%a8%8b%e5%9b%be.jpg)  
+![前台系统流程图](https://raw.githubusercontent.com/heguofeng/my-bysj/master/bysjWeb/images/%E5%89%8D%E5%8F%B0%E7%B3%BB%E7%BB%9F%E6%B5%81%E7%A8%8B%E5%9B%BE.png)  
 ## 3. 后台系统流程图  
-![后台系统流程图](http://123.206.100.251/images/visio/%e5%90%8e%e5%8f%b0%e7%b3%bb%e7%bb%9f%e6%b5%81%e7%a8%8b%e5%9b%be.jpg)  
+![后台系统流程图](https://github.com/heguofeng/my-bysj/blob/master/bysjWeb/images/%E5%90%8E%E5%8F%B0%E7%B3%BB%E7%BB%9F%E6%B5%81%E7%A8%8B%E5%9B%BE.png)  
